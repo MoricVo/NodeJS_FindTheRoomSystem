@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        padding: auto;
+        margin-top: 100px;
+        background-color: aqua;
+        float: right;
+        margin-right: 20px;
+      }
+      table {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Table Content</h3>
+    <table class="content-table">
+      <thead>
+        <tr class="bg-danger">
+          <th scope="col">ID bài đăng</th>
+          <th scope="col">ID nhà trọ</th>
+          <th scope="col">Tên người đăng</th>
+          <th scope="col">Tiêu đề</th>
+          <th scope="col">Nội dung</th>
+          <th scope="col">Ngày đăng</th>
+          <th scope="col">Ngày cập nhật</th>
+          <th scope="col">Lượt xem</th>
+          <th scope="col">Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tbl_baidang.forEach(function(tk){ %>
+
+        <tr>
+          <th scope="row"><%= tk.ID_BD %></th>
+          <td><%=tk.ID_NhaTro_BD %></td>
+          <td><%=tk.TenNguoiDang_BD %></td>
+          <td><%=tk.TieuDe_BD %></td>
+          <td><%=tk.NoiDung_BD %></td>
+          <td><%=tk.NgayDang_BD %></td>
+          <td><%=tk.NgayCapNhat_BD %></td>
+          <td><%=tk.LuotXem_BD %></td>
+          <td><%=tk.GhiChu_BD %></td>
+          
+        </tr>
+      </tbody>
+      <% });%>
+    </table>
+
+    <div>
+      <!-- Navbar -->
+      <%- include('Views_Include/navbar'); %>
+
+      <!-- Card: Header and Footer -->
+
+      <!-- Footer -->
+    </div>
+  </body>
+</html>

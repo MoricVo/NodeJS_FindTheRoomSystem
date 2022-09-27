@@ -1,0 +1,28 @@
+{
+  "name": "luan_van_tot_nghiep_dai_hoc",
+  "version": "1.0.0",
+  "description": "He thong dang tin tim tro khu vuc tp long xuyen an giang",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "node index.js"
+  },
+  "keywords": [
+    "timtro",
+    "tankhoi"
+  ],
+  "author": "Vo Tan Khoi DH20PM",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

@@ -24,20 +24,20 @@ router.get('/dangkyadmin', function(req, res){
 });
 
 var validateForm = [
-	check('HoVaTen')
+	check('HoTen_AD')
 		.notEmpty().withMessage('Họ và tên không được bỏ trống.'),
-	check('TenDangNhap')
+	check('TenDangNhap_AD')
 		.notEmpty().withMessage('Tên đăng nhập không được bỏ trống.')
 		.isLength({ min: 6 }).withMessage('Tên đăng nhập phải lớn hơn 6 ký tự.'),
-	check('MatKhau')
+	check('MatKhau_AD')
 		.notEmpty().withMessage('Mật khẩu không được bỏ trống.')
-		.custom((value, { req }) => value === req.body.XacNhanMatKhau).withMessage('Xác nhận mật khẩu không đúng.')
+		// .custom((value, { req }) => value === req.body.XacNhanMatKhau).withMessage('Xác nhận mật khẩu không đúng.')
 ];
-router.post('/dangky', upload.single('HinhAnh'), validateForm, function(req, res){
+router.post('/dangkyadmin', upload.single('AnhDaiDien_AD'), validateForm, function(req, res){
 	var errors = validationResult(req);
 	if(!errors.isEmpty()) {
 		if(req.file) fs.unlink(req.file.path, function(err){});
-		res.render('dangky', {
+		res.render('dangkyadmin', {
 			title: 'Đăng ký tài khoản',
 			errors: errors.array()
 		});
@@ -45,13 +45,16 @@ router.post('/dangky', upload.single('HinhAnh'), validateForm, function(req, res
 		var fileName = '';
 		if(req.file) fileName = req.file.filename;
 		var data = {
-			HoVaTen: req.body.HoVaTen,
-			Email: req.body.Email,
-			HinhAnh: fileName,
-			TenDangNhap: req.body.TenDangNhap,
-			MatKhau: bcrypt.hashSync(req.body.MatKhau, saltRounds)
+			TenDangNhap_AD: req.body.TenDangNhap_AD,
+			MatKhau_AD: bcrypt.hashSync(req.body.MatKhau_AD, saltRounds),
+			HoTen_AD: req.body.HoTen_AD,
+			GioiTinh: req.body.GioiTinh,
+			Email_AD: req.body.Email_AD,
+			DienThoai_AD: req.body.DienThoai_AD,
+			AnhDaiDien_AD: fileName,
+			
 		};
-		var sql = 'INSERT INTO taikhoan SET ?';
+		var sql = 'INSERT INTO tbl_admin SET ?';
 		conn.query(sql, data, function(error, results){
 			if(error) {
 				req.session.error = error;

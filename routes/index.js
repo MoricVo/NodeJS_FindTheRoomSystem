@@ -6,7 +6,7 @@ router.get('/',function(req,res)
 {
        res.render('index',{title:'Trang chủ'});
 });
-router.get('/Views_DS_Baiviet',function (req,res)
+router.get('/views_danhsach_baidang',function (req,res)
 {
 var sql ='select * from tbl_baidang' ;
 conn.query(sql,function(error,results) {
@@ -16,7 +16,7 @@ if(error)
 }
 else
 {
-    res.render('Views_DS_Baiviet',{
+    res.render('views_danhsach_baidang',{
                title:"Danh sách bài viết!",
                tbl_baidang:results
     });

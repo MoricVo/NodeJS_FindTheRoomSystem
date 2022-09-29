@@ -16,8 +16,20 @@ var storageConfig = multer.diskStorage({
 		callback(null, timestamp + path.extname(file.originalname));
 	}
 });
-var upload = multer({ storage: storageConfig });
-// GET: Thêm tài khoản
-router.get('/them', function(req, res){
-	res.render('taikhoan_them', { title: 'Thêm tài khoản' });
+var upload = multer({ storage: storageConfig });bcrypt
+// GET: Danh sách tài khoản
+router.get('/', function(req, res){
+	var sql = "SELECT * FROM tbl_admin";
+	conn.query(sql, function(error, results){
+		if(error) {
+			req.session.error = error;
+			res.redirect('/error');
+		} else {
+			res.render('views_danhsach_admin', {
+				title: 'Danh sách tài khoản',
+				tbl_admin: results
+			});
+		}
+	});
 });
+module.exports = router;

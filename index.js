@@ -5,7 +5,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
+var adminRouter = require('./routes/index_admin');
+var taikhoanRouter = require('./routes/admin');
 var { get } = require('express/lib/response');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +48,8 @@ app.use(function(req, res, next){
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use('/', indexRouter);
-app.use('/', authRouter);
+app.use('/', adminRouter);
+app.use('/views_danhsach_admin', taikhoanRouter);
 // app.get('/',function(req,res)
 // {
 //        res.send('Trang chủ')

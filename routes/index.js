@@ -6,22 +6,7 @@ router.get('/',function(req,res)
 {
        res.render('index',{title:'Trang chủ'});
 });
-router.get('/views_danhsach_baidang',function (req,res)
-{
-var sql ='select * from tbl_baidang' ;
-conn.query(sql,function(error,results) {
-if(error)
-{
-    res.send(error);
-}
-else
-{
-    res.render('views_danhsach_baidang',{
-               title:"Danh sách bài viết!",
-               tbl_baidang:results
-    });
-}
-});
-
+router.get('/error', function(req, res){
+	res.render('error', { title: 'Lỗi' });
 });
 module.exports = router;

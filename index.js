@@ -4,9 +4,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var baidangRouter = require('./routes/baidang');
 var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/index_admin');
+// var adminRouter = require('./routes/index_admin');
 var taikhoanRouter = require('./routes/admin');
+
 var { get } = require('express/lib/response');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,8 +50,9 @@ app.use(function(req, res, next){
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use('/', indexRouter);
-app.use('/', adminRouter);
+// app.use('/', adminRouter);
 app.use('/views_danhsach_admin', taikhoanRouter);
+app.use('/views_danhsach_baidang',baidangRouter);
 // app.get('/',function(req,res)
 // {
 //        res.send('Trang chủ')

@@ -8,7 +8,7 @@ var baidangRouter = require('./routes/baidang');
 var indexRouter = require('./routes/index');
 // var adminRouter = require('./routes/index_admin');
 var taikhoanRouter = require('./routes/admin');
-
+var nguoidung_dangnhap_dangkyRouter=require('./routes/nguoidung_dangnhap_dangky');
 var { get } = require('express/lib/response');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,6 +53,7 @@ app.use('/', indexRouter);
 // app.use('/', adminRouter);
 app.use('/views_danhsach_admin', taikhoanRouter);
 app.use('/views_danhsach_baidang',baidangRouter);
+app.use('/',nguoidung_dangnhap_dangkyRouter);
 // app.get('/',function(req,res)
 // {
 //        res.send('Trang chủ')

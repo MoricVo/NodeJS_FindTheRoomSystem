@@ -9,4 +9,8 @@ router.get('/',function(req,res)
 router.get('/error', function(req, res){
 	res.render('error', { title: 'Lỗi' });
 });
+// GET: Thành công
+router.get('/success', function(req, res){
+	res.render('success', { title: 'Hoàn thành' });
+});
 module.exports = router;

@@ -76,28 +76,48 @@ border-bottom-right-radius: 15px;
                 <div class="col-12">
                   <div class="card card-registration card-registration-2" style="border-radius: 15px;">
                     <div class="card-body p-0">
-                    
+                      <% if(typeof errors != 'undefined') { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <ul class="mb-0">
+                            <% errors.forEach(function(err){ %>
+                              <li><%= err.msg %></li>	
+                            <% }); %>
+                          </ul>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      <% } %>
+                    <form action="views_nguoidung_dangky" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                       <div  class="row g-0">
                         <div class="col-lg-6">
                           <div class="p-5">
                             <h3 class="fw-normal mb-5" style="color: #4835d4;">Thông tin cá nhân</h3>
-                            <form action="/views_nguoidung_dangky" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
-                            <div class="mb-4 pb-2">
-                              <select class="select">
-                                <option>---Chọn đối tượng---</option>
-                                <option id="LoaiNguoiDung_ND" value="Khách hàng">Khách hàng</option>
-                                <option id="LoaiNguoiDung_ND" value="Chủ trọ">Chủ trọ</option>
-                                <option id="LoaiNguoiDung_ND" value="Súc sanh">Súc sanh</option>
-                                <option id="LoaiNguoiDung_ND" value="4">Cave loại 1</option>
-                              </select>
+                          
+                            <div class="col-md-6 mb-4">
+      
+                              <h6 class="mb-2 pb-1">Loại người dùng </h6>
+            
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LoaiNguoiDung_ND" id="LoaiNguoiDung_ND"
+                                  value="Khách hàng" checked />
+                                <label class="form-check-label" for="GioiTinh">Khách hàng</label>
+                              </div>
+            
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LoaiNguoiDung_ND" id="LoaiNguoiDung_ND"
+                                  value="Chủ trọ" />
+                                <label class="form-check-label" for="GioiTinh">Chủ trọ</label>
+                              </div>
+            
+                            
+            
                             </div>
           
                             <div class="row">
                               <div class="col-md-6 mb-4 pb-2">
           
                                 <div class="form-outline">
-                                  <input type="text" id="Ten_DN_ND" name="Ten_DN_ND" class="form-control form-control-lg" required />
-                                  <label class="form-label" for="Ten_DN_ND">Tên đăng nhập</label>
+                                  <input type="text" id="TenDN_ND" name="TenDN_ND" class="form-control form-control-lg" required />
+                                  <label class="form-label" for="TenDN_ND">Tên đăng nhập</label>
                                 </div>
           
                               </div>
@@ -113,20 +133,20 @@ border-bottom-right-radius: 15px;
           
                             <div class="mb-4 pb-2">
                                 <div class="form-outline">
-                                  <input type="text" id="NgaySinh_ND" name="NgaySinh_ND" class="form-control form-control-lg" required />
-                                  <label class="form-label" for="NgaySinh_ND">Tên người dùng</label>
+                                  <input type="text" id="Ten_ND" name="Ten_ND" class="form-control form-control-lg" required />
+                                  <label class="form-label" for="Ten_ND">Tên người dùng</label>
                                 </div>
                               </div>
                             <div class="mb-4 pb-2">
                               <div class="form-outline">
-                                <input type="date" id="NgaySinh_ND" name="NgaySinh_ND" class="form-control form-control-lg" required />
+                                <input type="text" id="NgaySinh_ND" name="NgaySinh_ND" class="form-control form-control-lg" required />
                                 <label class="form-label" for="NgaySinh_ND">Ngày sinh</label>
                               </div>
                             </div>
                             <div class="mb-4 pb-2">
                                 <div class="form-outline">
                                   <input type="file" id="Anh_ND" name="Anh_ND" class="form-control form-control-lg" required />
-                                  <label class="form-label" for="NgaySinh_ND">Chọn ảnh</label>
+                                  <label class="form-label" for="Anh_ND">Chọn ảnh</label>
                                 </div>
                               </div>
           
@@ -140,7 +160,7 @@ border-bottom-right-radius: 15px;
           
                             <div class="mb-4 pb-2">
                               <div class="form-outline form-white">
-                                <input type="email" id="Email_ND" name="Email_ND" class="form-control form-control-lg" required />
+                                <input type="text" id="Email_ND" name="Email_ND" class="form-control form-control-lg" required />
                                 <label class="form-label" for="Email_ND">Email</label>
                               </div>
                             </div>
@@ -173,23 +193,14 @@ border-bottom-right-radius: 15px;
           
           
                           
-          
-                            <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                              <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" />
-                              <label class="form-check-label text-white" for="form2Example3">
-                                I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your
-                                site.
-                              </label>
-                            </div>
-          
                             <button type="submit" class="btn btn-light btn-lg"
                               data-mdb-ripple-color="dark">Đăng ký tài khoản</button>
                      
                           </div>
-                        </form>
+                     
                         </div>
                       </div>
-                   
+                    </form>
                     </div>
                   </div>
                 </div>

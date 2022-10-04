@@ -45,15 +45,15 @@ router.post('/views_nguoidung_dangky', upload.single('Anh_ND'),  function(req, r
 		var fileName = '';
 		if(req.file) fileName = req.file.filename;
 		var data = {
-			Ten_ND: req.body.Ten_ND,
-			Ten_DN_ND: req.body.Ten_DN_ND,
+			LoaiNguoiDung_ND:req.body.LoaiNguoiDung_ND,
+			TenDN_ND: req.body.TenDN_ND,
             MK_ND:bcrypt.hashSync(req.body.MK_ND, saltRounds),
+			Ten_ND: req.body.Ten_ND,
             NgaySinh_ND:req.body.NgaySinh_ND,
 			Anh_ND: fileName,
-            LoaiNguoiDung_ND:req.body.LoaiNguoiDung_ND,
             Email_ND:req.body.Email_ND,
             DienThoai_ND:req.body.DienThoai_ND,
-            DiaChi_ND:req.body.DienThoai_ND,
+			DiaChi_ND:req.body.DienThoai_ND,
             CMND_ND:req.body.CMND_ND,
           
 			
@@ -71,6 +71,57 @@ router.post('/views_nguoidung_dangky', upload.single('Anh_ND'),  function(req, r
 		});
 	}
 });
-
+router.get('/views_nguoidung_dangnhap', function(req, res){
+	res.render('views_nguoidung_dangnhap', { title: 'Đăng nhập tài khoản để sử dụng!' });
+});
+// POST: Đăng nhập
+router.post('/views_nguoidung_dangnhap', function(req, res){
+	if(req.session.ID_ND){
+		req.session.error = 'Người dùng đã đăng nhập rồi.';
+		res.redirect('/error');
+	} else {
+		var sql = "SELECT * FROM tbl_nguoidung WHERE TenDN_ND = ?";
+		conn.query(sql, [req.body.TenDN_ND], function(error, results){
+			if(error) {
+				req.session.error = error;
+				res.redirect('/error');
+			} else if(results.length > 0){
+				var tk = results[0];
+				if(bcrypt.compareSync(req.body.MK_ND, tk.MK_ND)){
+					if(tk.KichHoat_ND == 0){
+						req.session.error = 'Người dùng đã bị khóa tài khoản.';
+						res.redirect('/error');
+					} else {
+						// Đăng ký session
+						req.session.ID_ND = tk.ID_ND;
+						req.session.Ten_ND = tk.Ten_ND;
+						req.session.LoaiNguoiDung_ND = tk.LoaiNguoiDung_ND;
+						
+						res.redirect('/');
+					}
+				} else {
+					req.session.error = 'Mật khẩu không đúng.';
+					res.redirect('/error');
+				}
+			} else {
+				req.session.error = 'Tên đăng nhập không tồn tại.';
+				res.redirect('/error');
+			}
+		});
+	}
+});
+// GET: Đăng xuất
+router.get('/dangxuat', function(req, res){
+	if(req.session.ID_ND){
+		delete req.session.ID_ND;
+		delete req.session.Ten_ND;
+		delete req.session.LoaiNguoiDung_ND;
+		
+		res.redirect('/');
+	} else {
+		req.session.error = 'Người dùng chưa đăng nhập.';
+		res.redirect('/error');
+	}
+});
 
 module.exports = router;

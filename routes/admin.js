@@ -16,7 +16,7 @@ var storageConfig = multer.diskStorage({
 		callback(null, timestamp + path.extname(file.originalname));
 	}
 });
-var upload = multer({ storage: storageConfig });bcrypt
+var upload = multer({ storage: storageConfig });
 // GET: Thêm tài khoản
 router.get('/them', function(req, res){
 	res.render('views_them_admin', { title: 'Đăng ký tài khoản' });

@@ -61,44 +61,30 @@
   </head>
   <body>
     <h3>Dữ liệu bài đăng!</h3>
-    <form action="/views_danhsach_baidang/them">
+    <form action="/views_danhsach_tienich/them">
     <button  class="button-87" role="button">Thêm dữ liệu+</button>
   </form>
     <table class="content-table">
       <thead>
-        <tr class="bg-danger">
-          <th scope="col">ID bài đăng</th>
-          <th scope="col">ID nhà trọ</th>
-          <th scope="col">Tên người đăng</th>
-          <th scope="col">Tiêu đề</th>
-          <th scope="col">Nội dung</th>
-          <th scope="col">Ảnh</th>
-          <th scope="col">Ngày đăng</th>
-          <th scope="col">Ngày cập nhật</th>
-          <th scope="col">Lượt xem</th>
-          <th scope="col">Ghi chú</th>
-          <th scope="col">Kiểm duyệt</th>
+        <tr class="bg-primary">
+          <th scope="col">Mã tiện ích</th>
+          <th scope="col">Icon</th>
+          <th scope="col">Tên tiện ích</th>
+          <th scope="col">Giá tiện ích</th>
           <th width="5%">Sửa</th>
 					<th width="5%">Xóa</th>
         </tr>
       </thead>
       <tbody>
-        <% tbl_baidang.forEach(function(bd){ %>
+        <% tbl_tienich.forEach(function(ti){ %>
 
         <tr>
-          <th scope="row"><%= bd.ID_BD %></th>
-          <th ><%= bd.ID_NhaTro_BD %></th>
-          <td><%=bd.TenNguoiDang_BD %></td>
-          <td><%=bd.TieuDe_BD %></td>
-          <td><%=bd.NoiDung_BD %></td>
-          <td ><img src="<%- bd.Anh_BD %>" border-radius="10px" width="100" height="100" ></td>
-          <td><%=bd.NgayDang_BD %></td>
-          <td><%=bd.NgayCapNhat_BD %></td>
-          <td><%=bd.LuotXem_BD %></td>
-          <td><%=bd.GhiChu_BD %></td>
-          <td><%=bd.KiemDuyet_BD %></td>
-          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_baidang/sua/<%= bd.ID_BD %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
-          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_baidang/xoa/<%= bd.ID_BD %>" onclick="return confirm('Bạn có muốn xóa bài đăng có mã số <%= bd.ID_BD %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
+          <th scope="row"><%= ti.ID_TI %></th>
+          <th ><%= ti.Icon_TI %></th>
+          <th ><%= ti.Ten_TI %></th>
+          <td><%= ti.Gia_TI %></td>
+          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_tienich/sua/<%= ti.ID_TI %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
+          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_tienich/xoa/<%= ti.ID_TI %>" onclick="return confirm('Bạn có muốn xóa bài đăng có mã số <%= ti.ID_TI %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
         </tr>
       </tbody>
       <% });%>

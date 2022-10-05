@@ -1,0 +1,161 @@
+<style>
+	body
+	{
+		
+
+	}
+   .A1
+	{
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight:700;
+    text-align: center;
+	padding: 10, 10, 10, 10;
+    color:red;
+	}
+	.A2
+	{
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight:bold;
+    text-align: left;
+	padding: 10, 10, 10, 10;
+    color:#F900BF;
+	}
+	.i1
+	{
+		color: #DA0037;
+	}
+	li .nav-item{
+	margin: 2px;
+	padding: 2px;
+	}
+	li
+	{
+		font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight:bold;
+    text-align: left;
+	
+    color: whitesmoke;
+	}
+	.L1
+	{
+		font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight:bold;
+	text-decoration: none;
+    color: #DA0037;
+	}
+	.Khoi1
+	{
+		background-image: url('P4.png');
+	}
+	
+
+</style>
+<nav class="Khoi1" class="navbar navbar-expand navbar-dark bg-dark">
+	<div >
+		<p class="A1" style="  margin-left:  80px;"><i class="bi bi-github"></i> HỆ THỐNG TIN TỨC VÀ MUA BÁN BÀN PHÍM LỚN NHẤT</p>
+		<p class="A2" style="text-align:center;  margin-left: 80px;"> <i class="bi bi-star-half"></i> VIỆT NAM</p>
+		<p style="color:whitesmoke;font-weight: 500; text-align:right ;">Gmail:vtkhoi_20pm@student.agu.edu.vn</p>
+		<p style="color:whitesmoke;font-weight: 500; text-align:right ;"></p>
+		<!-- <p class="A2">Đồ án nhóm môn đồ án 1</p> -->
+	</div>
+
+	  
+</nav>
+<nav data-spy="affix" class="navbar navbar-expand navbar-dark bg-dark" style="border-top:3px solid yellow">
+	<div class="container-fluid">
+		<a class="L1" class="navbar-brand" href="/"><i class="bi bi-cart-check"></i> CUS Keyboard For You  </a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" href="/Baivietmoi"><i  class="bi bi-bell-fill"></i> Tin mới nhất</a>
+				</li>
+				
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-basket-fill"></i>
+					  Sản phẩm
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+					  <li><a class="dropdown-item" href="/banphimco">Bàn phím cơ</a></li>
+					  <li><a class="dropdown-item" href="/banphimgiaco">Bàn phím giả cơ</a></li>
+					  <li><a class="dropdown-item" href="/banphimcustom">Bàn phím custom</a></li>
+					  <li><a class="dropdown-item" href="/banphimgiare">Bàn phím giá rẻ</a></li>
+					  <li><a class="dropdown-item" href="/banphimpc">Bàn phím pc</a></li>
+					  <li><a class="dropdown-item" href="/banphimvanphong">Bàn phím văn phòng</a></li>
+					  <li><hr class="dropdown-divider"></li>
+					 
+					</ul>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="https://www.facebook.com/"><i class="bi bi-facebook"></i> </i> Facebook</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Helps"><i class="bi bi-info-circle"></i></i> Hổ trợ</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href=""><i class="bi bi-hdd-rack-fill"></i></i> Bảo hành</a>
+				</li>
+				<li class="nav-item"  >
+					<a class="nav-link" href="" > <i class="bi bi-journal-bookmark-fill"></i></i> Đổi trả</a>
+				</li>
+				
+				<% if(!session.MaNguoiDung) { %>
+					<li class="nav-item" style="margin-right: 10px;">
+						
+						<!-- <a class="nav-link" href="/dangnhap"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</a> -->
+						<a class="btn btn-warning margin-right"    href="/dangnhap"> <i class="bi bi-person-plus-fill"></i></i> Đăng nhập</a>
+					</li>
+					<li class="nav-item"  >
+						<a class="btn btn-warning"  href="/dangky"  > <i class="bi bi-person-plus-fill " ></i></i> Đăng ký</a>
+					</li>
+				<% }
+			   else { %>
+					<% if(session.QuyenHan == 'admin') { %>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi bi-gear"></i> Quản lý
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="/chude"><i class="bi bi-card-checklist"></i> Phân loại bàn phím</a></li>
+								<li><a class="dropdown-item" href="/taikhoan"><i class="bi bi-people"></i> Tài khoản</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="/baiviet"><i class="bi bi-file-earmark-richtext"></i> Quản lý sản phẩm</a></li>
+								<li><a class="dropdown-item" href="/Khachhang_Chitiet"><i class="bi bi-file-earmark-richtext"></i>Quản lý Khách hàng</a></li>
+							</ul>
+						</li>
+					<% } %>
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<!-- <i class="bi bi-person"></i> <%= session.QuyenHan %>  -->
+							<i class="bi bi-person"></i> <%= session.HoVaTen %> 
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/baiviet/them"><i class="bi bi-file-earmark-plus"></i> Đăng sản phẩm </a></li>
+							<li><a class="dropdown-item" href="/baiviet/cuatoi"><i class="bi bi-journal-bookmark"></i> Sản phẩm của tôi</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="/taikhoan/hoso"><i class="bi bi-person-badge"></i> View Profile</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/dangxuat"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
+					</li>
+				<% } %>
+			</ul>
+			<!-- <form action="/timkiem" method="post" class="d-flex">
+				<input class="form-control me-2" type="search" name="tukhoa" placeholder="Bạn muốn tìm gì?">
+				<button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+			</form> -->
+			
+		</div>
+       
+	</div>
+	
+</nav>
+

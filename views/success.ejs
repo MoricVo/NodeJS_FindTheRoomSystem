@@ -12,41 +12,30 @@
 <body>
 	<div class="container">
 		<!-- Navbar -->
-<<<<<<< HEAD
-	
-=======
-		<%- include('Views_Include/navbar'); %>
->>>>>>> 495
+	    <%- include('Views_Include/navbar'); %>
 		
 		<!-- Card: Header and Footer -->
 		<div class="card mt-3">
 			<div class="card-header"><%= title %></div>
 			<div class="card-body">
-				<% if(errorMsg) { %>
-					<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
-						<%= errorMsg %>
+				<% if(successMsg) { %>
+					<div style="padding-bottom: 5px;" class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+						<%= successMsg %>
 						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					</div>
 				<% } %>
+				<figure  class="figure">
+					<img width="400" height="200" src="/1.png" class="figure-img img-fluid rounded" alt="...">
+					<figcaption class="figure-caption">Cảm ơn bạn vì đã tin tưởng.</figcaption>
+				  </figure>
 			</div>
-<<<<<<< HEAD
 		</div>
 		
 		<!-- Footer -->
-		
-=======
-			<figure  class="figure">
-				<img width="400" height="200" src="/1.png" class="figure-img img-fluid rounded" alt="...">
-				<figcaption class="figure-caption">Cảm ơn bạn vì đã tin tưởng.</figcaption>
-			  </figure>
-		</div>
-		
-		<!-- Footer -->
-		<%- include('Views_Include/footer'); %>
->>>>>>> 495
+        <%- include('Views_Include/footer'); %>
 	</div>
 	
-
+	
 </body>
 
 </html>

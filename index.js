@@ -4,9 +4,13 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var baidangRouter = require('./routes/baidang');
 var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/index_admin');
+// var adminRouter = require('./routes/index_admin');
 var taikhoanRouter = require('./routes/admin');
+var nguoidung_dangnhap_dangkyRouter=require('./routes/nguoidung_dangnhap_dangky');
+var nguoidungRouter=require('./routes/nguoidung');
+var tienichRouter=require('./routes/tienich');
 var { get } = require('express/lib/response');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,8 +52,12 @@ app.use(function(req, res, next){
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use('/', indexRouter);
-app.use('/', adminRouter);
+// app.use('/', adminRouter);
 app.use('/views_danhsach_admin', taikhoanRouter);
+app.use('/views_danhsach_baidang',baidangRouter);
+app.use('/',nguoidung_dangnhap_dangkyRouter);
+app.use('/views_danhsach_nguoidung',nguoidungRouter);
+app.use('/views_danhsach_tienich',tienichRouter);
 // app.get('/',function(req,res)
 // {
 //        res.send('Trang chủ')

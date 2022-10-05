@@ -60,45 +60,49 @@
     </style>
   </head>
   <body>
-    <h3>Dữ liệu bài đăng!</h3>
-    <form action="/views_danhsach_baidang/them">
+    <h3>Dữ liệu thông tin người dùng!</h3>
+    <form action="/views_danhsach_nguoidung/them">
     <button  class="button-87" role="button">Thêm dữ liệu+</button>
   </form>
     <table class="content-table">
       <thead>
-        <tr class="bg-danger">
-          <th scope="col">ID bài đăng</th>
-          <th scope="col">ID nhà trọ</th>
-          <th scope="col">Tên người đăng</th>
-          <th scope="col">Tiêu đề</th>
-          <th scope="col">Nội dung</th>
+        <tr class="bg-warning">
+          <!-- <th scope="col">ID người dùng</th> -->
+          <th scope="col">Tên người dùng</th>
+          <th scope="col">Tên đăng nhập</th>
+          <th scope="col">Mật khẩu</th>
+          <th scope="col">Ngày sinh</th>
           <th scope="col">Ảnh</th>
-          <th scope="col">Ngày đăng</th>
-          <th scope="col">Ngày cập nhật</th>
-          <th scope="col">Lượt xem</th>
-          <th scope="col">Ghi chú</th>
-          <th scope="col">Kiểm duyệt</th>
+          <th scope="col">Thuộc</th>
+          <th scope="col">Email</th>
+          <th scope="col">Điện thoại</th>
+          <th scope="col">Địa chỉ</th>
+          <th scope="col">CCCD</th>
+          <th scope="col">Kích hoạt</th>
+          <!-- <th scope="col">Ngày đăng</th> -->
           <th width="5%">Sửa</th>
-					<th width="5%">Xóa</th>
+		<th width="5%">Xóa</th>
         </tr>
       </thead>
       <tbody>
-        <% tbl_baidang.forEach(function(bd){ %>
+        <% tbl_nguoidung.forEach(function(nd){ %>
 
         <tr>
-          <th scope="row"><%= bd.ID_BD %></th>
-          <th ><%= bd.ID_NhaTro_BD %></th>
-          <td><%=bd.TenNguoiDang_BD %></td>
-          <td><%=bd.TieuDe_BD %></td>
-          <td><%=bd.NoiDung_BD %></td>
-          <td ><img src="<%- bd.Anh_BD %>" border-radius="10px" width="100" height="100" ></td>
-          <td><%=bd.NgayDang_BD %></td>
-          <td><%=bd.NgayCapNhat_BD %></td>
-          <td><%=bd.LuotXem_BD %></td>
-          <td><%=bd.GhiChu_BD %></td>
-          <td><%=bd.KiemDuyet_BD %></td>
-          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_baidang/sua/<%= bd.ID_BD %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
-          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_baidang/xoa/<%= bd.ID_BD %>" onclick="return confirm('Bạn có muốn xóa bài đăng có mã số <%= bd.ID_BD %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
+          <!-- <th scope="row"><%= nd.ID_ND %></th> -->
+          <th><%= nd.Ten_ND %></th>
+          <td><%= nd.TenDN_ND %></td>
+          <td>***********</td>
+          <td><%= nd.NgaySinh_ND %></td>
+          <td ><img src="<%- nd.Anh_ND %>" border-radius="10px" width="100" height="100" ></td>
+          <td><%= nd.LoaiNguoiDung_ND %></td>
+          <td><%= nd.Email_ND %></td>
+          <td><%= nd.DienThoai_ND %></td>
+          <td><%= nd.DiaChi_ND %></td>
+          <td><%= nd.CMND_ND %></td>
+          <td><%= nd.KichHoat_ND %></td>
+          <!-- <td><%= nd.NgayDang_ND %></td> -->
+          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_nguoidung/sua/<%= nd.ID_ND %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
+          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_nguoidung/xoa/<%= nd.ID_ND %>" onclick="return confirm('Bạn có muốn xóa tài khoản có tên <%= nd.Ten_ND %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
         </tr>
       </tbody>
       <% });%>

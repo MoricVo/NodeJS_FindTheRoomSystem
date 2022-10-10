@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        padding: auto;
+        margin-top: 100px;
+        background-color: aqua;
+        float: right;
+        margin-right: 20px;
+      }
+      table {
+        margin: auto;
+      }
+      
+/* CSS */
+.button-87 {
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #EB5353 0%, #F7EC09  51%, #3EC70B  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-87:active {
+  transform: scale(0.95);
+}
+
+      
+
+    </style>
+  </head>
+  <body>
+    <h3>Dữ liệu thông tin người dùng!</h3>
+    <form action="/views_danhsach_nguoidung/them">
+    <button  class="button-87" role="button">Thêm dữ liệu+</button>
+  </form>
+    <table class="content-table">
+      <thead>
+        <tr class="bg-warning">
+          <!-- <th scope="col">ID người dùng</th> -->
+          <th scope="col">Tên người dùng</th>
+          <th scope="col">Tên đăng nhập</th>
+          <th scope="col">Mật khẩu</th>
+          <th scope="col">Ngày sinh</th>
+          <th scope="col">Ảnh</th>
+          <th scope="col">Thuộc</th>
+          <th scope="col">Email</th>
+          <th scope="col">Điện thoại</th>
+          <th scope="col">Địa chỉ</th>
+          <th scope="col">CCCD</th>
+          <th scope="col">Kích hoạt</th>
+          <!-- <th scope="col">Ngày đăng</th> -->
+          <th width="5%">Sửa</th>
+		<th width="5%">Xóa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tbl_nguoidung.forEach(function(nd){ %>
+
+        <tr>
+          <!-- <th scope="row"><%= nd.ID_ND %></th> -->
+          <th><%= nd.Ten_ND %></th>
+          <td><%= nd.TenDN_ND %></td>
+          <td>***********</td>
+          <td><%= nd.NgaySinh_ND %></td>
+          <td ><img src="<%- nd.Anh_ND %>" border-radius="10px" width="100" height="100" ></td>
+          <td><%= nd.LoaiNguoiDung_ND %></td>
+          <td><%= nd.Email_ND %></td>
+          <td><%= nd.DienThoai_ND %></td>
+          <td><%= nd.DiaChi_ND %></td>
+          <td><%= nd.CMND_ND %></td>
+          <td><%= nd.KichHoat_ND %></td>
+          <!-- <td><%= nd.NgayDang_ND %></td> -->
+          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_nguoidung/sua/<%= nd.ID_ND %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
+          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_nguoidung/xoa/<%= nd.ID_ND %>" onclick="return confirm('Bạn có muốn xóa tài khoản có tên <%= nd.Ten_ND %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
+        </tr>
+      </tbody>
+      <% });%>
+    </table>
+
+    <div>
+      <!-- Navbar -->
+      <%- include('Views_Include/navbar'); %>
+
+      <!-- Card: Header and Footer -->
+
+      <!-- Footer -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        padding: auto;
+        margin-top: 100px;
+        background-color: aqua;
+        float: right;
+        margin-right: 20px;
+      }
+      table {
+        margin: auto;
+      }
+      
+/* CSS */
+.button-87 {
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #EB5353 0%, #F7EC09  51%, #3EC70B  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-87:active {
+  transform: scale(0.95);
+}
+
+      
+
+    </style>
+  </head>
+  <body>
+    <h3>Dữ liệu bài đăng!</h3>
+    <form action="/views_danhsach_tienich/them">
+    <button  class="button-87" role="button">Thêm dữ liệu+</button>
+  </form>
+    <table class="content-table">
+      <thead>
+        <tr class="bg-primary">
+          <th scope="col">Mã tiện ích</th>
+          <th scope="col">Icon</th>
+          <th scope="col">Tên tiện ích</th>
+          <th scope="col">Giá tiện ích</th>
+          <th width="5%">Sửa</th>
+					<th width="5%">Xóa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tbl_tienich.forEach(function(ti){ %>
+
+        <tr>
+          <th scope="row"><%= ti.ID_TI %></th>
+          <th ><%= ti.Icon_TI %></th>
+          <th ><%= ti.Ten_TI %></th>
+          <td><%= ti.Gia_TI %></td>
+          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_tienich/sua/<%= ti.ID_TI %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
+          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_tienich/xoa/<%= ti.ID_TI %>" onclick="return confirm('Bạn có muốn xóa bài đăng có mã số <%= ti.ID_TI %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
+        </tr>
+      </tbody>
+      <% });%>
+    </table>
+
+    <div>
+      <!-- Navbar -->
+      <%- include('Views_Include/navbar'); %>
+
+      <!-- Card: Header and Footer -->
+
+      <!-- Footer -->
+    </div>
+  </body>
+</html>

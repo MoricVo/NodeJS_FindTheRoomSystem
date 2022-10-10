@@ -1,0 +1,54 @@
+.tabs {
+    width: 600px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px 5px 5px 5px;
+    }
+ul#tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    overflow: auto;
+    }
+ul#tabs-nav li {
+    float: left;
+    font-weight: bold;
+    margin-right: 2px;
+    padding: 8px 10px;
+    border-radius: 5px 5px 5px 5px;
+    /*border: 1px solid #d5d5de;
+    border-bottom: none;*/
+    cursor: pointer;
+    background-color: aliceblue;
+    }
+ul#tabs-nav li:hover,
+ul#tabs-nav li.active {
+    background-color: #08E;
+    }
+#tabs-nav li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    }
+.tab-content {
+    padding: 10px;
+    border: 5px solid rgb(255, 255, 255);
+    background-color: #FFF;
+}
+    
+    /* Just for CodePen styling - don't include if you copy paste */
+html {
+    margin: 0;
+    padding: 0;
+    }
+body { 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    margin: 2em;
+}
+
+div#imgdetail img:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.5);
+}
+div#imgdetail img{
+    transition: all 0.5s ease-in-out;
+}

@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var baidangRouter = require('./routes/baidang');
 var indexRouter = require('./routes/index');
+var nhatroRouter = require('./routes/nhatro');
 // var adminRouter = require('./routes/index_admin');
 var taikhoanRouter = require('./routes/admin');
 var nguoidung_dangnhap_dangkyRouter=require('./routes/nguoidung_dangnhap_dangky');
@@ -58,6 +59,7 @@ app.use('/views_danhsach_baidang',baidangRouter);
 app.use('/',nguoidung_dangnhap_dangkyRouter);
 app.use('/views_danhsach_nguoidung',nguoidungRouter);
 app.use('/views_danhsach_tienich',tienichRouter);
+app.use('/nhatro',nhatroRouter);
 // app.get('/',function(req,res)
 // {
 //        res.send('Trang chủ')

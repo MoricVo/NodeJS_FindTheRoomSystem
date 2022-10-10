@@ -1,0 +1,62 @@
+.mt-50{
+    margin-top: 50px;
+}
+.mb-50{
+    margin-bottom: 50px;
+}
+
+
+.bg-teal-400 { 
+    background-color: #26a69a;
+}
+
+a{
+    text-decoration: none !important;
+}
+.fa {
+        color: red;
+}
+#tomtat{
+    display: block;
+    display: -webkit-box;
+    line-height: 1.3;
+    -webkit-line-clamp: 1;  /* số dòng hiển thị */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+div.card{
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+div#anh{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    overflow: hidden;
+}
+div.card:hover{
+    box-shadow: 2px 2px 8px rgb(217, 215, 215);
+    transition: all 0.3s ease-in-out;
+}
+img.image{
+    transition: all 0.3s ease-in-out;
+    max-height: 240px;
+    max-width: 240px;
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 3px 0 3px rgb(179, 177, 177);
+}
+div.card:hover img.image{
+    display: block;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+a#button{
+    border-radius: 50px;
+}
+

@@ -70,10 +70,9 @@
           <!-- <th scope="col">ID người dùng</th> -->
           <th scope="col">Tên người dùng</th>
           <th scope="col">Tên đăng nhập</th>
-          <th scope="col">Mật khẩu</th>
           <th scope="col">Ngày sinh</th>
           <th scope="col">Ảnh</th>
-          <th scope="col">Thuộc</th>
+          <th scope="col">Quyền</th>
           <th scope="col">Email</th>
           <th scope="col">Điện thoại</th>
           <th scope="col">Địa chỉ</th>
@@ -91,7 +90,6 @@
           <!-- <th scope="row"><%= nd.ID_ND %></th> -->
           <th><%= nd.Ten_ND %></th>
           <td><%= nd.TenDN_ND %></td>
-          <td>***********</td>
           <td><%= nd.NgaySinh_ND %></td>
           <td ><img src="<%- nd.Anh_ND %>" border-radius="10px" width="100" height="100" ></td>
           <td><%= nd.LoaiNguoiDung_ND %></td>
@@ -101,8 +99,8 @@
           <td><%= nd.CMND_ND %></td>
           <td><%= nd.KichHoat_ND %></td>
           <!-- <td><%= nd.NgayDang_ND %></td> -->
-          <td > <a style="font-size: 25px;color:blue " href="/views_danhsach_nguoidung/sua/<%= nd.ID_ND %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
-          <td ><a style="font-size: 25px;color:red " href="/views_danhsach_nguoidung/xoa/<%= nd.ID_ND %>" onclick="return confirm('Bạn có muốn xóa tài khoản có tên <%= nd.Ten_ND %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
+          <td > <a href="/views_danhsach_nguoidung/sua/<%= nd.ID_ND %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
+          <td ><a href="/views_danhsach_nguoidung/xoa/<%= nd.ID_ND %>" onclick="return confirm('Bạn có muốn xóa tài khoản có tên <%= nd.Ten_ND %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
         </tr>
       </tbody>
       <% });%>

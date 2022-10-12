@@ -55,8 +55,6 @@ router.post('/views_nguoidung_dangky', upload.single('Anh_ND'),  function(req, r
             DienThoai_ND:req.body.DienThoai_ND,
 			DiaChi_ND:req.body.DienThoai_ND,
             CMND_ND:req.body.CMND_ND,
-          
-			
 			
 		};
 		var sql = 'INSERT INTO tbl_nguoidung SET ?';

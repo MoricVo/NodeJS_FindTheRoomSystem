@@ -25,7 +25,9 @@ router.get('/danhsach', function(req, res){
 router.get('/chitiet/:id_nhatro', function(req, res){
 	var id_nhatro = req.params.id_nhatro;
 	var sql = "SELECT *FROM tbl_nhatro WHERE ID_NT = ?;\
-				SELECT Ten_ND, Ngay_DG, NoiDung_DG, Diem_DG FROM tbl_danhgia, tbl_nguoidung WHERE ID_NhaTro_DG  = " + id_nhatro + " AND ID_NguoiDung_DG = ID_ND";
+				SELECT Ten_ND, Ngay_DG, NoiDung_DG, Diem_DG FROM tbl_danhgia, tbl_nguoidung \
+				WHERE ID_NhaTro_DG = " + id_nhatro + " AND ID_NguoiDung_DG = ID_ND ORDER BY Ngay_DG DESC;\
+				SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_danhgia WHERE ID_NhaTro_DG = " + id_nhatro;
 	conn.query(sql, [id_nhatro], function(error, results){
 		if(error){
 			req.session.error = error;
@@ -35,6 +37,7 @@ router.get('/chitiet/:id_nhatro', function(req, res){
 			res.render('views_chitiet_nhatro',{
 				nt: results[0].shift(),
 				DanhGia: results[1],
+				Diem_TB: results[2].shift(),
 				firstImage: firstImage
 			});
 		}

@@ -25,6 +25,7 @@
     <div class="row">
         <div class="col-md-7 mb-3">
             
+                <!--Card nhà trọ-->
                 <div class="card card-body" style="border: 1px solid rgb(242, 239, 239);">
                   <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
                     <div id="anh">  
@@ -33,25 +34,29 @@
                       </div>
                     </div>
                         <div class="media-body m-3">
-                          <h6 class="media-title font-weight-semibold text-success">
-                              <a href="#" data-abc="true" id="tomtat" style="
-                              color: rgb(97, 95, 95);font-weight: bolder; font-size: 14pt;"><%= nt.TenNhaTro_NT %></a>
-                          </h6>
-                          <ul class="list-inline list-inline-dotted mb-3 mb-lg-2" style="font-size: 10pt;">
-                            <li class="list-inline-item"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></li>
-                            
-                        </ul>
-                        <div>&nbsp;</div>
+                            <h6 class="media-title font-weight-semibold text-success">
+                                <a href="#" data-abc="true" id="tomtat" style="color: rgb(97, 95, 95);font-weight: bolder; font-size: 14pt;"><%= nt.TenNhaTro_NT %></a>
+                            </h6>
+                            <ul class="list-inline list-inline-dotted mb-3 mb-lg-2" style="font-size: 10pt;">
+                                <li class="list-inline-item"><%= Diem_TB.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill text-warning"></i> </li>
+                                <li class="list-inline-item"> (<%= Diem_TB.SoLuong_DG %>) đánh giá</li>
+                            </ul>
+                          
+                            <div>&nbsp;</div>
                         <p class="mb-3"><i class="bi bi-telephone-fill"></i>  (+84) <%= nt.SoDienThoai_NT %></p>
             
                         <li class="list-inline-item bi bi-geo-alt-fill">
                           <a href="#" data-abc="true" class="text-dark"><%= nt.DiaChi_NT %></a>
                         </li>
                           
-                          
                         </div>
-                        
-                      
+                        <div>
+                        <!--Hiển thị ngày-->
+                        <ul class="list-inline list-inline-dotted mb-3 mb-lg-2" style="font-size: 10pt;">
+                            <li class="list-inline-item"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></li>
+                        </ul>
+                            
+                        </div>
                   </div>
                     <!--List ảnh-->
                     <div class="mb-lg-0 ml-0 mt-3 text-center" id="imgdetail">
@@ -69,34 +74,23 @@
                         <h4>Địa chỉ</h4>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.1383856737295!2d105.43183482919915!3d10.37753709953707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a735c1217f3e5%3A0xeda22bd18403a8dc!2zVHLhu40gTmfDom4gTmfDom4!5e0!3m2!1sen!2s!4v1665210016415!5m2!1sen!2s" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-            </div>                     
+            </div>
+            <!--Card nhà trọ-->
         </div>
 
 
 
-        <!---->
+        <!--Card thông tin và đánh giá-->
         <div class="tabs col-5">
             <ul id="tabs-nav">
                 <li><a href="#tab1">Đánh giá</a></li>
                 <li><a href="#tab2">Thông tin</a></li>
             </ul> <!-- END tabs-nav -->
             <div id="tabs-content">
-            
             <div id="tab1" class="tab-content">
-                <div>
-                    <i class="bi bi-star-fill" style="color: rgb(239, 204, 32)"></i>
-                    <i class="bi bi-star-fill" style="color: rgb(239, 204, 32)"></i>
-                    <i class="bi bi-star-fill" style="color: rgb(239, 204, 32)"></i>
-                    <i class="bi bi-star-fill" style="color: rgb(239, 204, 32)"></i>
-                    <i style="color: silver;" class="bi bi-star-fill"></i>
-                    <i class="text-muted">(1985) đánh giá</i>
-                </div>
-    
-                  
-                <!--%- include('Views_Include/danhgia'); %-->
-                
                 <div class="testimonial1 py-5 bg-light" id="scroll">
                     <div class="container">
+
                         <!--Viết đánh giá-->
                         <div class="col d-flex align-items-start">
                             <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
@@ -116,37 +110,42 @@
                                             <label for="star2" title="2 sao">2 stars</label>
                                             <input type="radio" id="star1" name="Diem_DG" value="1" />
                                             <label for="star1" title="1 sao">1 star</label>
+                                            
                                         </div>
-                                    
+                                        
                                         <textarea name="NoiDung_DG" rows="2" id="binhluan" class="col-9" placeholder="Nhận xét của bạn..."></textarea>
                                         <button type="submit" class="btn btn-info ml-2" style="border-radius: 20px;"><i class="bi bi-send-fill text-white"></i> Send </button>
                                     </form>
-            
+                                    
                             </div>
                         </div>
+                    <div class="row">
                     <!-- Row  -->
                     <% DanhGia.forEach(function(dg){%>
-                    <div class="owl-carousel owl-theme testi1 mt-4">
+                    <div class="owl-carousel owl-theme testi1 mt-4 col-12">
                         <!-- item -->
                         <div class="item">
-                        <div class="card card-shadow border-0 mb-4">
+                        <div class="card card-shadow border-0 mb-2">
                             <div class="card-body">
-                            <div class="position-relative thumb bg-success-gradiant d-inline-block text-white mb-4"><img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/1.jpg" alt="wrapkit" class="thumb-img position-absolute rounded-circle" /> <%= dg.Ten_ND %></div>
-                                <div class="rate" style="float: right;">
-                                    <input type="checkbox" id="star5" name="Diem_DG" readonly <%= dg.Diem_DG == '5' ? 'checked' : '' %> />
-                                    <label for="star5" title="5 sao">5 stars</label>
-                                    <input type="checkbox" id="star4" name="Diem_DG" readonly <%= dg.Diem_DG == '4' ? 'checked' : '' %> />
-                                    <label for="star4" title="4 sao">4 stars</label>
-                                    <input type="checkbox" id="star3" name="Diem_DG" readonly <%= dg.Diem_DG == '3' ? 'checked' : '' %> />
-                                    <label for="star3" title="3 sao">3 stars</label>
-                                    <input type="checkbox" id="star2" name="Diem_DG" readonly <%= dg.Diem_DG == '2' ? 'checked' : '' %> />
-                                    <label for="star2" title="2 sao">2 stars</label>
-                                    <input type="checkbox" id="star1" name="Diem_DG" readonly <%= dg.Diem_DG == '1' ? 'checked' : '' %> />
-                                    <label for="star1" title="1 sao">1 star</label>
-                                </div>
+                            <div class="position-relative thumb bg-success-gradiant d-inline-block text-white mb-4">
+                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/1.jpg" alt="wrapkit" class="thumb-img position-absolute rounded-circle" /> 
+                                <%= dg.Ten_ND %>
+                            </div>
+                            
+                            <div class="rate" style="float: right;">
+                                <input type="checkbox" id="star5" name="Diem_DG" readonly <%= dg.Diem_DG == '5' ? 'checked' : '' %> />
+                                <label for="star5" title="5 sao">5 stars</label>
+                                <input type="checkbox" id="star4" name="Diem_DG" readonly <%= dg.Diem_DG == '4' ? 'checked' : '' %> />
+                                <label for="star4" title="4 sao">4 stars</label>
+                                <input type="checkbox" id="star3" name="Diem_DG" readonly <%= dg.Diem_DG == '3' ? 'checked' : '' %> />
+                                <label for="star3" title="3 sao">3 stars</label>
+                                <input type="checkbox" id="star2" name="Diem_DG" readonly <%= dg.Diem_DG == '2' ? 'checked' : '' %> />
+                                <label for="star2" title="2 sao">2 stars</label>
+                                <input type="checkbox" id="star1" name="Diem_DG" readonly <%= dg.Diem_DG == '1' ? 'checked' : '' %> />
+                                <label for="star1" title="1 sao">1 star</label>
+                            </div>
+                            <p style="font-size: 10pt;"><%= new Date(dg.Ngay_DG.toISOString()).toLocaleString("vi-VN")%></p>
                             <h5 class="font-weight-light"><%= dg.NoiDung_DG %></h5>
-                            <span class="devider d-inline-block my-3"></span>
-                            <h6 class="font-weight-normal">Managing Director, Theme Designer</h6>
                             </div>
                         </div>
                         </div>
@@ -156,6 +155,7 @@
                     <% }); %>
 
                     </div>
+                </div>
                 </div>
             </div>
             
@@ -174,8 +174,7 @@
         
     </div>
         
-          
-        
+    <span class="fa fa-star" id="star_{{4}}_4" ></span>
 
     </body>
 
@@ -198,4 +197,17 @@
     $(activeTab).fadeIn();
     return false;
     });
+</script>
+<script>
+    $(document).ready(function () {
+                let score = '{{hotel.score}}'
+                let vote = '{{hotel.vote}}'
+                let overage = (parseInt(score)/ parseInt(vote))
+    
+                let star = document.getElementById('star')
+                for(let i = 0; i < overage; i++) {
+                    
+                    document.getElementById("star_{{forloop.counter}}_" + (i+1) ).style.color='orange'
+                }
+            });
 </script>

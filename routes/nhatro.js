@@ -44,10 +44,6 @@ router.get('/chitiet/:id_nhatro', function(req, res){
 	})
 });
 
-router.get('/dangky_nhatro/', function(req, res){
-	res.render('views_dangky_nhatro');
-});
-
 //POST: Đánh giá
 router.post("/danhgia/:id_nhatro", function (req, res) {
 	var errors = validationResult(req);
@@ -75,6 +71,51 @@ router.post("/danhgia/:id_nhatro", function (req, res) {
 	  });
 	}
   });
+//GET: đăng ký trọ
+  router.get('/dangky_nhatro', function(req, res){
+	var sql = 'SELECT * FROM province;\
+		SELECT * FROM tbl_tienich';
+	conn.query(sql, function(error, results){
+		if(error) {
+			req.session.error = error;
+			res.redirect('/error');
+		} else {
+			res.render('views_dangky_nhatro', {
+				title: 'Đăng ký nhà trọ',
+				Provinces: results[0],
+				TienIch: results[1]
+			});
+		}
+	});	
+});
+
+
+
+router.get('/get_data', function(req, res, next){
+	var type = req.query.type;
+	var search_query = req.query.parent_value;
+	if(type == 'load_district'){
+		var sql = 'SELECT * FROM district WHERE _province_id = ' + search_query +' ORDER BY _name ASC';
+	}
+	if(type == 'load_ward'){
+		var sql = 'SELECT * FROM ward WHERE _district_id = ' + search_query +' ORDER BY _name ASC';
+	}
+	conn.query(sql, function(error, results){
+		if(error) {
+			req.session.error = error;
+			res.redirect('/error');
+		} else {
+			/*var data_arr = [];
+				results.forEach(function(row) {
+					data_arr.push(row.Data)
+			});*/
+			res.json(results);
+		}
+	});
+	
+
+});
+
 
 
 module.exports = router;

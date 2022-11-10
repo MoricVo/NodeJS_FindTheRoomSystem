@@ -13,172 +13,210 @@
         <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
         <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
-        
+        <link href='http://localhost:3000/css/danhgia.css' rel='stylesheet' type='text/css'>
     </head>
-    <body>
-        <div class="navbar">
-            <%- include('Views_Include/navbar'); %>
-        </div>
+    <style>
+        div.card-tmp{
+            box-shadow: 0px 0px 10px rgb(237, 237, 237);
+            border-radius: 20px;
+        }
+    </style>
+    <body style="background-color: rgb(251, 249, 249);">
+    
+        <%- include('Views_Include/navbar'); %>
+        <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(http://localhost:3000/assets/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-10">
+                  <span class="d-inline-block text-white px-3 mb-3 property-offer-type rounded">Property Details of</span>
+                  <h1 class="mb-2"><%= nt.TenNhaTro_NT %></h1>
+                  <p class="mb-5"><strong class="h2 text-success font-weight-bold"><%- numberFormat(nt.Gia_NT) %> đ</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-
-    <div class="row">
-        <div class="col-md-7 mb-3">
-            
-                <!--Card nhà trọ-->
-                <div class="card card-body" style="border: 1px solid rgb(242, 239, 239);">
-                  <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
-                    <div id="anh">  
-                    <div class="mb-lg-0 ml-0">
-                              <img class="image" src="<%- firstImage(nt.Anh_NT) %>" width="auto" height="about">
+          <!--Body-->
+          <div class="site-section site-section-sm">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div>
+                    <div class="slide-one-item home-slider owl-carousel">
+                      <div><img src="http://localhost:3000/assets/images/hero_bg_1.jpg" alt="Image" class="img-fluid"></div>
+                      <div><img src="http://localhost:3000/assets/images/hero_bg_2.jpg" alt="Image" class="img-fluid"></div>
+                      <div><img src="http://localhost:3000/assets/images/hero_bg_3.jpg" alt="Image" class="img-fluid"></div>
+                    </div>
+                  </div>
+                  <div class="bg-white property-body">
+                    <div class="row mb-5">
+                      <div class="col-md-6">
+                        <strong class="text-success h1 mb-3"><%- numberFormat(nt.Gia_NT) %> đ</strong>
+                      </div>
+                      <div class="col-md-6">
+                        <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
+                        <li>
+                          <span class="property-specs">Ngày đăng ký</span>
+                          <span class="property-specs-number"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></span>
+                          
+                        </li>
+                        
+                      </ul>
                       </div>
                     </div>
-                        <div class="media-body m-3">
-                            <h6 class="media-title font-weight-semibold text-success">
-                                <a href="#" data-abc="true" id="tomtat" style="color: rgb(97, 95, 95);font-weight: bolder; font-size: 14pt;"><%= nt.TenNhaTro_NT %></a>
-                            </h6>
-                            <ul class="list-inline list-inline-dotted mb-3 mb-lg-2" style="font-size: 10pt;">
-                                <li class="list-inline-item"><%= Diem_TB.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill text-warning"></i> </li>
-                                <li class="list-inline-item"> (<%= Diem_TB.SoLuong_DG %>) đánh giá</li>
-                            </ul>
-                          
-                            <div>&nbsp;</div>
-                        <p class="mb-3"><i class="bi bi-telephone-fill"></i>  (+84) <%= nt.SoDienThoai_NT %></p>
-            
-                        <li class="list-inline-item bi bi-geo-alt-fill">
-                          <a href="#" data-abc="true" class="text-dark"><%= nt.DiaChi_NT %></a>
-                        </li>
-                          
-                        </div>
-                        <div>
-                        <!--Hiển thị ngày-->
-                        <ul class="list-inline list-inline-dotted mb-3 mb-lg-2" style="font-size: 10pt;">
-                            <li class="list-inline-item"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></li>
-                        </ul>
-                            
-                        </div>
+                    <div class="row mb-5">
+                      <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">Địa chỉ</span>
+                        <strong class="d-block"><%= nt.DiaChi_NT %></strong><input type="hidden" id="diachi" value="<%= nt.DiaChi_NT %>">
+                      </div>
+                      <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">Year Built</span>
+                        <strong class="d-block">2018</strong>
+                      </div>
+                      <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">Price/Sqft</span>
+                        <strong class="d-block">$520</strong>
+                      </div>
+                    </div>
+                    <h2 class="h4 text-black">Xem địa chỉ trên bản đồ</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.1383856737295!2d105.43183482919915!3d10.37753709953707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a735c1217f3e5%3A0xeda22bd18403a8dc!2zVHLhu40gTmfDom4gTmfDom4!5e0!3m2!1sen!2s!4v1665210016415!5m2!1sen!2s" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <div class="row no-gutters mt-5">
+                      <div class="col-12">
+                        <h2 class="h4 text-black mb-3">Gallery</h2>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <a href="http://localhost:3000/assets/images/img_1.jpg" class="image-popup gal-item"><img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid"></a>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <a href="http://localhost:3000/assets/images/img_2.jpg" class="image-popup gal-item"><img src="http://localhost:3000/assets/images/img_2.jpg" alt="Image" class="img-fluid"></a>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <a href="http://localhost:3000/assets/images/img_3.jpg" class="image-popup gal-item"><img src="http://localhost:3000/assets/images/img_3.jpg" alt="Image" class="img-fluid"></a>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-3">
+                        <a href="http://localhost:3000/assets/images/img_4.jpg" class="image-popup gal-item"><img src="http://localhost:3000/assets/images/img_4.jpg" alt="Image" class="img-fluid"></a>
+                      </div>
+                      
+                    </div>
                   </div>
-                    <!--List ảnh-->
-                    <div class="mb-lg-0 ml-0 mt-3 text-center" id="imgdetail">
-                        <i style="font-size: 18pt;" class="bi bi-arrow-left-circle-fill"></i>
-                        <img class="image mr-2" src="<%- firstImage(nt.Anh_NT) %>" width="120" height="120">
-                        <img class="image mr-2" src="<%- firstImage(nt.Anh_NT) %>" width="120" height="120">
-                        <img class="image mr-2" src="<%- firstImage(nt.Anh_NT) %>" width="120" height="120">
-                        <img class="image mr-2" src="<%- firstImage(nt.Anh_NT) %>" width="120" height="120">
-                        <i style="font-size: 18pt;" class="bi bi-arrow-right-circle-fill"></i>
-                    </div>
+                </div>
+
+                <div class="col-lg-4">
                     
-                    <!---->
-                    
-                    <div class="col-12 mt-4" style="box-shadow: 0px 0px 5px rgb(205, 202, 202)">
-                        <h4>Địa chỉ</h4>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.1383856737295!2d105.43183482919915!3d10.37753709953707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a735c1217f3e5%3A0xeda22bd18403a8dc!2zVHLhu40gTmfDom4gTmfDom4!5e0!3m2!1sen!2s!4v1665210016415!5m2!1sen!2s" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-            </div>
-            <!--Card nhà trọ-->
-        </div>
-
-
-
-        <!--Card thông tin và đánh giá-->
-        <div class="tabs col-5">
-            <ul id="tabs-nav">
-                <li><a href="#tab1">Đánh giá</a></li>
-                <li><a href="#tab2">Thông tin</a></li>
-            </ul> <!-- END tabs-nav -->
-            <div id="tabs-content">
-            <div id="tab1" class="tab-content">
-                <div class="testimonial1 py-5 bg-light" id="scroll">
-                    <div class="container">
-
-                        <!--Viết đánh giá-->
-                        <div class="col d-flex align-items-start">
-                            <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
-                            
-                            <div class="col-md-12">
-                              <h5 class="fw-bold mb-2">Đánh giá</h5>
-                                
-                                    <form action="/nhatro/danhgia/<%= nt.ID_NT %>" method="post"  class="needs-validation row" novalidate>
-                                        <div class="rate">
-                                            <input type="radio" id="star5" name="Diem_DG" value="5" checked/>
-                                            <label for="star5" title="5 sao">5 stars</label>
-                                            <input type="radio" id="star4" name="Diem_DG" value="4" />
-                                            <label for="star4" title="4 sao">4 stars</label>
-                                            <input type="radio" id="star3" name="Diem_DG" value="3" />
-                                            <label for="star3" title="3 sao">3 stars</label>
-                                            <input type="radio" id="star2" name="Diem_DG" value="2" />
-                                            <label for="star2" title="2 sao">2 stars</label>
-                                            <input type="radio" id="star1" name="Diem_DG" value="1" />
-                                            <label for="star1" title="1 sao">1 star</label>
-                                            
-                                        </div>
-                                        
-                                        <textarea name="NoiDung_DG" rows="2" id="binhluan" class="col-9" placeholder="Nhận xét của bạn..."></textarea>
-                                        <button type="submit" class="btn btn-info ml-2" style="border-radius: 20px;"><i class="bi bi-send-fill text-white"></i> Send </button>
-                                    </form>
-                                    
-                            </div>
-                        </div>
+                <!--Tiện ích-->
+                  <div class="bg-white widget card-tmp">
+      
+                    <h3 class="h4 text-black widget-title mb-3">Tiện ích</h3> 
                     <div class="row">
-                    <!-- Row  -->
-                    <% DanhGia.forEach(function(dg){%>
-                    <div class="owl-carousel owl-theme testi1 mt-4 col-12">
-                        <!-- item -->
-                        <div class="item">
-                        <div class="card card-shadow border-0 mb-2">
-                            <div class="card-body">
-                            <div class="position-relative thumb bg-success-gradiant d-inline-block text-white mb-4">
-                                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/1.jpg" alt="wrapkit" class="thumb-img position-absolute rounded-circle" /> 
-                                <%= dg.Ten_ND %>
-                            </div>
-                            
-                            <div class="rate" style="float: right;">
-                                <input type="checkbox" id="star5" name="Diem_DG" readonly <%= dg.Diem_DG == '5' ? 'checked' : '' %> />
-                                <label for="star5" title="5 sao">5 stars</label>
-                                <input type="checkbox" id="star4" name="Diem_DG" readonly <%= dg.Diem_DG == '4' ? 'checked' : '' %> />
-                                <label for="star4" title="4 sao">4 stars</label>
-                                <input type="checkbox" id="star3" name="Diem_DG" readonly <%= dg.Diem_DG == '3' ? 'checked' : '' %> />
-                                <label for="star3" title="3 sao">3 stars</label>
-                                <input type="checkbox" id="star2" name="Diem_DG" readonly <%= dg.Diem_DG == '2' ? 'checked' : '' %> />
-                                <label for="star2" title="2 sao">2 stars</label>
-                                <input type="checkbox" id="star1" name="Diem_DG" readonly <%= dg.Diem_DG == '1' ? 'checked' : '' %> />
-                                <label for="star1" title="1 sao">1 star</label>
-                            </div>
-                            <p style="font-size: 10pt;"><%= new Date(dg.Ngay_DG.toISOString()).toLocaleString("vi-VN")%></p>
-                            <h5 class="font-weight-light"><%= dg.NoiDung_DG %></h5>
-                            </div>
-                        </div>
-                        </div>
-                        <!-- item -->
-                        
-                    </div>
-                    <% }); %>
+                      <div class="col-6">
+                        <p><i class="fas fa-wifi text-success"></i> 
+                          Wifi <% if(nt.Wifi_NT == 1) { %> 
+                           <i class="bi bi-check text-success"></i> <% }else{ %>
+                           <i class="bi bi-x text-danger"></i> <% } %>
+                        </p>
+                        <p><i class="bi bi-tv text-danger"></i> 
+                          TV <% if(nt.TV == 1) { %> 
+                            <i class="bi bi-check text-success"></i> <% }else{ %>
+                            <i class="bi bi-x text-danger"></i> <% } %>
+                        </p>
+                        <p><i class="fas fa-bicycle text-primary"></i> 
+                          Chỗ để xe <% if(nt.ChoDeXe_NT == 1) { %> 
+                            <i class="bi bi-check text-success"></i> <% }else{ %>
+                            <i class="bi bi-x text-danger"></i> <% } %>
+                        </p>
+                      </div>
+                      <div class="col-6">
+                        <p><i class="bi bi-door-open text-primary"></i> 
+                          Tủ lạnh <% if(nt.TuLanh_NT == 1) { %> 
+                            <i class="bi bi-check text-success"></i> <% }else{ %>
+                            <i class="bi bi-x text-danger"></i> <% } %>
+                        </p>
+                        <p><i class="bi bi-snow3 text-info"></i> 
+                          Máy lạnh <% if(nt.MayLanh_NT == 1) { %> 
+                            <i class="bi bi-check text-success"></i> <% }else{ %>
+                            <i class="bi bi-x text-danger"></i> <% } %>
+                        </p>
+                        <p><i class="fas fa-utensils text-warning"></i>
+                          Bếp nấu ăn <% if(nt.BepNauAn_NT == 1) { %> 
+                            <i class="bi bi-check text-success"></i> <% }else{ %>
+                            <i class="bi bi-x text-danger"></i> <% } %>
+                        </p>
+                      </div>
+
 
                     </div>
+                  </div>
+                  <!--End tiện ích-->
+      
+                  <div class="bg-white widget card-tmp">
+                    <h3 class="h4 text-black widget-title mb-3">Thông tin mô tả</h3>
+                    <p><%= nt.ThongTin_NT %></p>
+                  </div>
+
+                  
+                  </div>
+
                 </div>
+                
+              </div>
+            </div>
+          </div>
+          
+          
+
+          <!--Nhà trọ có liên quan-->
+          <div class="site-section site-section-sm bg-light">
+            <div class="container">
+      
+              <div class="row">
+                <div class="col-12">
+                  <div class="site-section-title mb-5">
+                    <% if(KhuVuc) {%><h2>Một số nhà trọ khu vực <%= KhuVuc._name %></h2><% } %>
+                  </div>
                 </div>
+
+                <div class="row mb-5">
+                  <% NhaTro.forEach(function(nt){ %>
+                  <!--card-->
+                  <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="property-entry h-100">
+                      <form action="/nhatro/chitiet/<%= nt.ID_NT %>" method="post" class="property-thumbnail">
+                        <button type="submit" class="card border-0">
+                        <img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid">
+                      
+                      <div class="p-4 property-body">
+                        <a href="#" class="property-favorite"><span class="bi bi-suit-heart-fill"></span></a>
+                        <h2 class="property-title"><a href=""><%= nt.TenNhaTro_NT %></a></h2>
+                        <i class="bi bi-geo-alt-fill"></i> <%= nt.DiaChi_NT %><input type="hidden" value="<%= nt.KhuVuc_NT %>" name="DiaChi" id="DiaChi"></a></form>
+                        <strong class="property-price text-primary mb-3 d-block text-success"><%- numberFormat(nt.Gia_NT) %> đ</strong>
+                        
+                        <ul class="property-specs-wrap mb-3 mb-lg-0">
+                          <li>
+                            <li class="list-inline-item"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></li>
+                            
+                          </li>
+                          
+                        </ul>
+        
+                      </div>
+                    </div>
+                  </div>
+                  <!--end card-->
+                  <% }) %>
+              </div>
+              
             </div>
             
-                        <!--end viết đánh giá-->
-                <div id="tab2" class="tab-content">
-                    <h3>Tiện ích</h3>
-                        <i class="bi bi-wifi"></i> Wifi
-                        <i class="bi bi-stopwatch"></i> Tự do
-    
-                    <h3></h3>
-                </div>
+              
+              </div>
 
-            
-            </div> <!-- END tabs-content -->
-        </div> <!-- END tabs -->
-        
-    </div>
-        
-    <span class="fa fa-star" id="star_{{4}}_4" ></span>
 
+          <%- include('Views_Include/footer'); %>
     </body>
 
-
+    <%- include('Views_Include/js'); %>
+    
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -198,16 +236,14 @@
     return false;
     });
 </script>
+
 <script>
-    $(document).ready(function () {
-                let score = '{{hotel.score}}'
-                let vote = '{{hotel.vote}}'
-                let overage = (parseInt(score)/ parseInt(vote))
-    
-                let star = document.getElementById('star')
-                for(let i = 0; i < overage; i++) {
-                    
-                    document.getElementById("star_{{forloop.counter}}_" + (i+1) ).style.color='orange'
-                }
-            });
+    function fetch_data(address){
+		fetch('/nhatro/get_relate?diachi=' + address.value);
+	}
+  function myAddress(){
+    fetch_data(_('diachi'))
+		alert(_('diachi').value)
+  }
+
 </script>

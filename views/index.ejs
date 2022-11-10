@@ -1,141 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ (My JDBC)</title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
-    <link href='http://localhost:3000/css/card.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script>
-         
+  <head>
+    <title>Homeland &mdash; Colorlib Website Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    </script>
-    <style>
-      
-    </style>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:3000/assets/css/slider.css">
+  <style>
+    input#timkiem{
+      border: 0;
+      box-shadow: 0px 0px 15px rgb(223, 221, 221);
+    }
+    input#timkiem:focus{
+      border: 1px solid rgba(5, 230, 255, 0.5);
+    }
+
     
-</head>
-<body style="background-color: white;">
+  </style>
+  </head>
+  <body>
   
-    <div class="navbar">
-      <%- include('Views_Include/navbar'); %>
-    </div>
-
-    <div class="col-12 text-right">
-      <a type="button" class="btn btn-success position-relative text-right" href="/nhatro/dangky_nhatro">Đăng ký trọ</a>
-    </div>
-    <div class="main">
+      <% if(session.success){
+        alert(session.success) } %>
+      <%- include('Views_Include/navbar') %>
+  
+      <div class="slide-one-item home-slider owl-carousel">
+  
+        <div class="site-blocks-cover overlay" style="background-image: url(http://localhost:3000/assets/images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+          <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+              <div class="col-md-10">
+                <span class="d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded">For Rent</span>
+                <h1 class="mb-2">871 Crenshaw Blvd</h1>
+                <p class="mb-5"><strong class="h2 text-success font-weight-bold">$2,250,500</strong></p>
+                <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 btn-2">See Details</a></p>
+              </div>
+            </div>
+          </div>
+        </div>  
+  
+        <div class="site-blocks-cover overlay" style="background-image: url(http://localhost:3000/assets/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+          <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+              <div class="col-md-10">
+                <span class="d-inline-block bg-danger text-white px-3 mb-3 property-offer-type rounded">For Sale</span>
+                <h1 class="mb-2">625 S. Berendo St</h1>
+                <p class="mb-5"><strong class="h2 text-success font-weight-bold">$1,000,500</strong></p>
+                <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 btn-2">See Details</a></p>
+              </div>
+            </div>
+          </div>
+        </div>  
+  
+      </div>
       
-      <figure class="figure">
-        <!--<img src="/Logo.png" class="figure-img img-fluid rounded" alt="...">-->
-        <figcaption class="figure-caption">NỔI BẬT</figcaption>
-      </figure>
-      
-    </div>
-    
-    
-
-
-        <div class="row border-bottom pb-2">
-          <% NhaTro.forEach(function(nt){%>
-          <div class="col-md-6 mb-3">
-            
-                <div class="card card-body" style="border: 1px solid rgb(242, 239, 239);">
-                  <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
-                    <div id="anh">  
-                    <div class="mb-lg-0 ml-0">
-                              <img class="image" src="<%- firstImage(nt.Anh_NT) %>" width="auto" height="about">
-                      </div>
-                    </div>
-                      <div class="media-body m-3">
-                          <h6 class="media-title font-weight-semibold text-success">
-                              <a href="#" data-abc="true" id="tomtat" style="
-                              color: rgb(97, 95, 95);font-weight: bolder; font-size: 14pt;"><%= nt.TenNhaTro_NT %></a>
-                          </h6>
-
-                          <ul class="list-inline list-inline-dotted mb-3 mb-lg-2" style="font-size: 10pt;">
-                              <li class="list-inline-item"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></li>
-                              
-                          </ul>
-                          <div>&nbsp;</div>
-                          <p class="mb-3"><i class="bi bi-telephone-fill"></i>  (+84) <%= nt.SoDienThoai_NT %></p>
-
-                          <li class="list-inline-item bi bi-geo-alt-fill" id="tomtat">
-                            <a href="#" data-abc="true" class="text-dark"><%= nt.DiaChi_NT %></a>
-                          </li>
-                          
-                      </div>
-                      
-                      <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
-                          <h5 class="mb-0 font-weight-bold mt-3">900.000 đ</h3>
-                            
-                          <div>
-                            <% for(var i = 1; i <= nt.Diem_TB; i++){ %>
-                            <i class="bi bi-star-fill" style="color: rgb(239, 204, 32)"></i>
-                            <% } %>  
-                            <!--i style="color: silver;" class="bi bi-star-fill"></!--i-->
-                          </div>
-
-                          <div class="text-muted"><%= nt.SoLuong_DG %> đánh giá</div>
-
-                          <a type="button" style="border-radius: 65px;" class="btn btn-dark mt-4" href="/nhatro/chitiet/<%= nt.ID_NT %>">Xem chi tiết</a>
-                      </div>
+      <div class="site-section site-section-sm pb-0">
+        <div class="container">
+          <div class="row">
+            <div class="form-search col-md-12" style="margin-top: -100px;">
+              <div class="row  align-items-end">
+                <div class="col-md-4">
+                  <label for="list-types">Tỉnh/Thành</label>
+                  <div class="select-wrap">
+                    <select name="province" id="province" class="form-select rounded-pill">
+                        <option></option>
+                      <% Provinces.forEach(function(pr){ %>
+                        <option value="<%= pr.id %>"><%= pr._name %></option>
+                      <% }); %>
+                    </select>
                   </div>
-
-        </div>                     
-      </div>
-      
-      <% }); %>
-      </div>
-     
-
-      <!--card-->   
-
-    <div>
-      
-      <figcaption class="figure-caption pt-3">TIN TỨC</figcaption>
-    </div>
-    <iframe src="https://www.google.com/maps/@15.7477182,103.9401024,6z"></iframe>
-
-  <div class="footer">
-    <%- include('Views_Include/footer'); %>
-  </div>
-
+                </div>
+                <div class="col-md-4">
+                  <label for="offer-types">Quận/Huyện</label>
+                  <div class="select-wrap">
+                    <select name="district" id="district" class="form-select rounded-pill" required>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="select-city">Xã/Phường/Thị trấn</label>
+                  <div class="select-wrap">
+                    <select name="ward" id="ward" class="form-select rounded-pill" required>
+                    </select>
+                  </div>
+                </div>
+                
+              </div>
+            
+          </div>  
   
-</body>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
+                <!--Search-->
+                <form action="/timkiem" method="post" class="col-7 row">
+                  <div class="mr-auto col-8">
+                      <input name="timkiem" id="timkiem" type="text" class="rounded-pill form-control form-control-sm" placeholder=" Tìm kiếm theo khu vực...">
+                  </div>
+                  <div class="col-4">
+                    <input type="submit" class="form-control-sm btn btn-success text-white rounded-pill" 
+                    value="Search" style="background-color: rgb(18, 192, 111);">
+                  </div>
+                </form>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <div class="ml-auto d-flex align-items-center">
+                  <div>
+                    <a href="#" class="view-list px-3 border-right active">All</a>
+                    <a href="#" class="view-list px-3 border-right">Rent</a>
+                    <a href="#" class="view-list px-3">Sale</a>
+                  </div>
+  
+  
+                  <div class="select-wrap">
+                    <span class="icon icon-arrow_drop_down"></span>
+                    <select class="form-control form-control-sm d-block rounded-0">
+                      <option value="">Sort by</option>
+                      <option value="">Price Ascending</option>
+                      <option value="">Price Descending</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <% if(TuKhoa!=""){ %>
+          <div class="container">Từ khóa tìm kiếm: <%= TuKhoa %></div>
+      <% } %>
+      <!--Nhà trọ-->
+      <div class="site-section site-section-sm bg-light">
+        <div class="container">
+          <div class="row">
+          <div class="wrapper mb-4 col-7" style="margin-left: 10px;">
+            <form action="/locgia" method="post" class="">
+              <div class="row"><h2 class="col-9">Giá phòng</h2><button type="submit" class="btn btn-primary col-2 m-2">Lọc</button></div>
+              <p>Lọc giá phòng từ khoảng từ mức tối thiểu đến mức tối đa</p>
+            
+            
+            <% if(max!=""){ %>
+              <div class="price-input">
+                <div class="field">
+                  <input type="hidden" class="input-min rounded-pill" name="min" id="min" value="<%= min %>">
+                </div>
+                <div class="separator">-</div>
+                <div class="field">
+                  <input type="hidden" class="input-max rounded-pill" name="max" id="max" value="<%= max %>">
+                </div>
+              </div>
+              <div class="row mb-3" style="margin-top: -70px;">
+                <p class="col-1">Min</p>
+                <input id="minimum" value="0" class="input-min rounded-pill form-control col-4" type="text">
+                <i class="col-2">  </i>
+                <input id="maximum" value="6,000,000" class="input-max rounded-pill form-control col-4" type="text">
+                <p class="col-1">Max</p>
+              </div>
+              
+              <div class="slider">
+                <div class="progress"></div>
+              </div>
+              <div class="range-input">
+                <input type="range" class="range-min" min="0" max="12000" id="minvalue" value="0" step="500">
+                <input type="range" class="range-max" min="0" max="12000" id="maxvalue" value="6000" step="500">
+              </div>  
+            <% } else {%>
+              
+              <div class="price-input">
+                <div class="field">
+                  <input type="hidden" class="input-min rounded-pill" name="min" id="min" value="0">
+                </div>
+                <div class="field">
+                  <input type="hidden" class="input-max rounded-pill" name="max" id="max" value="6000">
+                </div>
+              </div>
+              <div class="row mb-3" style="margin-top: -70px;">
+                <p class="col-1">Min</p>
+                <input id="minimum" value="0" class="input-min rounded-pill form-control col-4" type="text">
+                <div class="col-2 text-center"><i class="bi bi-arrow-right"></i></div>
+                <input id="maximum" value="6,000,000" class="input-max rounded-pill form-control col-4" type="text">
+                <p class="col-1">Max</p>
+              </div>
+              
+              <div class="slider">
+                <div class="progress"></div>
+              </div>
+              <div class="range-input">
+                <input type="range" class="range-min" min="0" max="12000" id="minvalue" value="0" step="500">
+                <input type="range" class="range-max" min="0" max="12000" id="maxvalue" value="6000" step="500">
+              </div>
+              <div class="mt-3 row">
+                <p class="col-2">0</p>
+                <p class="col-2">&nbsp;&nbsp;&nbsp;2tr5</p>
+                <p class="col-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5tr</p>
+                <p class="col-2">7tr5</p>
+                <p class="col-2">&nbsp;&nbsp;&nbsp;&nbsp;10tr</p>
+                <p class="col-1">&nbsp;&nbsp;&nbsp;12tr</p>
 
+              </div>
+              <% } %>
+          </div>
+          
+          </form>
+          <div class="wrapper mb-4 col-4" style="margin-left: 30px;">
+            <div class="slide-one-item home-slider owl-carousel">
+              <div><img src="http://localhost:3000/assets/images/hero_bg_1.jpg" alt="Image" class="img-fluid"></div>
+              <div><img src="http://localhost:3000/assets/images/hero_bg_2.jpg" alt="Image" class="img-fluid"></div>
+              <div><img src="http://localhost:3000/assets/images/hero_bg_3.jpg" alt="Image" class="img-fluid"></div>
+            </div>
+          </div>
+          
+
+          <div class="row mb-5" id="lopchua">
+
+          </div>
+
+          <!--card-->
+          <div class="row mb-5">
+            <% NhaTro.forEach(function(nt){ %>
+            
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="property-entry h-100">
+                <form action="/nhatro/chitiet/<%= nt.ID_NT %>" method="post" class="property-thumbnail">
+                  <button type="submit" class="card border-0">
+                  <div class="offer-type-wrap">
+                    <span class="offer-type bg-light text-dark"><%= nt.SoLuong_DG %> đánh giá</span>
+                    <span class="offer-type bg-primary text-center"><%= nt.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
+                  </div>
+                  <img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid">
+                
+                <div class="p-4 property-body">
+                  <a href="#" class="property-favorite"><span class="bi bi-suit-heart-fill"></span></a>
+                  <h2 class="property-title"><a href=""><%= nt.TenNhaTro_NT %></a></h2>
+                  <i class="bi bi-geo-alt-fill"></i> <%= nt.DiaChi_NT %>
+                  <input type="hidden" value="<%= nt.KhuVuc_NT %>" name="DiaChi" id="DiaChi"></a></form>
+                  <strong class="property-price text-primary mb-3 d-block text-success"><%- numberFormat(nt.Gia_NT) %> đ</strong>
+                  
+                  <ul class="property-specs-wrap mb-3 mb-lg-0">
+                    <li>
+                      <li class="list-inline-item"><i><%= new Date(nt.NgayCapNhat_NT.toISOString()).toLocaleString("vi-VN") %></i></li>
+                      
+                    </li>
+                    
+                  </ul>
+  
+                </div>
+              </div>
+            </div>
+            
+            <% }) %>
+            
+          <div class="row col-12">
+            <div class="col-md-12 text-center">
+              <div class="site-pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <span>...</span>
+                <a href="#">10</a>
+              </div>
+            </div>  
+          </div>
+          
+        </div>
+        
+      </div>
+      
+  <!--end Nhà trọ-->
+    <%- include('Views_Include/topfooter'); %>
+      <%- include('Views_Include/footer'); %>
+
+
+  <%- include('Views_Include/js'); %>
+  </body>
+
+  <script>
+    
+    function numberFormat(num){
+      var n = new Intl.NumberFormat('en-US');
+      var output = n.format(num);
+      return output;
+    }
+    function fetch_data(min, max){
+		fetch('/locgia?min=' + min.value + '&max=' + max.value +'').then(
+			function(response){
+				return response.json();
+			}
+		).then(function(responseData){
+			var html = '';
+      var obj = [];
+			for(var i = 0; i<responseData.length; i++){
+				html='<div class="col-md-6 col-lg-4 mb-4"><div class="property-entry h-100"><form action="/nhatro/chitiet/'+responseData[i].ID_NT+'" method="post" class="property-thumbnail"><button type="submit" class="card border-0"><div class="offer-type-wrap"><span class="offer-type bg-light text-dark">'+responseData[i].SoLuong_DG+' đánh giá</span><span class="offer-type bg-primary text-center">'+responseData[i].Diem_TB.toFixed(1)+' <i class="bi bi-star-fill" style="font-size: 13px;"></i></span></div><img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid"><div class="p-4 property-body"><a href="#" class="property-favorite"><span class="bi bi-suit-heart-fill"></span></a><h2 class="property-title"><a href="">'+responseData[i].TenNhaTro_NT+'</a></h2><i class="bi bi-geo-alt-fill"></i> '+responseData[i].DiaChi_NT+'<input type="hidden" value="'+responseData[i].KhuVuc_NT+'" name="DiaChi" id="DiaChi"></a></form><strong class="property-price text-primary mb-3 d-block text-success">'+ responseData[i].Gia_NT+' đ</strong><ul class="property-specs-wrap mb-3 mb-lg-0"><li><li class="list-inline-item"><i>'+  responseData[i].NgayCapNhat_NT+'</i></li></li></ul></div></div></div>';
+        obj.push(html);
+			}
+			var string = obj.toString();
+      var result = string.replace(/,/g, "");
+			_('lopchua').innerHTML = '<p>Lọc giá</p>' + result +'<hr>';
+		});
+	}
+    _('maxvalue').onchange = function(){
+      fetch_data(_('min'), _('max'));
+      _('maximum').value = _('maxvalue').value*1000;
+      _('maximum').value = numberFormat(_('maximum').value);
+    };
+    _('minvalue').onchange = function(){
+      fetch_data(_('min'), _('max'))
+      _('minimum').value = _('minvalue').value*1000;
+      _('minimum').value = numberFormat(_('minimum').value);
+    };
+
+    
+  </script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

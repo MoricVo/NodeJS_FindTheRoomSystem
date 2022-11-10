@@ -14,10 +14,10 @@
 		).then(function(responseData){
 			var html = '';
 			if(type == 'load_district'){
-				html = '<option value = "">-</option>'
+				html = '<option value = ""></option>'
 			}
 			if(type == 'load_ward'){
-				html = '<option value = "">-</option>'
+				html = '<option value = ""></option>'
 			}
 
 			for(var count = 0; count<responseData.length; count++){
@@ -74,23 +74,12 @@
     
 </script>
 
-<div>Vị trí hiện tại: <span id="currentPosition"></span></div>
-<div>
-    <select onchange="searchMap(this.value)">
-        <option value="Đại học An Giang">Chọn địa điểm</option>
-        <option value="cafe">Quán cafe</option>
-        <option value="food">Quán ăn</option>
-        <option value="hospital">Bệnh viện</option>
-        <option value="bank">Ngân hàng</option>
-        <option value="atm">Cây ATM</option>
-        <option value="bus_station">Trạm xe buýt</option>
-        <option value="museum">Bảo tàng</option>
-        <option value="park">Công viên</option>
-        <option value="parking">Chỗ đỗ xe</option>
-    </select>
-</div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmAw1IBehADnW1-swrAsH_q65NAqbu9p8&callback&libraries=places&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS0GIsLPK5x6u9ktV3UWQhh5AYxSvV2Ws&callback&libraries=places&callback=initMap">
+
+</script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS0GIsLPK5x6u9ktV3UWQhh5AYxSvV2Ws&callback=initMap">
 </script>
 <script>
     var lati = 0;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2022 at 10:42 AM
+-- Generation Time: Nov 10, 2022 at 01:41 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35787,18 +35787,26 @@ CREATE TABLE `tbl_nhatro` (
   `SoDienThoai_NT` int(50) NOT NULL,
   `NgayDang_NT` datetime NOT NULL DEFAULT current_timestamp(),
   `NgayCapNhat_NT` datetime NOT NULL DEFAULT current_timestamp(),
+  `Gia_NT` float NOT NULL,
+  `ThongTin_NT` text NOT NULL,
   `Anh_NT` varchar(255) NOT NULL,
-  `TienIch_NT` int(11) NOT NULL DEFAULT 0
+  `Wifi_NT` int(11) NOT NULL,
+  `TV_NT` int(11) NOT NULL,
+  `ChoDeXe_NT` int(11) NOT NULL,
+  `TuLanh_NT` int(11) NOT NULL,
+  `MayLanh_NT` int(11) NOT NULL,
+  `BepNauAn_NT` int(11) NOT NULL,
+  `KhuVuc_NT` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_nhatro`
 --
 
-INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, `SoDienThoai_NT`, `NgayDang_NT`, `NgayCapNhat_NT`, `Anh_NT`, `TienIch_NT`) VALUES
-(1, 'Nhà trọ Bảo Lộc', 12, '86/8 Bầu Cát 2, Phường 12, Quận Tân Bình, Hồ Chí Minh', 906990224, '2022-10-06 16:07:56', '2022-10-06 16:07:56', '', 0),
-(2, 'PHÒNG TRỌ SIÊU MINI', 1, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, Hồ Chí Minh', 982461659, '2022-10-06 16:45:50', '2022-10-06 16:45:50', '', 0),
-(3, 'Nhà trọ Ngân Ngân', 12, '735 Hà Hoàng Hổ, P.Đông Xuyên, TP.Long Xuyên, An Giang', 97524521, '2022-10-07 17:30:04', '2022-10-07 17:30:04', '', 0);
+INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, `SoDienThoai_NT`, `NgayDang_NT`, `NgayCapNhat_NT`, `Gia_NT`, `ThongTin_NT`, `Anh_NT`, `Wifi_NT`, `TV_NT`, `ChoDeXe_NT`, `TuLanh_NT`, `MayLanh_NT`, `BepNauAn_NT`, `KhuVuc_NT`) VALUES
+(1, 'Nhà trọ Bảo Lộc', 12, '86/8 Bầu Cát 2, Phường 12, Quận Tân Bình, Hồ Chí Minh', 906990224, '2022-10-06 16:07:56', '2022-10-06 16:07:56', 2500000, '', '', 1, 0, 1, 1, 0, 1, 1),
+(2, 'PHÒNG TRỌ SIÊU MINI', 1, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, Hồ Chí Minh', 982461659, '2022-10-06 16:45:50', '2022-10-06 16:45:50', 1200000, '', '', 1, 0, 1, 0, 0, 1, 1),
+(3, 'Nhà trọ Ngân Ngân', 12, '735 Hà Hoàng Hổ, P.Đông Xuyên, TP.Long Xuyên, An Giang', 97524521, '2022-10-07 17:30:04', '2022-10-07 17:30:04', 1100000, '', '', 0, 0, 0, 0, 0, 0, 30);
 
 -- --------------------------------------------------------
 

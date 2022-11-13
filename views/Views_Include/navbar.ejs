@@ -1,209 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!--========== BOX ICONS ==========-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <!--========== CSS ==========-->
-    <link href='http://localhost:3000/css/nav.css' rel='stylesheet' type='text/css'>
-    <title>Responsive sidebar submenus</title>
-    <style>
-    </style>
-  </head>
-  <body>
-    <!--========== HEADER ==========-->
-
-    <header class="header">
-      <div class="header__container">
-        <!-- <img src="./Logo.png" alt="" class="header__img" /> -->
-        <div class="header__img">
-          <div
-            class="btn-group"
-            role="group"
-            aria-label="Button group with nested dropdown"
-          >
-            <button type="button" class="btn btn-secondary bg-danger">
-              <i class="fa-sharp fa-solid fa-phone"></i>
-            </button>
-            <button type="button" class="btn btn-secondary">
-              <i class="fa-sharp fa-solid fa-envelope"></i>
-            </button>
-
-            <div class="btn-group" role="group">
-              <button
-                id="btnGroupDrop1"
-                type="button"
-                class="btn btn-secondary dropdown-toggle"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Truy cập
-              </button>
-
-              <div
-                class="dropdown-menu bg-info"
-                aria-labelledby="btnGroupDrop1"
-              >
-                <a
-                  class="dropdown-item"
-                  style="
-                    font-weight: 700;
-                    font-family: Arial, Helvetica, sans-serif;
-                  "
-                  href="/views_nguoidung_dangnhap"
-                  >Đăng nhập</a
-                >
-                <a
-                  class="dropdown-item"
-                  style="
-                    font-weight: 700;
-                    font-family: Arial, Helvetica, sans-serif;
-                  "
-                  href="/views_nguoidung_dangky"
-                  >Đăng ký</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="/" class="header__logo"
-          >Luagasinhvien.vn <i class="fa-sharp fa-solid fa-house-circle-check"></i
-        ></a>
-
-        <div class="header__search">
-          <input
-            type="search"
-            placeholder="Bạn muốn tìm gì?"
-            class="header__input"
-          />
-          <i class="bx bx-search header__icon"></i>
-        </div>
-
-        <div class="header__toggle">
-          <i class="bx bx-menu" id="header-toggle"></i>
-        </div>
-      </div>
-    </header>
-
-    <!--========== NAV ==========-->
-    <div class="nav" id="navbar">
-      <nav class="nav__container">
-        <div>
-          <a href="/admin/them" class="nav__link nav__logo">
-            <i class="bx bxs-disc nav__icon"></i>
-            <span class="nav__logo-name">Admin login</span>
-          </a>
-
-          <div class="nav__list">
-            <div class="nav__items">
-              <h3 class="nav__subtitle">Người dùng</h3>
-
-              <a href="#" class="nav__link active">
-                <i class="bx bx-home nav__icon"></i>
-                <span class="nav__name">Đăng tin+</span>
-              </a>
-
-              <div class="nav__dropdown">
-                <a href="#" class="nav__link">
-                  <i class="bx bx-user nav__icon"></i>
-                  <span class="nav__name">Quản lý</span>
-                  <i
-                    class="bx bx-chevron-down nav__icon nav__dropdown-icon"
-                  ></i>
-                </a>
-
-                <div class="nav__dropdown-collapse">
-                  <div class="nav__dropdown-content">
-                    <a href="#" class="nav__dropdown-item">Bài đăng</a>
-                    <a href="#" class="nav__dropdown-item">Nhà trọ</a>
-                    <a href="#" class="nav__dropdown-item">Phòng trọ</a>
-                    <a href="#" class="nav__dropdown-item">Người thuê</a>
-                    <a href="#" class="nav__dropdown-item">Danh sách thuê</a>
-                    <a href="#" class="nav__dropdown-item">Đánh giá</a>
-                   
-                  </div>
-                </div>
-              </div>
-
-              <a href="" class="nav__link">
-                <i class="bx bx-message-rounded nav__icon"></i>
-                <span class="nav__name">Hồ sơ!</span>
-              </a>
-            </div>
-
-            <div class="nav__items">
-              <h3 class="nav__subtitle">Quản trị viên</h3>
-
-              <div class="nav__dropdown">
-                <a href="" class="nav__link">
-                  <i class="bx bx-store nav__icon"></i>
-                  <span class="nav__name">Quản lý</span>
-                  <i
-                    class="bx bx-chevron-down nav__icon nav__dropdown-icon"
-                  ></i>
-                </a>
-
-                <div class="nav__dropdown-collapse">
-                  <div class="nav__dropdown-content">
-                    <a href="/views_danhsach_admin" class="nav__dropdown-item"
-                      >Quản trị viên</a
-                    >
-                    <a
-                      href="/views_danhsach_nguoidung"
-                      class="nav__dropdown-item"
-                      >Người dùng</a
-                    >
-                    <a href="/nhatro/danhsach" class="nav__dropdown-item">Nhà trọ</a>
-                    <a href="#" class="nav__dropdown-item">Phòng trọ</a>
-                    <a href="/views_danhsach_baidang" class="nav__dropdown-item"
-                      >Bài đăng</a
-                    >
-                    <a href="/views_danhsach_tienich" class="nav__dropdown-item">Tiện ích</a>
-                  </div>
-                </div>
-              </div>
-
-              <a href="#" class="nav__link">
-                <i class="bx bx-compass nav__icon"></i>
-                <span class="nav__name">Cài đặt</span>
-              </a>
-              <a href="#" class="nav__link">
-                <i class="bx bx-bookmark nav__icon"></i>
-                <span class="nav__name">Xem thêm</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <a href="/dangxuat" class="nav__link nav__logout">
-          <i class="bx bx-log-out nav__icon"></i>
-          <span class="nav__name">Đăng xuất</span>
-        </a>
-      </nav>
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="navbar-brand-wrapper d-flex justify-content-center">
+    <div
+      class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+    >
+      <a class="navbar-brand brand-logo" href="index.html"
+        ><img src="/public_admin/images/logo.svg" alt="logo"
+      /></a>
+      <a class="navbar-brand brand-logo-mini" href="index.html"
+        ><img src="/public_admin/images/logo-mini.svg" alt="logo"
+      /></a>
+      <button
+        class="navbar-toggler navbar-toggler align-self-center"
+        type="button"
+        data-toggle="minimize"
+      >
+        <span class="mdi mdi-sort-variant"></span>
+      </button>
     </div>
-
-    <!--========== CONTENTS ==========-->
-
-    <!--========== MAIN JS ==========-->
-    <script src="main.js"></script>
-  </body>
-</html>
+  </div>
+  <div
+    class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+  >
+    <ul class="navbar-nav mr-lg-4 w-100">
+      <li class="nav-item nav-search d-none d-lg-block w-100">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="search">
+              <i class="mdi mdi-magnify"></i>
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Bạn muốn tìm gì"
+            aria-label="search"
+            aria-describedby="search"
+          />
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav navbar-nav-right">
+      <li class="nav-item dropdown mr-1">
+        <a
+          class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+          id="messageDropdown"
+          href="#"
+          data-toggle="dropdown"
+        >
+          <i class="mdi mdi-message-text mx-0"></i>
+          <span class="count"></span>
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-right navbar-dropdown"
+          aria-labelledby="messageDropdown"
+        >
+          <p class="mb-0 font-weight-normal float-left dropdown-header">
+            Messages
+          </p>
+          <a class="dropdown-item">
+            <div class="item-thumbnail">
+              <img
+                src="/public_admin/images/faces/1.jpg"
+                alt="image"
+                class="profile-pic"
+              />
+            </div>
+            <div class="item-content flex-grow">
+              <h6 class="ellipsis font-weight-normal">Tấn Khôi Võ</h6>
+              <p class="font-weight-light small-text text-muted mb-0">
+                The meeting is cancelled
+              </p>
+            </div>
+          </a>
+          <a class="dropdown-item">
+            <div class="item-thumbnail">
+              <img
+                src="/public_admin/images/faces/face2.jpg"
+                alt="image"
+                class="profile-pic"
+              />
+            </div>
+            <div class="item-content flex-grow">
+              <h6 class="ellipsis font-weight-normal">Tim Cook</h6>
+              <p class="font-weight-light small-text text-muted mb-0">
+                New product launch
+              </p>
+            </div>
+          </a>
+          <a class="dropdown-item">
+            <div class="item-thumbnail">
+              <img
+                src="/public_admin/images/faces/face3.jpg"
+                alt="image"
+                class="profile-pic"
+              />
+            </div>
+            <div class="item-content flex-grow">
+              <h6 class="ellipsis font-weight-normal">Johnson</h6>
+              <p class="font-weight-light small-text text-muted mb-0">
+                Upcoming board meeting
+              </p>
+            </div>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item dropdown mr-4">
+        <a
+          class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown"
+          id="notificationDropdown"
+          href="#"
+          data-toggle="dropdown"
+        >
+          <i class="mdi mdi-bell mx-0"></i>
+          <span class="count"></span>
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-right navbar-dropdown"
+          aria-labelledby="notificationDropdown"
+        >
+          <p class="mb-0 font-weight-normal float-left dropdown-header">
+            Notifications
+          </p>
+          <a class="dropdown-item">
+            <div class="item-thumbnail">
+              <div class="item-icon bg-success">
+                <i class="mdi mdi-information mx-0"></i>
+              </div>
+            </div>
+            <div class="item-content">
+              <h6 class="font-weight-normal">Application Error</h6>
+              <p class="font-weight-light small-text mb-0 text-muted">
+                Just now
+              </p>
+            </div>
+          </a>
+          <a class="dropdown-item">
+            <div class="item-thumbnail">
+              <div class="item-icon bg-warning">
+                <i class="mdi mdi-settings mx-0"></i>
+              </div>
+            </div>
+            <div class="item-content">
+              <h6 class="font-weight-normal">Settings</h6>
+              <p class="font-weight-light small-text mb-0 text-muted">
+                Private message
+              </p>
+            </div>
+          </a>
+          <a class="dropdown-item">
+            <div class="item-thumbnail">
+              <div class="item-icon bg-info">
+                <i class="mdi mdi-account-box mx-0"></i>
+              </div>
+            </div>
+            <div class="item-content">
+              <h6 class="font-weight-normal">New user registration</h6>
+              <p class="font-weight-light small-text mb-0 text-muted">
+                2 days ago
+              </p>
+            </div>
+          </a>
+        </div>
+      </li>
+      <% if(!session.ID_ND) { %>
+      <li class="nav-item nav-profile dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          data-toggle="dropdown"
+          id="profileDropdown"
+        >
+      
+          <img src="/public_admin/images/faces/noimage.png" alt="profile" />
+          <span class="nav-profile-name">Chưa đăng nhập</span>
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-right navbar-dropdown"
+          aria-labelledby="profileDropdown"
+        >
+          <a href="views_nguoidung_dangky" class="dropdown-item">
+            <i class="mdi mdi-settings text-primary"></i>
+         Đăng ký
+          </a>
+          <a href="views_nguoidung_dangnhap" class="dropdown-item">
+            <i class="mdi mdi-logout text-primary"></i>
+           Đăng nhập
+          </a>
+        </div>
+      </li>
+      <% } else { %>
+        <% if(session.LoaiNguoiDung_ND == 'admin') { %>
+       <li class="nav-item dropdown mr-1">   <span style="font-weight:400;color: crimson;" class="nav-profile-name">Admin! </span></li>
+          <% } %>
+        <% if(session.LoaiNguoiDung_ND == 'chutro') { %>  
+          <li class="nav-item dropdown mr-1">   <span style="font-weight:400;color: crimson;" class="nav-profile-name">Chủ trọ! </span></li>
+          <% } %>
+          <li class="nav-item nav-profile dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-toggle="dropdown"
+              id="profileDropdown"
+            >
+          
+              <img src="<%- session.Anh_ND %>"  />
+              <span class="nav-profile-name"><%= session.Ten_ND %> </span>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right navbar-dropdown"
+              aria-labelledby="profileDropdown"
+            >
+              <a href="views_nguoidung_dangky" class="dropdown-item">
+                <i class="mdi mdi-settings text-primary"></i>
+              Cài đặt
+              </a>
+              <a href="/dangxuat" class="dropdown-item">
+                <i class="mdi mdi-logout text-primary"></i>
+               Đăng xuất
+              </a>
+            </div>
+          </li>
+          <% } %>
+    </ul>
+    <button
+      class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+      type="button"
+      data-toggle="offcanvas"
+    >
+      <span class="mdi mdi-menu"></span>
+    </button>
+  </div>
+</nav>

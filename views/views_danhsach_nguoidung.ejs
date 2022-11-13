@@ -1,118 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+      href="/public_admin/vendors/mdi/css/materialdesignicons.min.css"
     />
-    <style>
-      .container {
-        padding: auto;
-        margin-top: 100px;
-        background-color: aqua;
-        float: right;
-        margin-right: 20px;
-      }
-      table {
-        margin: auto;
-      }
-      
-/* CSS */
-.button-87 {
-  margin: 10px;
-  padding: 15px 30px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  border-radius: 10px;
-  display: block;
-  border: 0px;
-  font-weight: 700;
-  box-shadow: 0px 0px 14px -7px #f09819;
-  background-image: linear-gradient(45deg, #EB5353 0%, #F7EC09  51%, #3EC70B  100%);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-87:hover {
-  background-position: right center;
-  /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-}
-
-.button-87:active {
-  transform: scale(0.95);
-}
-
-      
-
-    </style>
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/public_admin/images/favicon.png" />
   </head>
   <body>
-    <h3>Dữ liệu thông tin người dùng!</h3>
-    <form action="/views_danhsach_nguoidung/them">
-    <button  class="button-87" role="button">Thêm dữ liệu+</button>
-  </form>
-    <table class="content-table">
-      <thead>
-        <tr class="bg-warning">
-          <!-- <th scope="col">ID người dùng</th> -->
-          <th scope="col">Tên người dùng</th>
-          <th scope="col">Tên đăng nhập</th>
-          <th scope="col">Ngày sinh</th>
-          <th scope="col">Ảnh</th>
-          <th scope="col">Quyền</th>
-          <th scope="col">Email</th>
-          <th scope="col">Điện thoại</th>
-          <th scope="col">Địa chỉ</th>
-          <th scope="col">CCCD</th>
-          <th scope="col">Kích hoạt</th>
-          <!-- <th scope="col">Ngày đăng</th> -->
-          <th width="5%">Sửa</th>
-		<th width="5%">Xóa</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% tbl_nguoidung.forEach(function(nd){ %>
-
-        <tr>
-          <!-- <th scope="row"><%= nd.ID_ND %></th> -->
-          <th><%= nd.Ten_ND %></th>
-          <td><%= nd.TenDN_ND %></td>
-          <td><%= nd.NgaySinh_ND %></td>
-          <td ><img src="<%- nd.Anh_ND %>" border-radius="10px" width="100" height="100" ></td>
-          <td><%= nd.LoaiNguoiDung_ND %></td>
-          <td><%= nd.Email_ND %></td>
-          <td><%= nd.DienThoai_ND %></td>
-          <td><%= nd.DiaChi_ND %></td>
-          <td><%= nd.CMND_ND %></td>
-          <td><%= nd.KichHoat_ND %></td>
-          <!-- <td><%= nd.NgayDang_ND %></td> -->
-          <td > <a href="/views_danhsach_nguoidung/sua/<%= nd.ID_ND %>" > Sửa <i  class="fa-solid fa-pen-to-square"></i></a></td>
-          <td ><a href="/views_danhsach_nguoidung/xoa/<%= nd.ID_ND %>" onclick="return confirm('Bạn có muốn xóa tài khoản có tên <%= nd.Ten_ND %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td>
-        </tr>
-      </tbody>
-      <% });%>
-    </table>
-
-    <div>
-      <!-- Navbar -->
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
       <%- include('Views_Include/navbar'); %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <%- include('Views_Include/sidebar'); %>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+           
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Dữ liệu người dùng!</h4>
+          <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a  class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                <a href="/views_danhsach_baidang"  class="breadcrumb-item text-success"> Danh sách người dùng</a>
+                <span class="breadcrumb-item active">Chỉnh sửa người dùng</span>
+            </nav>
+        </div>
+        
+        <div class="btn-group ">
+          <div class="col-lg-15  ">
+              <form class="d-flex" role="search">
+                  <input style="max-width:250px;max-height:40px; border-color: darkblue;padding-right: 30px;" class="form-control me-2 " type="search" placeholder="Bạn muốn tìm gì?" aria-label="Search">
+      
+              </form>
+          </div>
+      </div>
+      <!-- Example single danger button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           ----Quyền Hạn----
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </div>
+      <button style="float: right;" type="button" class="btn btn-danger btn-icon-text">
+        <i class="mdi mdi-upload btn-icon-prepend"></i>                                                    
+        Thêm mới
+      </button>
+          <div class="table-responsive">
+            <table class="table table-hover text-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Tên người dùng</th>
+                  <th scope="col">Tên đăng nhập</th>
+                  <th scope="col">Ngày sinh</th>
+                  <th scope="col">Ảnh</th>
+                  <th scope="col">Quyền</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Điện thoại</th>
+                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">CCCD</th>
+                  <th scope="col">Kích hoạt</th>
+                  <!-- <th scope="col">Ngày đăng</th> -->
+                  <th width="5%">Tùy chọn</th>
+         
+                </tr>
+              </thead>
+              <tbody>
+              <% tbl_nguoidung.forEach(function(nd){ %>
 
-      <!-- Card: Header and Footer -->
-
-      <!-- Footer -->
+                <tr>
+                  <!-- <th scope="row"><%= nd.ID_ND %></th> -->
+                  <th><%= nd.Ten_ND %></th>
+                  <td><%= nd.TenDN_ND %></td>
+                  <td><%= nd.NgaySinh_ND %></td>
+                  <td ><img src="<%- nd.Anh_ND %>" border-radius="10px" width="100" height="100" ></td>
+                  <td class="text-danger"><%= nd.LoaiNguoiDung_ND %></td>
+                  <td><%= nd.Email_ND %></td>
+                  <td><%= nd.DienThoai_ND %></td>
+                  <td><%= nd.DiaChi_ND %></td>
+                  <td><%= nd.CMND_ND %></td>
+                  <td class="align-middle text-center">
+                    <% if(nd.KichHoat_ND == 1) { %>
+                        <a href="/views_danhsach_nguoidung/duyet/<%= nd.ID_ND %>"><i class="mdi mdi-checkbox-multiple-marked-circle"></i></a>
+                    <% } else { %>
+                        <a href="/views_danhsach_nguoidung/duyet/<%= nd.ID_ND %>"><i class="mdi mdi-close-octagon text-danger"></i></a>
+                    <% } %>
+                </td>
+                  <!-- <td><%= nd.NgayDang_ND %></td> -->
+                    
+                  <th>
+                    <!-- Example single danger button -->
+<div class="btn-group">
+<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Chức năng
+</button>
+<div class="dropdown-menu">
+  <a class="dropdown-item" href="#">Action</a>
+  <a class="dropdown-item" href="#">Another action</a>
+  <a class="dropdown-item" href="#">Something else here</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="#">Separated link</a>
+</div>
+</div>
+                  </th>
+                </tr>
+                <% });%>
+              </tbody>
+            
+             
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+    
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <%- include('Views_Include/footer'); %>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="/public_admin/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/public_admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/public_admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/public_admin/js/off-canvas.js"></script>
+    <script src="/public_admin/js/hoverable-collapse.js"></script>
+    <script src="/public_admin/js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/public_admin/js/dashboard.js"></script>
+    <script src="/public_admin/js/data-table.js"></script>
+    <script src="/public_admin/js/jquery.dataTables.js"></script>
+    <script src="/public_admin/js/dataTables.bootstrap4.js"></script>
+    <!-- End custom js for this page-->
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

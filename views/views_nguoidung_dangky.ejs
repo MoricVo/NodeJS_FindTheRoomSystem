@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đang ký tài khoản!</title>
-    
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+      href="/public_admin/vendors/mdi/css/materialdesignicons.min.css"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script>
-         
-
-    </script>
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/public_admin/images/favicon.png" />
     <style>
-        @media (min-width: 1025px) {
+      @media (min-width: 1025px) {
 .h-custom {
 height: 100vh !important;
 }
@@ -61,16 +71,22 @@ border-bottom-right-radius: 15px;
 }
 }
 
-    </style>
-    
-    
-</head>
-<body>
-    <div class="navbar">
+  </style>
+  
+  
+  
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
       <%- include('Views_Include/navbar'); %>
-    </div>
-    <div class="main">
-        <section class="h-100 h-custom gradient-custom-2">
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <%- include('Views_Include/sidebar'); %>
+        <!-- partial -->
+        <div class="main-panel">
+          <section class="h-100 h-custom gradient-custom-2">
             <div class="container py-5 h-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12">
@@ -98,13 +114,13 @@ border-bottom-right-radius: 15px;
             
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="LoaiNguoiDung_ND" id="LoaiNguoiDung_ND"
-                                  value="Khách hàng" checked />
+                                  value="khachhang" checked />
                                 <label class="form-check-label" for="GioiTinh">Khách hàng</label>
                               </div>
             
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="LoaiNguoiDung_ND" id="LoaiNguoiDung_ND"
-                                  value="Chủ trọ" />
+                                  value="chutro" />
                                 <label class="form-check-label" for="GioiTinh">Chủ trọ</label>
                               </div>
             
@@ -207,18 +223,67 @@ border-bottom-right-radius: 15px;
               </div>
             </div>
           </section>
-          
+          <div class="content-wrapper">
+           
+            
+         
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-    <div class="footer">
-      <%- include('Views_Include/footer'); %>
-    </div>
-   
-   
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+  </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="/public_admin/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/public_admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/public_admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/public_admin/js/off-canvas.js"></script>
+    <script src="/public_admin/js/hoverable-collapse.js"></script>
+    <script src="/public_admin/js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/public_admin/js/dashboard.js"></script>
+    <script src="/public_admin/js/data-table.js"></script>
+    <script src="/public_admin/js/jquery.dataTables.js"></script>
+    <script src="/public_admin/js/dataTables.bootstrap4.js"></script>
+    <!-- End custom js for this page-->
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

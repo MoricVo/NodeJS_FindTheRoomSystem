@@ -94,6 +94,7 @@ router.post('/views_nguoidung_dangnhap', function(req, res){
 						req.session.ID_ND = tk.ID_ND;
 						req.session.Ten_ND = tk.Ten_ND;
 						req.session.LoaiNguoiDung_ND = tk.LoaiNguoiDung_ND;
+						req.session.Anh_ND = tk.Anh_ND;
 						
 						res.redirect('/');
 					}

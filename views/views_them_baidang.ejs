@@ -1,113 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        body
-        {
-            background-image: linear-gradient(135deg,rgb(240, 125, 234)
-,rgb(164, 96, 237));
-        }
-        h2
-        {
-          font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-       
-           font-weight: 600;
-        }
-    </style>
-    <title>Document</title>
-</head>
-<body>
-    <div class="navbar">
-        <%- include('Views_Include/navbar'); %>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/public_admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <%- include('Views_Include/navbar'); %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <%- include('Views_Include/sidebar'); %>
+        <!-- partial -->
+        <div class="main-panel">
+                   
+  
+<section class="vh-100 gradient-custom">
+  <h2>Vui lòng thêm thông tin bài đăng!</h2>
+
+  <form action="/views_danhsach_baidang/them" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="ID_NhaTro_BD" name="ID_NhaTro_BD" class="form-control" required/>
+            <label class="form-label" for="ID_NhaTro_BD">Mã trọ</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="TenNguoiDang_BD" name="TenNguoiDang_BD" class="form-control" required/>
+            <label class="form-label" for="TenNguoiDang_BD">Người đăng</label>
+          </div>
+        </div>
       </div>
-      <section class="vh-100 gradient-custom">
-        <h2>Vui lòng thêm thông tin bài đăng!</h2>
-      
-        <form action="/views_danhsach_baidang/them" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
-            <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row mb-4">
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="ID_NhaTro_BD" name="ID_NhaTro_BD" class="form-control" required/>
-                  <label class="form-label" for="ID_NhaTro_BD">Mã trọ</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="TenNguoiDang_BD" name="TenNguoiDang_BD" class="form-control" required/>
-                  <label class="form-label" for="TenNguoiDang_BD">Người đăng</label>
-                </div>
-              </div>
-            </div>
-          
-            <!-- Text input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="TieuDe_BD" name="TieuDe_BD" class="form-control" required/>
-              <label class="form-label" for="TieuDe_BD">Tiêu đề</label>
-            </div>
-          
-            <!-- Text input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="NoiDung_BD" name="NoiDung_BD" class="form-control" required />
-              <label class="form-label" for="NoiDung_BD">Nội dung</label>
-            </div>
-            <div class="col-md-12 mb-4 pb-2">
-      
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" name="Anh_BD" id="Anh_BD">Chọn hình </span>
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="Anh_BD"  name="Anh_BD"
-                      aria-describedby="inputGroupFileAddon01" required>
-                    <label class="custom-file-label" for="Anh_BD">Choose file</label>
-                  </div>
-                </div>
+    
+      <!-- Text input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="TieuDe_BD" name="TieuDe_BD" class="form-control" required/>
+        <label class="form-label" for="TieuDe_BD">Tiêu đề</label>
+      </div>
+    
+      <!-- Text input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="NoiDung_BD" name="NoiDung_BD" class="form-control" required />
+        <label class="form-label" for="NoiDung_BD">Nội dung</label>
+      </div>
+      <div class="col-md-12 mb-4 pb-2">
 
-              </div>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="NgayDang_BD" name="NgayDang_BD" class="form-control" required/>
-              <label class="form-label" for="NgayDang_BD">Ngày đăng</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" name="Anh_BD" id="Anh_BD">Chọn hình </span>
             </div>
-          
-            <!-- Number input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="NgayCapNhat_BD" name="NgayCapNhat_BD" class="form-control" required/>
-              <label class="form-label" for="NgayCapNhat_BD">Ngày cập nhật</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="Anh_BD"  name="Anh_BD"
+                aria-describedby="inputGroupFileAddon01" required>
+              <label class="custom-file-label" for="Anh_BD">Choose file</label>
             </div>
-          
-            <!-- Message input -->
-            <div class="form-outline mb-4">
-              <input type="number" class="form-control" id="LuotXem_BD" name="LuotXem_BD" rows="4" required/>
-              <label class="form-label" for="LuotXem_BD">Lượt xem</label>
-            </div>
-              <!-- Message input -->
-              <div class="form-outline mb-4">
-                <input type="text" class="form-control" id="GhiChu_BD" name="GhiChu_BD" rows="4" required/>
-                <label class="form-label" for="GhiChu_BD">Ghi chú</label>
-              </div>
+          </div>
 
-              <div class="form-outline mb-4">
-                <input type="number" class="form-control" id="KiemDuyet_BD" name="KiemDuyet_BD" rows="4" required>
-                <label class="form-label" for="KiemDuyet_BD">Kiểm duyệt</label>
-              </div>
-          
-            <!-- Checkbox -->
-           
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Xác nhận</button>
-          </form>
-      </section>
-</body>
+        </div>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="NgayDang_BD" name="NgayDang_BD" class="form-control" required/>
+        <label class="form-label" for="NgayDang_BD">Ngày đăng</label>
+      </div>
+    
+      <!-- Number input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="NgayCapNhat_BD" name="NgayCapNhat_BD" class="form-control" required/>
+        <label class="form-label" for="NgayCapNhat_BD">Ngày cập nhật</label>
+      </div>
+    
+      <!-- Message input -->
+      <div class="form-outline mb-4">
+        <input type="number" class="form-control" id="LuotXem_BD" name="LuotXem_BD" rows="4" required/>
+        <label class="form-label" for="LuotXem_BD">Lượt xem</label>
+      </div>
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <input type="text" class="form-control" id="GhiChu_BD" name="GhiChu_BD" rows="4" required/>
+          <label class="form-label" for="GhiChu_BD">Ghi chú</label>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input type="number" class="form-control" id="KiemDuyet_BD" name="KiemDuyet_BD" rows="4" required>
+          <label class="form-label" for="KiemDuyet_BD">Kiểm duyệt</label>
+        </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4">Xác nhận</button>
+    </form>
+</section>
+          <div class="content-wrapper">
+  
+        </div>
+      </div>
+    </div>
+    
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="/public_admin/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/public_admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/public_admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/public_admin/js/off-canvas.js"></script>
+    <script src="/public_admin/js/hoverable-collapse.js"></script>
+    <script src="/public_admin/js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/public_admin/js/dashboard.js"></script>
+    <script src="/public_admin/js/data-table.js"></script>
+    <script src="/public_admin/js/jquery.dataTables.js"></script>
+    <script src="/public_admin/js/dataTables.bootstrap4.js"></script>
+    <!-- End custom js for this page-->
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

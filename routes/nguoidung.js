@@ -131,4 +131,18 @@ router.get('/xoa/:id', function(req, res){
 	});
 });
 
+// GET: Duyệt bài viết
+router.get("/duyet/:id", function (req, res) {
+	var id = req.params.id;
+	var sql =
+	  "UPDATE tbl_nguoidung SET KichHoat_ND = 1 - KichHoat_ND WHERE ID_ND = ?";
+	conn.query(sql, [id], function (error, results) {
+	  if (error) {
+		req.session.error = error;
+		res.redirect("/error");
+	  } else {
+		res.redirect("back");
+	  }
+	});
+  });
 module.exports = router;

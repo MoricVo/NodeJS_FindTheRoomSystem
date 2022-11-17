@@ -19,7 +19,7 @@ var storageConfig = multer.diskStorage({
 var upload = multer({ storage: storageConfig });
 // GET: Thêm tài khoản
 router.get('/them', function(req, res){
-	res.render('views_them_admin', { title: 'Đăng ký tài khoản' });
+	res.render('admin/admin_them', { title: 'Đăng ký tài khoản' });
 });
 
 var validateForm = [
@@ -136,14 +136,14 @@ router.post('/sua/:id', upload.single('AnhDaiDien_AD'), validateForm, function(r
 });
 
 // GET: Danh sách tài khoản
-router.get('/', function(req, res){
+router.get('/admin_tk', function(req, res){
 	var sql = "SELECT * FROM tbl_admin";
 	conn.query(sql, function(error, results){
 		if(error) {
 			req.session.error = error;
 			res.redirect('/error');
 		} else {
-			res.render('views_danhsach_admin', {
+			res.render('admin/admin_danhsach', {
 				title: 'Danh sách tài khoản',
 				tbl_admin: results
 			});

@@ -1,0 +1,289 @@
+<link rel="stylesheet" href="http://localhost:3000/public_admin/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="http://localhost:3000/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="http://localhost:3000/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="http://localhost:3000/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="http://localhost:3000/public_admin/images/favicon.png" />
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/">
+        <i class="mdi mdi-home menu-icon text-warning"></i>
+        <span class="menu-title">Trang chủ(My JDBC)</span>
+      </a>
+    </li>
+<% if(!session.ID_ND) { %>
+  
+    <% } else { %>
+      <% if(session.LoaiNguoiDung_ND == 'admin') { %> 
+        <li class="nav-item">
+          <a class="nav-link" href="/kiemduyet_baiviet">
+            <i class="mdi mdi-comment-check menu-icon text-danger"></i>
+            <span class="menu-title">Accept bài đăng</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/kiemduyet_nguoidung">
+            <i class="mdi mdi-comment-check menu-icon text-info"></i>
+            <span class="menu-title">Accept người dùng</span>
+          </a>
+        </li>
+       
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="collapse"
+            href="#ui-basic"
+            aria-expanded="false"
+            aria-controls="ui-basic"
+          >
+            <i class="mdi mdi-circle-outline menu-icon text-info"></i>
+            <span class="menu-title">Quản lý(Admin)</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="/baidang">Bài đăng</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/admin_tk">Quản trị viên</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/nguoidung">Người dùng</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/danhgia">Đánh giá</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/nhatro">Nhà trọ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/baidang">Phòng trọ</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/public_admin/pages/forms/basic_elements.html">
+            <i class="mdi mdi-view-headline menu-icon text-primary"></i>
+            <span class="menu-title">Đăng tin+</span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/public_admin/pages/charts/chartjs.html">
+            <i class="mdi mdi-chart-pie menu-icon text-success"></i>
+            <span class="menu-title">Thống kê</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/public_admin/pages/tables/basic-table.html">
+            <i class="mdi mdi-grid-large menu-icon text-danger"></i>
+            <span class="menu-title">Mục yêu thích</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/public_admin/pages/icons/mdi.html">
+            <i class="mdi mdi-emoticon menu-icon text-primary"></i>
+            <span class="menu-title">Trạng thái</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="collapse"
+            href="#auth"
+            aria-expanded="false"
+            aria-controls="auth"
+          >
+            <i class="mdi mdi-account menu-icon"></i>
+            <span class="menu-title">Cá nhân</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="auth">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/login.html"> Login </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/login-2.html"> Login 2 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/register.html">
+                  Register
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/register-2.html">
+                  Register 2
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/lock-screen.html">
+                  Lockscreen
+                </a>
+              </li>
+    
+            </ul>
+          </div>
+        </li>
+ 
+        <% } %>
+        <% if(session.LoaiNguoiDung_ND == 'chutro') { %> 
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/public_admin/pages/charts/chartjs.html">
+              <i class="mdi mdi-comment-check menu-icon text-danger"></i>
+              <span class="menu-title">Tiếp đoán khách hàng</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/public_admin/pages/charts/chartjs.html">
+              <i class="mdi mdi-note-text menu-icon text-primary"></i>
+              <span class="menu-title">Tin vừa đăng</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="collapse"
+              href="#ui-basic"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+            >
+              <i class="mdi mdi-circle-outline menu-icon text-info"></i>
+              <span class="menu-title">Quản lý(Nhà trọ)</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Bài đăng của tôi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Nhà trọ của tôi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Phòng trọ của tôi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Danh sách thuê</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Tiện ích</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="collapse"
+              href="#ui-basic"
+              aria-expanded="false"
+              aria-controls="ui-basic"
+            >
+              <i class="mdi mdi-circle-outline menu-icon text-info"></i>
+              <span class="menu-title">Quản lý(Khách hàng)</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Danh sách thuê</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Khách hàng thanh toán</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Khách hàng tiềm năng</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/views_danhsach_baidang">Khách hàng đặt cọc</a>
+                </li>
+             
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/public_admin/pages/forms/basic_elements.html">
+              <i class="mdi mdi-view-headline menu-icon text-primary"></i>
+              <span class="menu-title">Đăng tin+</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/public_admin/pages/charts/chartjs.html">
+              <i class="mdi mdi-chart-pie menu-icon text-success"></i>
+              <span class="menu-title">Thống kê</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/public_admin/pages/tables/basic-table.html">
+              <i class="mdi mdi-grid-large menu-icon text-danger"></i>
+              <span class="menu-title">Mục yêu thích</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/public_admin/pages/icons/mdi.html">
+              <i class="mdi mdi-emoticon menu-icon text-primary"></i>
+              <span class="menu-title">Trạng thái</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="collapse"
+              href="#auth"
+              aria-expanded="false"
+              aria-controls="auth"
+            >
+              <i class="mdi mdi-account menu-icon"></i>
+              <span class="menu-title">Cá nhân</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/login.html"> Login </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/login-2.html"> Login 2 </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/register.html">
+                    Register
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/register-2.html">
+                    Register 2
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:3000/public_admin/pages/samples/lock-screen.html">
+                    Lockscreen
+                  </a>
+                </li>
+      
+              </ul>
+            </div>
+          </li>
+          <% } %>
+    <li class="nav-item">
+      <a class="nav-link" href="documentation/documentation.html">
+        <i class="mdi mdi-file-document-box-outline menu-icon text-warning"></i>
+        <span class="menu-title">Hướng dẫn</span>
+      </a>
+    </li>
+    <% } %>
+ 
+  </ul>
+</nav>

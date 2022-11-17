@@ -19,21 +19,18 @@ var upload = multer({ storage: storageConfig });
 
 router.get('/',function (req,res)
 {
-var sql ='select * from tbl_nguoidung' ;
-conn.query(sql,function(error,results) {
-if(error)
-{
-    res.send(error);
-}
-else
-{
-    res.render('views_danhsach_nguoidung',{
-               title:"Danh sách bài viết!",
-               tbl_nguoidung:results
-    });
-}
-});
-
+	var sql ='select * from tbl_nguoidung' ;
+	conn.query(sql,function(error,results) {
+	if(error){
+		res.send(error);
+	}
+	else{
+		res.render('admin/nguoidung_danhsach',{
+			title:"Danh sách người dùng!",
+			tbl_nguoidung:results
+		});
+	}
+	});
 });
 
 
@@ -46,7 +43,7 @@ router.get('/sua/:id', function(req, res){
 			req.session.error = error;
 			res.redirect('/error');
 		} else {
-			res.render('views_sua_nguoidung', {
+			res.render('admin/nguoidung_sua', {
 				title: 'Sửa tài khoản người dùng',
 				/*ID: results[0].ID,
 				HoVaTen: results[0].HoVaTen,
@@ -110,7 +107,7 @@ router.post('/sua/:id', upload.single('Anh_ND'), function(req, res){
 				req.session.error = error;
 				res.redirect('/error');
 			} else {
-				res.redirect('/views_danhsach_nguoidung');
+				res.redirect('/nguoidung');
 			}
 		});
 	}
@@ -125,7 +122,7 @@ router.get('/xoa/:id', function(req, res){
 			req.session.error = error;
 			res.redirect('/error');
 		} else {
-			res.redirect('/views_danhsach_nguoidung');
+			res.redirect('back');
 		
 		}
 	});

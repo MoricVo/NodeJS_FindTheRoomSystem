@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+	<title><%= title %></title>
+</head>
+
+<body>
+	<div class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+		<%- include('Views_Include/navbar'); %>
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+		  <!-- partial:partials/_sidebar.html -->
+		  <%- include('Views_Include/sidebar'); %>
+		  <!-- partial -->
+		  <div class="main-panel">
+			<div class="content-wrapper">
+			 
+	  <div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+		  <div class="card-body">
+		
+		<!-- Card: Header and Footer -->
+		<div class="card mt-3">
+			<div class="card-header"><%= title %></div>
+			<div class="card-body">
+				<% if(typeof errors != 'undefined') { %>
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<ul class="mb-0">
+							<% errors.forEach(function(err){ %>
+								<li><%= err.msg %></li>	
+							<% }); %>
+						</ul>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				<% } %>
+				<form action="/baidang/sua/<%= tbl_baidang.ID_BD %>" method="post" enctype="multipart/form-data"  class="needs-validation" novalidate>
+                    <div class="mb-3">
+						<label for="ID_NhaTro_BD" class="form-label">Mã trọ:</label>
+						<input type="number" class="form-control" id="ID_NhaTro_BD" name="ID_NhaTro_BD" value="<%= tbl_baidang.ID_NhaTro_BD %>" required>
+					</div>
+					<div class="mb-3">
+						<label for="TenNguoiDang_BD" class="form-label">Tên người đăng:</label>
+						<input type="text" class="form-control" id="TenNguoiDang_BD" name="TenNguoiDang_BD" value="<%= tbl_baidang.TenNguoiDang_BD %>" required>
+					</div>
+					<div class="mb-3">
+						<label for="TieuDe_BD" class="form-label">Tiêu đề</label>
+						<input type="text" class="form-control" id="TieuDe_BD" name="TieuDe_BD" value="<%= tbl_baidang.TieuDe_BD %>" required>
+						<span class="d-block small text-primary">Bỏ trống nếu muốn giữ nguyên tiêu đề cũ.</span>
+					</div>
+					<div class="mb-3">
+						<label for="NoiDung_BD" class="form-label">Nội dung bài viết:</label>
+						<textarea class="form-control ckeditor" id="NoiDung_BD" name="NoiDung_BD" required><%= tbl_baidang.NoiDung_BD %></textarea>
+					</div>
+                    <div class="mb-3">
+						<label class="form-label" for="Anh_BD">Hình ảnh:</label>
+						<input type="file" class="form-control" id="Anh_BD" name="Anh_BD">
+						<span class="d-block small text-primary">Bỏ trống nếu muốn giữ nguyên ảnh cũ.</span>
+					</div>
+					<div class="mb-3">
+						<label for="NgayDang_BD" class="form-label">Ngày đăng</label>
+						<input type="datetime" class="form-control" id="NgayDang_BD" name="NgayDang_BD" value="<%= tbl_baidang.NgayDang_BD %>" required>
+					</div>
+                    <div class="mb-3">
+						<label for="NgayCapNhat_BD" class="form-label">Ngày cập nhật</label>
+						<input type="datetime" class="form-control" id="NgayCapNhat_BD" name="NgayCapNhat_BD" value="<%= tbl_baidang.NgayCapNhat_BD %>" required>
+					</div>
+					
+				
+					<div class="mb-3">
+						<label for="LuotXem_BD" class="form-label">Lượt xem:</label>
+						<input type="number" class="form-control" id="LuotXem_BD" name="LuotXem_BD" value="<%= tbl_baidang.LuotXem_BD %>" required>
+					
+					</div>
+                    <div class="mb-3">
+						<label for="GhiChu_BD" class="form-label">Ghi chú:</label>
+						<input type="text" class="form-control" id="GhiChu_BD" name="GhiChu_BD" value="<%= tbl_baidang.GhiChu_BD %>" required>
+					
+					</div>
+                    <div class="mb-3">
+						<label for="KiemDuyet_BD" class="form-label">Kiểm duyệt:</label>
+						<input type="number" class="form-control" id="KiemDuyet_BD" name="KiemDuyet_BD" value="<%= tbl_baidang.KiemDuyet_BD %>" required>
+					
+					</div>
+					
+
+					<button type="submit" class="btn btn-primary">Cập nhật bài đăng</button>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Footer -->
+		  </div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>

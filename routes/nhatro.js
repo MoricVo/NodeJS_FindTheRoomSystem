@@ -3,18 +3,32 @@ var router = express.Router();
 var conn = require('../connect');
 var firstImage = require('../firstimage');
 var { check, validationResult } = require('express-validator');
+var multer = require('multer');
+var storageConfig = multer.diskStorage({
+	destination: function(req, file, callback){
+		callback(null, 'uploads/');
+	},
+	filename: function(req, file, callback){
+		var timestamp = Date.now();
+		callback(null, timestamp + path.extname(file.originalname));
+	}
+});
+var upload = multer({ storage: storageConfig });
 
-
-
+function numberFormat(num){
+	var n = new Intl.NumberFormat('en-US');
+	var output = n.format(num);
+	return output;
+}
 // GET: Danh sách nhà trọ
-router.get('/danhsach', function(req, res){
+router.get('/', function(req, res){
     var sql = 'SELECT *, Ten_ND FROM tbl_nhatro, tbl_nguoidung WHERE ID_ND = ID_ChuTro_NT';
 	conn.query(sql, function(error, results){
 		if(error) {
 			req.session.error = error;
 			res.redirect('/error');
 		} else {
-			res.render('views_danhsach_nhatro', {
+			res.render('admin/nhatro_danhsach', {
 				title: 'Danh sách nhà trọ',
 				NhaTro: results
 			});
@@ -22,12 +36,14 @@ router.get('/danhsach', function(req, res){
 	});
 });
 //GET: Thông tin chi tiết trọ
-router.get('/chitiet/:id_nhatro', function(req, res){
+router.post('/chitiet/:id_nhatro', function(req, res){
 	var id_nhatro = req.params.id_nhatro;
 	var sql = "SELECT *FROM tbl_nhatro WHERE ID_NT = ?;\
 				SELECT Ten_ND, Ngay_DG, NoiDung_DG, Diem_DG FROM tbl_danhgia, tbl_nguoidung \
 				WHERE ID_NhaTro_DG = " + id_nhatro + " AND ID_NguoiDung_DG = ID_ND ORDER BY Ngay_DG DESC;\
-				SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_danhgia WHERE ID_NhaTro_DG = " + id_nhatro;
+				SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_danhgia WHERE ID_NhaTro_DG = " + id_nhatro+";\
+				SELECT * FROM tbl_nhatro WHERE KhuVuc_NT = "+req.body.DiaChi+" LIMIT 3;\
+				SELECT _name FROM province WHERE id="+req.body.DiaChi+"";
 	conn.query(sql, [id_nhatro], function(error, results){
 		if(error){
 			req.session.error = error;
@@ -38,7 +54,10 @@ router.get('/chitiet/:id_nhatro', function(req, res){
 				nt: results[0].shift(),
 				DanhGia: results[1],
 				Diem_TB: results[2].shift(),
-				firstImage: firstImage
+				NhaTro: results[3],
+				KhuVuc: results[4].shift(),
+				firstImage: firstImage,
+				numberFormat
 			});
 		}
 	})
@@ -72,7 +91,7 @@ router.post("/danhgia/:id_nhatro", function (req, res) {
 	}
   });
 //GET: đăng ký trọ
-  router.get('/dangky_nhatro', function(req, res){
+  router.get('/dangky', function(req, res){
 	var sql = 'SELECT * FROM province;\
 		SELECT * FROM tbl_tienich';
 	conn.query(sql, function(error, results){
@@ -112,10 +131,68 @@ router.get('/get_data', function(req, res, next){
 			res.json(results);
 		}
 	});
-	
+});
 
+var validateForm = [
+	check('hovaten')
+		.notEmpty().withMessage('Họ và tên không được bỏ trống.'),
+	check('tendangnhap')
+		.notEmpty().withMessage('Tên đăng nhập không được bỏ trống.')
+		.isLength({ min: 6 }).withMessage('Tên đăng nhập phải lớn hơn 6 ký tự.'),
+	check('matkhau')
+		.notEmpty().withMessage('Mật khẩu không được bỏ trống.')
+		
+];
+//POST: Nhà trọ
+router.post("/dangky", function (req, res) {
+	var errors = validationResult(req);
+	if(!errors.isEmpty()) {
+		res.render('/', {
+			title: '',
+			errors: errors.array()
+		});
+	} else {
+		if(!req.session.ID_ND) {
+			var data = {
+				TenNhaTro_NT: req.body.TenNhaTro_NT,
+				ID_ChuTro_NT: 1,
+				DiaChi_NT: req.body.DiaChi_NT,
+				SoDienThoai_NT: req.body.SoDienThoai_NT,
+				ThongTin_NT: req.body.ThongTin_NT
+			};
+			var sql = 'INSERT INTO tbl_nhatro SET ?';
+			conn.query(sql, data, function(error, results){
+				if(error) {
+					req.session.error = error;
+					res.redirect('/error');
+				} else {
+					req.session.success = 'Đã tạo khóa học thành công và đang chờ kiểm duyệt.';
+					res.redirect('/success');
+				}
+			});
+		} else {
+			res.redirect('/');
+		}
+	}
 });
 
 
+router.get('/get_relate', function(req, res, next){
+	var diachi = req.query.diachi;
+	var sql = "SELECT * FROM tbl_nhatro WHERE DiaChi_NT Like  N'%"+diachi+"%' LIMIT 3";
+	
+	conn.query(sql, function(error, results){
+		if(error) {
+			req.session.error = error;
+			res.redirect('/error');
+		} else {
+			/*var data_arr = [];
+				results.forEach(function(row) {
+					data_arr.push(row.Data)
+			});*/
+			res.json(results);
+		}
+	});
+});
 
 module.exports = router;

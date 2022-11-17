@@ -1,233 +1,70 @@
-<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-  <div class="navbar-brand-wrapper d-flex justify-content-center">
-    <div
-      class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
-    >
-      <a class="navbar-brand brand-logo" href="index.html"
-        ><img src="/public_admin/images/logo.svg" alt="logo"
-      /></a>
-      <a class="navbar-brand brand-logo-mini" href="index.html"
-        ><img src="/public_admin/images/logo-mini.svg" alt="logo"
-      /></a>
-      <button
-        class="navbar-toggler navbar-toggler align-self-center"
-        type="button"
-        data-toggle="minimize"
-      >
-        <span class="mdi mdi-sort-variant"></span>
-      </button>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
+    <link rel="stylesheet" href="/assets/fonts/icomoon/style.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="http://localhost:3000/assets/css/aos.css">
+
+    <link rel="stylesheet" href="http://localhost:3000/assets/css/style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+<!---->
+
+  
+<div class="site-wrap">
+
+  <div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div> <!-- .site-mobile-menu -->
+<div class="site-navbar mt-4">
+  <div class="container py-1">
+    <div class="row align-items-center">
+      <div class="col-8 col-md-8 col-lg-4">
+        <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0"><strong>Homeland<span class="text-danger">.</span></strong></a></h1>
+      </div>
+      <div class="col-4 col-md-4 col-lg-8">
+        <nav class="site-navigation text-right text-md-right" role="navigation">
+
+          <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          <ul class="site-menu js-clone-nav d-none d-lg-block">
+            <li class="active">
+              <a href="/">Trang chủ</a>
+            </li>
+            <li><a href="">Buy</a></li>
+            <li><a href="">Rent</a></li>
+
+            <% if(session.ID_ND) { %>
+            <li class="has-children">
+              <a><%= session.Ten_ND %></a>
+              <ul class="dropdown arrow-top">
+                <li><a href="#">Tài khoản</a></li>
+                  <li><a href="/dangxuat_nguoidung">Đăng xuất</a></li>
+                
+              </ul>
+            </li>
+            
+            <% if(session.Anh_ND!=''){ %> 
+              <li><img src="http://localhost:3000/<%= session.Anh_ND %>" class="rounded-circle" width="30" height="30"/></li>
+            <% }else { %>
+              <li><img src="http://localhost:3000/images/noavartar.png" class="rounded-circle" width="30" height="30"></li>
+            <% } %>
+            <% }else{ %>
+              <li><a href="/dangnhap_nguoidung">Đăng nhập</a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+     
+
     </div>
   </div>
-  <div
-    class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
-  >
-    <ul class="navbar-nav mr-lg-4 w-100">
-      <li class="nav-item nav-search d-none d-lg-block w-100">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="search">
-              <i class="mdi mdi-magnify"></i>
-            </span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Bạn muốn tìm gì"
-            aria-label="search"
-            aria-describedby="search"
-          />
-        </div>
-      </li>
-    </ul>
-    <ul class="navbar-nav navbar-nav-right">
-      <li class="nav-item dropdown mr-1">
-        <a
-          class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
-          id="messageDropdown"
-          href="#"
-          data-toggle="dropdown"
-        >
-          <i class="mdi mdi-message-text mx-0"></i>
-          <span class="count"></span>
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-right navbar-dropdown"
-          aria-labelledby="messageDropdown"
-        >
-          <p class="mb-0 font-weight-normal float-left dropdown-header">
-            Messages
-          </p>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <img
-                src="/public_admin/images/faces/1.jpg"
-                alt="image"
-                class="profile-pic"
-              />
-            </div>
-            <div class="item-content flex-grow">
-              <h6 class="ellipsis font-weight-normal">Tấn Khôi Võ</h6>
-              <p class="font-weight-light small-text text-muted mb-0">
-                The meeting is cancelled
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <img
-                src="/public_admin/images/faces/face2.jpg"
-                alt="image"
-                class="profile-pic"
-              />
-            </div>
-            <div class="item-content flex-grow">
-              <h6 class="ellipsis font-weight-normal">Tim Cook</h6>
-              <p class="font-weight-light small-text text-muted mb-0">
-                New product launch
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <img
-                src="/public_admin/images/faces/face3.jpg"
-                alt="image"
-                class="profile-pic"
-              />
-            </div>
-            <div class="item-content flex-grow">
-              <h6 class="ellipsis font-weight-normal">Johnson</h6>
-              <p class="font-weight-light small-text text-muted mb-0">
-                Upcoming board meeting
-              </p>
-            </div>
-          </a>
-        </div>
-      </li>
-      <li class="nav-item dropdown mr-4">
-        <a
-          class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown"
-          id="notificationDropdown"
-          href="#"
-          data-toggle="dropdown"
-        >
-          <i class="mdi mdi-bell mx-0"></i>
-          <span class="count"></span>
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-right navbar-dropdown"
-          aria-labelledby="notificationDropdown"
-        >
-          <p class="mb-0 font-weight-normal float-left dropdown-header">
-            Notifications
-          </p>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <div class="item-icon bg-success">
-                <i class="mdi mdi-information mx-0"></i>
-              </div>
-            </div>
-            <div class="item-content">
-              <h6 class="font-weight-normal">Application Error</h6>
-              <p class="font-weight-light small-text mb-0 text-muted">
-                Just now
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <div class="item-icon bg-warning">
-                <i class="mdi mdi-settings mx-0"></i>
-              </div>
-            </div>
-            <div class="item-content">
-              <h6 class="font-weight-normal">Settings</h6>
-              <p class="font-weight-light small-text mb-0 text-muted">
-                Private message
-              </p>
-            </div>
-          </a>
-          <a class="dropdown-item">
-            <div class="item-thumbnail">
-              <div class="item-icon bg-info">
-                <i class="mdi mdi-account-box mx-0"></i>
-              </div>
-            </div>
-            <div class="item-content">
-              <h6 class="font-weight-normal">New user registration</h6>
-              <p class="font-weight-light small-text mb-0 text-muted">
-                2 days ago
-              </p>
-            </div>
-          </a>
-        </div>
-      </li>
-      <% if(!session.ID_ND) { %>
-      <li class="nav-item nav-profile dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          data-toggle="dropdown"
-          id="profileDropdown"
-        >
-      
-          <img src="/public_admin/images/faces/noimage.png" alt="profile" />
-          <span class="nav-profile-name">Chưa đăng nhập</span>
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-right navbar-dropdown"
-          aria-labelledby="profileDropdown"
-        >
-          <a href="views_nguoidung_dangky" class="dropdown-item">
-            <i class="mdi mdi-settings text-primary"></i>
-         Đăng ký
-          </a>
-          <a href="views_nguoidung_dangnhap" class="dropdown-item">
-            <i class="mdi mdi-logout text-primary"></i>
-           Đăng nhập
-          </a>
-        </div>
-      </li>
-      <% } else { %>
-        <% if(session.LoaiNguoiDung_ND == 'admin') { %>
-       <li class="nav-item dropdown mr-1">   <span style="font-weight:400;color: crimson;" class="nav-profile-name">Admin! </span></li>
-          <% } %>
-        <% if(session.LoaiNguoiDung_ND == 'chutro') { %>  
-          <li class="nav-item dropdown mr-1">   <span style="font-weight:400;color: crimson;" class="nav-profile-name">Chủ trọ! </span></li>
-          <% } %>
-          <li class="nav-item nav-profile dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              data-toggle="dropdown"
-              id="profileDropdown"
-            >
-          
-              <img src="<%- session.Anh_ND %>"  />
-              <span class="nav-profile-name"><%= session.Ten_ND %> </span>
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-right navbar-dropdown"
-              aria-labelledby="profileDropdown"
-            >
-              <a href="views_nguoidung_dangky" class="dropdown-item">
-                <i class="mdi mdi-settings text-primary"></i>
-              Cài đặt
-              </a>
-              <a href="/dangxuat" class="dropdown-item">
-                <i class="mdi mdi-logout text-primary"></i>
-               Đăng xuất
-              </a>
-            </div>
-          </li>
-          <% } %>
-    </ul>
-    <button
-      class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-      type="button"
-      data-toggle="offcanvas"
-    >
-      <span class="mdi mdi-menu"></span>
-    </button>
-  </div>
-</nav>
+</div>
+</div>
+

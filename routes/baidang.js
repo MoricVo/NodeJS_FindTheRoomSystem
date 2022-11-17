@@ -26,14 +26,14 @@ var validateForm = [
   check("GhiChu_BD").notEmpty().withMessage("Mật khẩu không được bỏ trống."),
 ];
 router.get("/them", function (req, res) {
-  res.render("views_them_baidang", { title: "Thêm bài đăng" });
+  res.render("admin/baidang_them", { title: "Thêm bài đăng" });
 });
 
 router.post("/them", upload.single("Anh_BD"), function (req, res) {
   var errors = validationResult(req);
   if (!errors.isEmpty()) {
     if (req.file) fs.unlink(req.file.path, function (err) {});
-    res.render("views_them_baidang", {
+    res.render("admin/baidang_them", {
       title: "Thêm bài đăng",
       errors: errors.array(),
     });
@@ -59,7 +59,7 @@ router.post("/them", upload.single("Anh_BD"), function (req, res) {
         res.redirect("/error");
       } else {
         req.session.success = "Đã thêm bài đăng thành công.";
-        res.redirect("/views_danhsach_baidang");
+        res.redirect("/baidang");
         // res.redirect('/success');
       }
     });
@@ -74,16 +74,8 @@ router.get("/sua/:id", function (req, res) {
       req.session.error = error;
       res.redirect("/error");
     } else {
-      res.render("views_sua_baidang", {
+      res.render("admin/baidang_sua", {
         title: "Sửa bài đăng",
-        /*ID: results[0].ID,
-				HoVaTen: results[0].HoVaTen,
-				Email: results[0].Email,
-				HinhAnh: results[0].HinhAnh,
-				TenDangNhap: results[0].TenDangNhap,
-				MatKhau: results[0].MatKhau,
-				QuyenHan: results[0].QuyenHan,
-				KichHoat: results[0].KichHoat,*/
         tbl_baidang: results[0],
       });
     }
@@ -132,7 +124,7 @@ router.post("/sua/:id", upload.single("Anh_BD"), function (req, res) {
         req.session.error = error;
         res.redirect("/error");
       } else {
-        res.redirect("/views_danhsach_baidang");
+        res.redirect("/baidang");
       }
     });
   }
@@ -144,7 +136,7 @@ router.get("/", function (req, res) {
     if (error) {
       res.send(error);
     } else {
-      res.render("views_danhsach_baidang", {
+      res.render("admin/baidang_danhsach", {
         title: "Danh sách bài viết!",
         tbl_baidang: results,
       });
@@ -161,7 +153,7 @@ router.get("/xoa/:id", function (req, res) {
       req.session.error = error;
       res.redirect("/error");
     } else {
-      res.redirect("/views_danhsach_baidang");
+      res.redirect("/baidang");
     }
   });
 });

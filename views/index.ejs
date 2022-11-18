@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="http://localhost:3000/assets/css/slider.css">
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="http://localhost:3000/js/sweetalert2.js"></script>
   <style>
     input#timkiem{
       border: 0;
@@ -28,19 +29,7 @@
 			width: 700px;
 		}
   </style>
-  <script>
-    function Success(sc){
-      Swal.fire({
-      position: 'top',
-      icon: 'success',
-      title: sc,
-      timer: 1300,
-      customClass: 'swal-wide',
-      showCancelButton: false,
-  showConfirmButton: false
-      })
-    }
-     </script>
+
   </head>
   <body>
       <%- include('Views_Include/navbar') %>

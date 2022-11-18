@@ -144,7 +144,6 @@ router.get("/", function (req, res) {
   });
 });
 
-// GET: Xóa tài khoản
 router.get("/xoa/:id", function (req, res) {
   var id = req.params.id;
   var sql = "DELETE FROM tbl_baidang WHERE ID_BD = ?";

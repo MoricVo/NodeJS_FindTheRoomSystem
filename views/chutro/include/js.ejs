@@ -1,0 +1,124 @@
+<script src="http://localhost:3000/assets/js/jquery-3.3.1.min.js"></script>
+  <script src="http://localhost:3000/assets/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="http://localhost:3000/assets/js/jquery-ui.js"></script>
+  <script src="http://localhost:3000/assets/js/popper.min.js"></script>
+  <script src="http://localhost:3000/assets/js/bootstrap.min.js"></script>
+  <script src="http://localhost:3000/assets/js/owl.carousel.min.js"></script>
+  <script src="http://localhost:3000/assets/js/mediaelement-and-player.min.js"></script>
+  <script src="http://localhost:3000/assets/js/jquery.stellar.min.js"></script>
+  <script src="http://localhost:3000/assets/js/jquery.countdown.min.js"></script>
+  <script src="http://localhost:3000/assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="http://localhost:3000/assets/js/bootstrap-datepicker.min.js"></script>
+  <script src="http://localhost:3000/assets/js/aos.js"></script>
+
+  <script src="http://localhost:3000/assets/js/main.js"></script>
+
+  <script>
+    function _(element){	
+		return document.getElementById(element)
+	}
+
+	function fetch_data(parent_el, child_el, type){
+		fetch('/get_data?type=' + type + '&parent_value=' + parent_el.value +'').then(
+			function(response){
+				return response.json();
+			}
+		).then(function(responseData){
+			var html = '';
+			if(type == 'load_district'){
+				html = '<option value = ""></option>'
+			}
+			if(type == 'load_ward'){
+				html = '<option value = ""></option>'
+			}
+
+			for(var count = 0; count<responseData.length; count++){
+				html += '<option value="'+ responseData[count].id+'">'+ responseData[count]._prefix + " " + responseData[count]._name +' </option>';
+			}
+			
+			child_el.innerHTML = html;
+		});
+	}
+    var arr=['','','',''];
+    var tmp1 = 0, tmp2=0, tmp3=0;
+	_('province').onchange = function(){
+		fetch_data(_('province'), _('district'), 'load_district');
+        var d = document.getElementById('province');
+        var display = d.options[d.selectedIndex].text;
+        arr[3] = display;
+        if(d.options[d.selectedIndex].index !=tmp1){
+            arr[0]=''; arr[1] = ''; arr[2]='';
+            tmp1 = d.options[d.selectedIndex].index;
+        }
+        document.getElementById('timkiem').value = arr[0]+arr[1]+arr[2]+arr[3];
+	};
+	_('district').onchange = function(){
+		fetch_data(_('district'), _('ward'), 'load_ward');
+        var d = document.getElementById('district');
+        var display = d.options[d.selectedIndex].text;
+        arr[2] = display + ", ";
+        if(d.options[d.selectedIndex].index !=tmp2){
+            arr[0]=''; arr[1] = '';
+            tmp2 = d.options[d.selectedIndex].index;
+        }
+        document.getElementById('timkiem').value = arr[0]+arr[1]+arr[2]+arr[3];
+	};
+    _('ward').onchange = function(){
+        var d = document.getElementById('ward');
+        var display = d.options[d.selectedIndex].text;
+        arr[1] = display + ", ";
+        if(d.options[d.selectedIndex].index !=tmp3){
+            arr[0]='';
+            tmp3 = d.options[d.selectedIndex].index;
+        }
+        document.getElementById('timkiem').value = arr[0]+arr[1]+arr[2]+arr[3];
+	};
+  </script>
+
+
+
+
+<script>
+  const rangeInput = document.querySelectorAll(".range-input input"),
+priceInput = document.querySelectorAll(".price-input input"),
+range = document.querySelector(".slider .progress");
+let priceGap = 1000;
+
+priceInput.forEach(input =>{
+    input.addEventListener("input", e =>{
+        let minPrice = parseInt(priceInput[0].value),
+        maxPrice = parseInt(priceInput[1].value);
+        
+        if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
+            if(e.target.className === "input-min"){
+                rangeInput[0].value = minPrice;
+                range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+            }else{
+                rangeInput[1].value = maxPrice;
+                range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+            }
+        }
+    });
+});
+
+rangeInput.forEach(input =>{
+    input.addEventListener("input", e =>{
+        let minVal = parseInt(rangeInput[0].value),
+        maxVal = parseInt(rangeInput[1].value);
+
+        if((maxVal - minVal) < priceGap){
+            if(e.target.className === "range-min"){
+                rangeInput[0].value = maxVal - priceGap
+            }else{
+                rangeInput[1].value = minVal + priceGap;
+            }
+        }else{
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+            range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        }
+    });
+});
+</script>
+

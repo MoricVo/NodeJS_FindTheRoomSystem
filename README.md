@@ -1,2 +1,2 @@
 # NodeJS_FindTheRoomSystem
-Đồ án môn học đồ án 2 sử dụng NodeJS và ReactjS
+Đồ án môn học đồ án 2 sử dụng NodeJS

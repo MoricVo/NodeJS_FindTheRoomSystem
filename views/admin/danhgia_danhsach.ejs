@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/public_admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <%- include('Views_Include/navbar'); %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <%- include('Views_Include/sidebar'); %>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+           
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Dữ liệu người dùng đánh giá!</h4>
+          <div class="header-sub-title">
+            <nav class="breadcrumb breadcrumb-dash">
+                <a  class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                <a href="/views_danhsach_baidang"  class="breadcrumb-item text-success"> Danh sách các trọ đánh giá</a>
+                <span class="breadcrumb-item active">Xóa toàn bộ</span>
+            </nav>
+        </div>
+        
+        <div class="btn-group ">
+          <div class="col-lg-15  ">
+              <form class="d-flex" role="search">
+                  <input style="max-width:250px;max-height:40px; border-color: darkblue;padding-right: 30px;" class="form-control me-2 " type="search" placeholder="Bạn muốn tìm gì?" aria-label="Search">
+      
+              </form>
+          </div>
+      </div>
+      <!-- Example single danger button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           ----Nhà trọ----
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </div>
+      <button style="float: right;" type="button" class="btn btn-danger btn-icon-text">
+        <i class="mdi mdi-upload btn-icon-prepend"></i>                                                    
+        Thêm mới
+      </button>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Tùy chọn</th>            
+                  <th scope="col">ID đánh giá</th>
+                  <th scope="col">Nhà trọ</th>
+                  <th scope="col">Người đánh giá</th>
+                  <th scope="col">Nội dung</th>
+                  <th scope="col">Điểm đánh giá</th>
+                  <th scope="col">Ngày đánh giá</th>              
+                </tr>
+              </thead>
+            
+              <tbody>
+                <% tbl_danhgia.forEach(function(bd) { %>
+           
+                  <tr>
+                    <td>
+                      <div class="btn-group ">
+                        <button type="button" class="btn btn-success">Tùy chọn</button>
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" id="dropdownMenuSplitButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div style="border-radius: 5px; border: 2px solid #a21f32; background-color:darkorange;width: 400px;" class="dropdown-menu" aria-labelledby="dropdownMenuSplitButton3">
+                            <h6 style="text-align:center;" class="dropdown-header">----Chức năng----</h6>
+                            <a class="btn btn-outline-success btn-icon-text" > Cập nhật <i class="mdi mdi-file-check btn-icon-append"></i></a> |
+                            <a class="btn btn-outline-primary btn-icon-text" > <i class="mdi mdi-file-check btn-icon-prepend"></i> Chi tiết</a> |
+                            <a class="btn btn-outline-danger btn-icon-text">  <i class="mdi mdi-alert btn-icon-prepend"></i> Xóa</a>
+            
+                        </div>
+                    </div>
+                     </td>
+                    <th scope="row" class="text-info"><%= bd.ID_DG %></th>
+                   
+          
+                    <% if(bd.ID_NhaTro_DG==1){ %>
+          
+                      <th scope="row" class="text-info"><%= bd.TenNhaTro_NT %></th>
+                      <% } else { %>
+                        <%  if(bd.ID_NhaTro_DG==2) { %>
+                          <th scope="row" class="text-danger"><%= bd.TenNhaTro_NT %></th>
+                         
+                        
+                      <% } %>
+                      <% } %>
+                    <td><%=bd.Ten_ND %></td>
+                    <td><%=bd.NoiDung_DG %></td>
+                    <td><%=bd.Diem_DG %></td>
+                    <td><%=bd.Ngay_DG %></td>
+                  
+                 
+                    <!-- <td ><a style="font-size: 25px;color:crimson " href="/views_danhsach_danhgia/xoa/<%= bd.ID_DG %>" onclick="return confirm('Bạn có muốn xóa bài đánh giá có mã số <%= bd.ID_DG %> không?');">Xóa <i class="fa-sharp fa-solid fa-trash-can"></i></a></td> -->
+                  </tr>
+                  <% });%>
+                </tbody>
+             
+             
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <%- include('Views_Include/footer'); %>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="/public_admin/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/public_admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/public_admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/public_admin/js/off-canvas.js"></script>
+    <script src="/public_admin/js/hoverable-collapse.js"></script>
+    <script src="/public_admin/js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/public_admin/js/dashboard.js"></script>
+    <script src="/public_admin/js/data-table.js"></script>
+    <script src="/public_admin/js/jquery.dataTables.js"></script>
+    <script src="/public_admin/js/dataTables.bootstrap4.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

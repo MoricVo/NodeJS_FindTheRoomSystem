@@ -21,14 +21,14 @@ function numberFormat(num){
 	return output;
 }
 // GET: Danh sách nhà trọ
-router.get('/danhsach', function(req, res){
+router.get('/', function(req, res){
     var sql = 'SELECT *, Ten_ND FROM tbl_nhatro, tbl_nguoidung WHERE ID_ND = ID_ChuTro_NT';
 	conn.query(sql, function(error, results){
 		if(error) {
 			req.session.error = error;
 			res.redirect('/error');
 		} else {
-			res.render('views_danhsach_nhatro', {
+			res.render('admin/nhatro_danhsach', {
 				title: 'Danh sách nhà trọ',
 				NhaTro: results
 			});
@@ -90,6 +90,7 @@ router.post("/danhgia/:id_nhatro", function (req, res) {
 	  });
 	}
   });
+<<<<<<< HEAD
 //GET: đăng ký trọ
   router.get('/dangky', function(req, res){
 	var sql = 'SELECT * FROM province;\
@@ -107,18 +108,13 @@ router.post("/danhgia/:id_nhatro", function (req, res) {
 		}
 	});	
 });
+=======
+>>>>>>> origin
 
-
-
-router.get('/get_data', function(req, res, next){
-	var type = req.query.type;
-	var search_query = req.query.parent_value;
-	if(type == 'load_district'){
-		var sql = 'SELECT * FROM district WHERE _province_id = ' + search_query +' ORDER BY _name ASC';
-	}
-	if(type == 'load_ward'){
-		var sql = 'SELECT * FROM ward WHERE _district_id = ' + search_query +' ORDER BY _name ASC';
-	}
+router.get('/get_relate', function(req, res, next){
+	var diachi = req.query.diachi;
+	var sql = "SELECT * FROM tbl_nhatro WHERE DiaChi_NT Like  N'%"+diachi+"%' LIMIT 3";
+	
 	conn.query(sql, function(error, results){
 		if(error) {
 			req.session.error = error;
@@ -131,6 +127,7 @@ router.get('/get_data', function(req, res, next){
 			res.json(results);
 		}
 	});
+<<<<<<< HEAD
 });
 
 var validateForm = [
@@ -195,4 +192,8 @@ router.get('/get_relate', function(req, res, next){
 	});
 });
 
+=======
+});
+
+>>>>>>> origin
 module.exports = router;

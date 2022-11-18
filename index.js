@@ -11,7 +11,12 @@ var nhatroRouter = require('./routes/nhatro');
 var taikhoanRouter = require('./routes/admin');
 var nguoidung_dangnhap_dangkyRouter=require('./routes/nguoidung_dangnhap_dangky');
 var nguoidungRouter=require('./routes/nguoidung');
-var tienichRouter=require('./routes/tienich');
+var danhgiaRouter=require('./routes/danhgia');
+
+var chutroRouter=require('./routes/chutro');
+
+var KiemDuyetBDRouter=require('./routes/baidang');
+var KiemDuyetNDRouter=require('./routes/nguoidung');
 var { get } = require('express/lib/response');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -55,11 +60,15 @@ app.use(function(req, res, next){
 app.use('/', indexRouter);
 // app.use('/', adminRouter);
 app.use('/views_danhsach_admin', taikhoanRouter);
-app.use('/views_danhsach_baidang',baidangRouter);
+app.use('/baidang',baidangRouter);
 app.use('/',nguoidung_dangnhap_dangkyRouter);
-app.use('/views_danhsach_nguoidung',nguoidungRouter);
-app.use('/views_danhsach_tienich',tienichRouter);
+app.use('/nguoidung',nguoidungRouter);
+app.use('/danhgia',danhgiaRouter);
 app.use('/nhatro',nhatroRouter);
+app.use('/chutro', chutroRouter);
+app.use('/kiemduyet_baiviet',KiemDuyetBDRouter);
+app.use('/kiemduyet_nguoidung',KiemDuyetNDRouter);
+
 // app.get('/',function(req,res)
 // {
 //        res.send('Trang chủ')

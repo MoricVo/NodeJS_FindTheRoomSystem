@@ -5,8 +5,8 @@
 
  CKEDITOR.editorConfig = function( config ) {
 	config.language = 'vi';
-	config.uiColor = '#74c0fc';
-	config.height = 500;
+	config.uiColor = '#ffffff';
+	config.height = 250;
 	config.removePlugins = 'elementspath,exportpdf';
 	config.resize_enabled = false;
 	
@@ -24,7 +24,6 @@
 		{ name: 'insert', groups: [ 'insert' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'others', groups: [ 'others' ] },
-		{ name: 'about', groups: [ 'about' ] }
 	];
 	config.removeButtons = 'Save,Print,ExportPdf,Paste,PasteFromWord,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,Language,Anchor,Flash,SpecialChar,PageBreak';
 };

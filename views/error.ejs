@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/public_admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <%- include('Views_Include/navbar'); %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <!-- partial -->
+		<div class="container">
+			<!-- Navbar -->
 
+<<<<<<< HEAD
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,36 +69,96 @@
 		</div>
 		</div>
 >>>>>>> 495
-		
-		<!-- Card: Header and Footer -->
-		<div class="card mt-3">
-			<div class="card-header"><%= title %></div>
-			<div class="card-body">
-				<% if(errorMsg) { %>
-					<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
-						<%= errorMsg %>
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-				<% } %>
-			</div>
-<<<<<<< HEAD
-		</div>
-		
-		<!-- Footer -->
-		
 =======
-			<figure  class="figure">
-				<img width="400" height="200" src="/1.png" class="figure-img img-fluid rounded" alt="...">
-				<figcaption class="figure-caption">Cảm ơn bạn vì đã tin tưởng.</figcaption>
-			  </figure>
-		</div>
+>>>>>>> origin
 		
-		<!-- Footer -->
-		<%- include('Views_Include/footer'); %>
->>>>>>> 495
-	</div>
-	
 
+		
+
+			
+			<!-- Card: Header and Footer -->
+			<div class="card mt-3">
+				<div class="card-header"><%= title %></div>
+				<div class="card-body">
+					<% if(errorMsg) { %>
+						<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+							<%= errorMsg %>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					<% } %>
+				</div>
+
+			</div>
+			
+			<!-- Footer -->
+			
+
+				<figure  class="figure">
+					<img width="400" height="200" src="/1.png" class="figure-img img-fluid rounded" alt="...">
+					<figcaption class="figure-caption">Cảm ơn bạn vì đã tin tưởng.</figcaption>
+				  </figure>
+			</div>
+			
+			<!-- Footer -->
+		
+		</div>
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="/public_admin/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/public_admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/public_admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/public_admin/js/off-canvas.js"></script>
+    <script src="/public_admin/js/hoverable-collapse.js"></script>
+    <script src="/public_admin/js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/public_admin/js/dashboard.js"></script>
+    <script src="/public_admin/js/data-table.js"></script>
+    <script src="/public_admin/js/jquery.dataTables.js"></script>
+    <script src="/public_admin/js/dataTables.bootstrap4.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
 </body>
 <%- include('Views_Include/js'); %>
 </html>
+=======
+
+>>>>>>> origin

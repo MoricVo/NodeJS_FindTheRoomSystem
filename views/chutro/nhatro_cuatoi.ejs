@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chào mừng <%= session.Ten_ND %></title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/chutro/assets/vendors/iconfonts/mdi/css/materialdesignicons.css">
+ 
+    <link rel="stylesheet" href="/chutro/assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="/chutro/assets/css/demo_1/style.css">
+    <!-- Layout style -->
+    <link rel="shortcut icon" href="/chutro/assets//images/favicon.ico" />
+    
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="http://localhost:3000/js/sweetalert2.js"></script>
+</head>
+<body class="header-fixed">
+    <% if(session.sc) { %> 
+        <script>Success("<%= session.sc %>")</script>
+      <% } session.sc = null %> %>
+    <%- include('include/header') %>
+    <%- include('include/header') %>
+    <div class="page-body">
+        <%- include('include/sidebar') %>
+        <div class="page-content-wrapper">
+            <div class="page-content-wrapper-inner">
+                <div class="content-viewport">
+                <div class="row" >
+                    <div class="col-12 py-5">
+                        <div class="grid">
+                            <p class="grid-header">DANH SÁCH NHÀ TRỌ</p>
+                            <div class="item-wrapper">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                    <th>#</th>
+                                    <th>Tên trọ</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng phòng</th>
+                                    <th>Ngày đăng ký</th>
+                                    <th>Trạng thái</th>
+                                    <th>Địa chỉ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% var stt = 1 %>
+                                    <% NhaTro.forEach(function(nt){ %>
+                                        <tr>
+                                        <td><%= stt++ %></td>
+                                        <td><%= nt.TenNhaTro_NT %></td>
+                                        <td><%-numberFormat(nt.Gia_NT) %></td>
+                                        <td><%= nt.SoLuongPhong_NT %></td>
+                                        <td><%= new Date(nt.NgayDang_NT.toISOString()).getDate() %> thg<%= new Date(nt.NgayDang_NT.toISOString()).getMonth()+1 %>, <%= new Date(nt.NgayDang_NT.toISOString()).getFullYear() %></td>
+                                        <td>
+                                            <label class="badge badge-danger">Full</label>
+                                        </td>
+                                        
+                                        <td id="diachi"><%= nt.DiaChi_NT %></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+</body>
+<script src="/chutro/assets/vendors/js/core.js"></script>
+    <!-- endinject -->
+    <!-- Vendor Js For This Page Ends-->
+<script src="/chutro/assets/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="/chutro/assets/vendors/chartjs/Chart.min.js"></script>
+<script src="/chutro/assets/js/charts/chartjs.addon.js"></script>
+<!-- Vendor Js For This Page Ends-->
+<!-- build:js -->
+<script src="/chutro/assets/js/template.js"></script>
+<script src="/chutro/assets/js/dashboard.js"></script>
+</html>

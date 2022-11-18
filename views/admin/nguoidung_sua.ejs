@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+	<title><%= title %></title>
+</head>
+
+<body>
+		<!-- Navbar -->
+	    <div class="container-scroller">
+			<!-- partial:partials/_navbar.html -->
+			<%- include('Views_Include/navbar'); %>
+			<!-- partial -->
+			<div class="container-fluid page-body-wrapper">
+			  <!-- partial:partials/_sidebar.html -->
+			  <%- include('Views_Include/sidebar'); %>
+			  <!-- partial -->
+			  <div class="main-panel">
+				<div class="content-wrapper">
+				 
+		  <div class="col-lg-12 grid-margin stretch-card">
+			<div class="card">
+			  <div class="card-body">
+
+		<!-- Card: Header and Footer -->
+		<div class="card mt-3">
+			<div class="card-header"><%= title %></div>
+			<div class="card-body">
+				<% if(typeof errors != 'undefined') { %>
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<ul class="mb-0">
+							<% errors.forEach(function(err){ %>
+								<li><%= err.msg %></li>	
+							<% }); %>
+						</ul>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				<% } %>
+				<form action="/nguoidung/sua/<%= tbl_nguoidung.ID_ND %>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+					<div class="mb-3">
+						<label for="Ten_ND" class="form-label">Tên người dùng:</label>
+						<input type="text" class="form-control" id="Ten_ND" name="Ten_ND" value="<%= tbl_nguoidung.Ten_ND %>" required>
+					</div>
+					<div class="mb-3">
+						<label for="TenDN_ND" class="form-label">Tài khoản</label>
+						<input type="text" class="form-control" id="TenDN_ND" name="TenDN_ND" value="<%= tbl_nguoidung.TenDN_ND %>" required>
+						<span class="d-block small text-primary">Bỏ trống nếu muốn giữ nguyên tài khoản cũ.</span>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="MK_ND">Mật khẩu:</label>
+						<input type="text" class="form-control" id="MK_ND" name="MK_ND" value="<%= tbl_nguoidung.MK_ND %>" required>
+						<!-- <span class="d-block small text-primary">Bỏ trống nếu muốn giữ nguyên ảnh cũ.</span> -->
+					</div>
+                    <div class="mb-3">
+						<label class="form-label" for="NgaySinh_ND">Ngày sinh:</label>
+						<input type="date" class="form-control" id="NgaySinh_ND" name="NgaySinh_ND" value="<%= tbl_nguoidung.NgaySinh_ND %>" required>
+						<!-- <span class="d-block small text-primary">Bỏ trống nếu muốn giữ nguyên ảnh cũ.</span> -->
+					</div>
+                    <div class="mb-3">
+						<label class="form-label" for="Anh_ND">Hình ảnh:</label>
+						<input type="file" class="form-control" id="Anh_ND" name="Anh_ND">
+						<span class="d-block small text-primary">Bỏ trống nếu muốn giữ nguyên ảnh cũ.</span>
+					</div>
+					<div class="mb-3">
+						<label for="LoaiNguoiDung_ND" class="form-label">Loại người dùng</label>
+						<input type="text" class="form-control" id="LoaiNguoiDung_ND" name="LoaiNguoiDung_ND" value="<%= tbl_nguoidung.LoaiNguoiDung_ND %>" required>
+					</div>
+					
+					<div class="mb-3">
+						<label for="Email_ND" class="form-label">Email:</label>
+						<input type="email" class="form-control" id="Email_ND" name="Email_ND" value="<%= tbl_nguoidung.Email_ND %>" required>
+					
+					</div>
+					<div class="mb-3">
+						<label for="DienThoai_ND" class="form-label">Điện thoại:</label>
+						<input type="text" class="form-control" id="DienThoai_ND" name="DienThoai_ND" value="<%= tbl_nguoidung.DienThoai_ND %>" required>
+					
+					</div>
+                    <div class="mb-3">
+						<label for="DiaChi_ND" class="form-label">Địa chỉ:</label>
+						<input type="text" class="form-control" id="DiaChi_ND" name="DiaChi_ND" value="<%= tbl_nguoidung.DiaChi_ND %>" required>
+					
+					</div>
+                    <div class="mb-3">
+						<label for="CMND_ND" class="form-label">CMND:</label>
+						<input type="text" class="form-control" id="CMND_ND" name="CMND_ND" value="<%= tbl_nguoidung.CMND_ND %>" required>
+					
+					</div>
+                    <div class="mb-3">
+						<label for="KichHoat_ND" class="form-label">Kích hoạt:</label>
+						<input type="number" class="form-control" id="KichHoat_ND" name="KichHoat_ND" value="<%= tbl_nguoidung.KichHoat_ND %>" required>
+					
+					</div>
+                    <div class="mb-3">
+						<label for="NgayDang_ND" class="form-label">Ngày đăng:</label>
+						<input type="date" class="form-control" id="NgayDang_ND" name="NgayDang_ND" value="<%= tbl_nguoidung.NgayDang_ND %>" required>
+					
+					</div>
+
+					<button type="submit" class="btn btn-primary">Cập nhật tài khoản</button>
+				</form>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+	</div>
+	
+</body>
+
+</html>

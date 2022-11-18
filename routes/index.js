@@ -9,7 +9,16 @@ function numberFormat(num){
 	var output = n.format(num);
 	return output;
 }
+<<<<<<< HEAD
 
+=======
+router.get('/admin/',function(req,res)
+{
+	res.render('admin/index',{
+		title: 'Home'
+	});
+});
+>>>>>>> origin
 router.get('/',function(req,res)
 {
 	var sql = 'SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
@@ -25,6 +34,10 @@ router.get('/',function(req,res)
 				title: 'Home',
 				TuKhoa: "",
 				max: "",
+<<<<<<< HEAD
+=======
+				nt: results[0],
+>>>>>>> origin
 				NhaTro: results[0],
 				Provinces: results[1],
 				numberFormat: numberFormat,
@@ -62,7 +75,11 @@ router.post('/timkiem',function(req,res)
 	var tukhoa = req.body.timkiem;
 	var sql = "SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* \
 	FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG AND DiaChi_NT LIKE N'%"+tukhoa+"%' GROUP BY ID_NT;\
+<<<<<<< HEAD
 	SELECT * FROM province";
+=======
+	SELECT * FROM province; SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;";
+>>>>>>> origin
 	conn.query(sql, [tukhoa], function(error, results){
 		if(error){
 			req.session.error = error;
@@ -73,6 +90,10 @@ router.post('/timkiem',function(req,res)
 				title: 'Home',
 				TuKhoa: tukhoa,
 				max:"",
+<<<<<<< HEAD
+=======
+				nt: results[2],
+>>>>>>> origin
 				NhaTro: results[0],
 				Provinces: results[1],
 				numberFormat: numberFormat,
@@ -88,7 +109,12 @@ router.post('/locgia', function(req, res, next){
 	var max = req.body.max;
 	var sql = 'SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro \
 	WHERE ID_NT=ID_NhaTro_DG AND (Gia_NT BETWEEN '+min*1000+' AND '+max*1000+') GROUP BY ID_NT ORDER BY Gia_NT ASC;\
+<<<<<<< HEAD
 	SELECT * FROM province';
+=======
+	SELECT * FROM province;\
+	SELECT * FROM province; SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;'
+>>>>>>> origin
 	
 	conn.query(sql, function(error, results){
 		if(error){
@@ -103,6 +129,10 @@ router.post('/locgia', function(req, res, next){
 				max: max,
 				NhaTro: results[0],
 				Provinces: results[1],
+<<<<<<< HEAD
+=======
+				nt: results[2],
+>>>>>>> origin
 				numberFormat: numberFormat,
 				firstImage: firstImage
 			});

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/base/vendor.bundle.base.css"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public_admin/css/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/public_admin/images/favicon.png" />
+    <style>
+      @media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+
+.gradient-custom-2 {
+/* fallback for old browsers */
+background: #a1c4fd;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1))
+}
+
+.bg-indigo {
+background-color: #4835d4;
+}
+@media (min-width: 992px) {
+.card-registration-2 .bg-indigo {
+border-top-right-radius: 15px;
+border-bottom-right-radius: 15px;
+}
+}
+@media (max-width: 991px) {
+.card-registration-2 .bg-indigo {
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+}
+}
+
+  </style>
+  
+  
+  
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <%- include('Views_Include/navbar'); %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <%- include('Views_Include/sidebar'); %>
+        <!-- partial -->
+        <div class="main-panel">
+          <section class="h-100 h-custom gradient-custom-2">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                  <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                      <% if(typeof errors != 'undefined') { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <ul class="mb-0">
+                            <% errors.forEach(function(err){ %>
+                              <li><%= err.msg %></li>	
+                            <% }); %>
+                          </ul>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      <% } %>
+                    <form action="views_nguoidung_dangky" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                      <div  class="row g-0">
+                        <div class="col-lg-6">
+                          <div class="p-5">
+                            <h3 class="fw-normal mb-5" style="color: #4835d4;">Thông tin cá nhân</h3>
+                          
+                            <div class="col-md-6 mb-4">
+      
+                              <h6 class="mb-2 pb-1">Loại người dùng </h6>
+            
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LoaiNguoiDung_ND" id="LoaiNguoiDung_ND"
+                                  value="khachhang" checked />
+                                <label class="form-check-label" for="GioiTinh">Khách hàng</label>
+                              </div>
+            
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="LoaiNguoiDung_ND" id="LoaiNguoiDung_ND"
+                                  value="chutro" />
+                                <label class="form-check-label" for="GioiTinh">Chủ trọ</label>
+                              </div>
+            
+                            
+            
+                            </div>
+          
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+          
+                                <div class="form-outline">
+                                  <input type="text" id="TenDN_ND" name="TenDN_ND" class="form-control form-control-lg" required />
+                                  <label class="form-label" for="TenDN_ND">Tên đăng nhập</label>
+                                </div>
+          
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+          
+                                <div class="form-outline">
+                                  <input type="password" id="MK_ND" name="MK_ND" class="form-control form-control-lg" required />
+                                  <label class="form-label" for="MK_ND">Mật khẩu</label>
+                                </div>
+          
+                              </div>
+                            </div>
+          
+                            <div class="mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input type="text" id="Ten_ND" name="Ten_ND" class="form-control form-control-lg" required />
+                                  <label class="form-label" for="Ten_ND">Tên người dùng</label>
+                                </div>
+                              </div>
+                            <div class="mb-4 pb-2">
+                              <div class="form-outline">
+                                <input type="text" id="NgaySinh_ND" name="NgaySinh_ND" class="form-control form-control-lg" required />
+                                <label class="form-label" for="NgaySinh_ND">Ngày sinh</label>
+                              </div>
+                            </div>
+                            <div class="mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input type="file" id="Anh_ND" name="Anh_ND" class="form-control form-control-lg" required />
+                                  <label class="form-label" for="Anh_ND">Chọn ảnh</label>
+                                </div>
+                              </div>
+          
+                        
+          
+                          </div>
+                        </div>
+                        <div class="col-lg-6 bg-indigo text-white">
+                          <div class="p-5">
+                            <h3 class="fw-normal mb-5">Địa chỉ liên hệ</h3>
+          
+                            <div class="mb-4 pb-2">
+                              <div class="form-outline form-white">
+                                <input type="text" id="Email_ND" name="Email_ND" class="form-control form-control-lg" required />
+                                <label class="form-label" for="Email_ND">Email</label>
+                              </div>
+                            </div>
+          
+                            <div class="mb-4 pb-2">
+                              <div class="form-outline form-white">
+                                <input type="text" id="DienThoai_ND" name="DienThoai_ND" class="form-control form-control-lg" required />
+                                <label class="form-label" for="DienThoai_ND">SDT</label>
+                              </div>
+                            </div>
+          
+                            <div class="row">
+                              <div class="col-md-5 mb-4 pb-2">
+          
+                                <div class="form-outline form-white">
+                                  <input type="text" id="DiaChi_ND" name="DiaChi_ND" class="form-control form-control-lg" required/>
+                                  <label class="form-label" for="DiaChi_ND">Địa chỉ</label>
+                                </div>
+          
+                              </div>
+                              <div class="col-md-7 mb-4 pb-2">
+          
+                                <div class="form-outline form-white">
+                                  <input type="text" id="CMND_ND" name="CMND_ND" class="form-control form-control-lg" required/>
+                                  <label class="form-label" for="CMND_ND">CCCD</label>
+                                </div>
+          
+                              </div>
+                            </div>
+          
+          
+                          
+                            <button type="submit" class="btn btn-light btn-lg"
+                              data-mdb-ripple-color="dark">Đăng ký tài khoản</button>
+                     
+                          </div>
+                     
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="content-wrapper">
+           
+            
+         
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+         
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+  </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="/public_admin/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/public_admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/public_admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="/public_admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/public_admin/js/off-canvas.js"></script>
+    <script src="/public_admin/js/hoverable-collapse.js"></script>
+    <script src="/public_admin/js/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/public_admin/js/dashboard.js"></script>
+    <script src="/public_admin/js/data-table.js"></script>
+    <script src="/public_admin/js/jquery.dataTables.js"></script>
+    <script src="/public_admin/js/dataTables.bootstrap4.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

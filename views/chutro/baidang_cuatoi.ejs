@@ -51,7 +51,7 @@
                                         <td><%= stt++ %></td>
                                         <td><%= bd.TieuDe_BD %></td>
                                         <td><%= bd.TomTat_BD %></td>
-                                        <td><%= new Date(bd.NgayDang_BD.toISOString()).getDate() %> thg<%= new Date(bd.NgayDang_BD.toISOString()).getMonth()+1 %>, <%= new Date(bd.NgayDang_BD.toISOString()).getFullYear() %></td>
+                                        <td><%- formatDate(bd.NgayDang_BD) %></td>
                                         <td><%= bd.LuotXem_BD %></td>
                                         <% if(bd.KiemDuyet_BD==0){ %> 
                                         <td>

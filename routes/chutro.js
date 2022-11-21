@@ -25,6 +25,12 @@ function numberFormat(num){
 	var output = n.format(num);
 	return output;
 }
+function formatDate(date){
+	let day=date.getDate();
+	let month=date.getMonth()+1;
+	let year=date.getFullYear();
+	return day+" thg "+month+", "+year;
+}
 
 router.get('/dangky_chutro', function(req, res){
 	res.render('chutro/dangnhap_chutro', { title: 'Đăng nhập tài khoản để sử dụng!' });
@@ -200,7 +206,7 @@ var validateForm = [
 	check('matkhau')
 		.notEmpty().withMessage('Mật khẩu không được bỏ trống.')
 ];
-//POST: Nhà trọ
+//POST: đăng ký Nhà trọ
 router.post("/dangky_nhatro", function (req, res) {
 	var errors = validationResult(req);
 	if(!errors.isEmpty()) {
@@ -227,7 +233,7 @@ router.post("/dangky_nhatro", function (req, res) {
 					res.redirect('/error');
 				} else {
 					req.session.sc = 'Đăng ký trọ thành công và đang chờ kiểm duyệt.';
-					res.render('chutro/index_chutro');
+					res.redirect('/chutro/nhatro_cuatoi');
 				}
 			});
 		} else {
@@ -247,7 +253,8 @@ router.get('/baidang_cuatoi', function(req, res){
 			res.render('chutro/baidang_cuatoi', {
 				title: 'Danh sách bài đăng của '+req.session.Ten_ND,
 				BaiDang: results,
-                numberFormat
+                numberFormat,
+				formatDate
 			});
 		}
 	});
@@ -301,4 +308,41 @@ router.get("/baidang_xoa/:id", function (req, res) {
 	});
   });
 
+// GET: Sửa tài khoản
+router.get("/baidang_sua/:id", function (req, res) {
+	var id = req.params.id;
+	var sql = "SELECT * FROM tbl_baidang WHERE ID_BD = ?";
+	conn.query(sql, [id], function (error, results) {
+	  if (error) {
+		req.session.error = error;
+		res.redirect("/error");
+	  } else {
+		res.render("chutro/baidang_sua", {
+		  title: "Sửa bài đăng",
+		  BaiDang: results.shift(),
+		});
+	  }
+	});
+});
+router.post("/baidang_sua/:id", upload.single("Anh_BD"), function (req, res) {
+	
+	var baidang = {
+	TieuDe_BD: req.body.TieuDe_BD,
+	NoiDung_BD: req.body.NoiDung_BD,
+	NgayCapNhat_BD: null,
+	KiemDuyet_BD: 0,
+	};
+	var id = req.params.id;
+	var sql = "UPDATE tbl_baidang SET ? WHERE ID_BD = ?";
+	conn.query(sql, [baidang, id], function (error, results) {
+	if (error) {
+		req.session.error = error;
+		res.redirect("/error");
+	} else {
+		req.session.sc = 'Sửa bài đăng thành công, chờ kiểm duyệt.';
+		res.redirect("/chutro/baidang_cuatoi");
+	}
+	});
+
+});
 module.exports = router;

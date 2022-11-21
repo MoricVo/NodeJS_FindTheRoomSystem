@@ -8,9 +8,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
 	<script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
 	<link href="http://localhost:3000/css/dropzone.css" rel="stylesheet">
-
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="http://localhost:3000/js/sweetalert2.js"></script>
 	<title><%= title %></title>
 	<style>
 	</style>
@@ -18,9 +15,6 @@
 </head>
 
 <body>
-	<% if(session.sc) { %> 
-        <script>Success("<%= session.sc %>")</script>
-      <% } session.sc = null %> %>
 	<%- include('include/header') %>
     <div class="page-body">
         <%- include('include/sidebar') %>
@@ -34,28 +28,28 @@
 	
 	  
 	<div class="row">
-			<form action="/chutro/baidang_them" method="post"  class="needs-validation" novalidate>
+			<form action="/chutro/baidang_sua/<%= BaiDang.ID_BD %>" method="post"  class="needs-validation" novalidate>
 			<div class="card-body">
 				
 				<!--Thông tinh trọ-->
                 <div class="row">
 					<div class="mt-3 col-6 text-center">
 						<label class="badge badge-success">TIÊU ĐỀ</label>
-						<textarea id="TieuDe_BD" name="TieuDe_BD" type="text" class="form-control" rows="3" required></textarea>
+						<textarea id="TieuDe_BD" name="TieuDe_BD" type="text" class="form-control" rows="3" required><%= BaiDang.TieuDe_BD %></textarea>
 					</div>
 					<div class="mt-3 col-6 text-center">
 						<label class="badge badge-success">TÓM TẮT</label>
-						<textarea id="TomTat_BD" name="TomTat_BD" type="number" class="form-control" rows="3" required></textarea>
+						<textarea id="TomTat_BD" name="TomTat_BD" type="number" class="form-control" rows="3" required><%= BaiDang.TomTat_BD %></textarea>
 					</div>
                 </div>
 
                 <div class="mt-3 col-12 text-center">
 					<label class="badge badge-success">NỘI DUNG</label>
-					<textarea id="NoiDung_BD" name="NoiDung_BD" type="text" class="form-control ckeditor"></textarea>
+					<textarea id="NoiDung_BD" name="NoiDung_BD" type="text" class="form-control ckeditor"><%= BaiDang.NoiDung_BD %></textarea>
 				</div>
 
                 <div class="text-center mt-5 col-12 text-center">
-					<button type="submit" class="btn btn-primary mb-4">Thêm</button>
+					<button type="submit" class="btn btn-primary mb-4">Cập nhật</button>
 				</div>
 			</div>
 									

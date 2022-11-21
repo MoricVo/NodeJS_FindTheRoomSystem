@@ -9,6 +9,7 @@ function numberFormat(num){
 	var output = n.format(num);
 	return output;
 }
+
 router.get('/admin/',function(req,res)
 {
 	res.render('admin/index',{
@@ -17,7 +18,36 @@ router.get('/admin/',function(req,res)
 });
 router.get('/',function(req,res)
 {
-	var sql = 'SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
+	/*SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
+	*/
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;\
+	SELECT * FROM province;\
+	SELECT COUNT(*) as count FROM tbl_nhatro';
+	
+	conn.query(sql, function(error, results){
+		if(error){
+			req.session.error = error;
+			res.redirect('/error');
+		}
+		else{
+			res.render('index',{
+				title: 'Home',
+				TuKhoa: "",
+				max: "",
+				nt: results[0],
+				NhaTro: results[0],
+				Provinces: results[1],
+				numberFormat: numberFormat,
+				pages: results[2].shift()
+			});
+		}
+	});
+});
+router.get('/pages/',function(req,res)
+{
+	/*SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
+	*/
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC LIMIT 3;\
 	SELECT * FROM province;';
 	
 	conn.query(sql, function(error, results){
@@ -66,8 +96,7 @@ router.get('/get_data', function(req, res, next){
 router.post('/timkiem',function(req,res)
 {
 	var tukhoa = req.body.timkiem;
-	var sql = "SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* \
-	FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG AND DiaChi_NT LIKE N'%"+tukhoa+"%' GROUP BY ID_NT;\
+	var sql = "SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE ID_NT=ID_NhaTro_DG AND DiaChi_NT LIKE N'%"+tukhoa+"%' GROUP BY ID_NT;\
 	SELECT * FROM province; SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;";
 	conn.query(sql, [tukhoa], function(error, results){
 		if(error){
@@ -93,10 +122,10 @@ router.post('/locgia', function(req, res, next){
 	
 	var min = req.body.min;
 	var max = req.body.max;
-	var sql = 'SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro \
-	WHERE ID_NT=ID_NhaTro_DG AND (Gia_NT BETWEEN '+min*1000+' AND '+max*1000+') GROUP BY ID_NT ORDER BY Gia_NT ASC;\
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT \
+	WHERE Gia_NT BETWEEN '+min*1000+' AND '+max*1000+' GROUP BY ID_NT ORDER BY Gia_NT ASC;\
 	SELECT * FROM province;\
-	SELECT * FROM province; SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;'
+	SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;'
 	
 	conn.query(sql, function(error, results){
 		if(error){
@@ -122,8 +151,8 @@ router.get('/locgia', function(req, res, next){
 	
 	var min = req.query.min;
 	var max = req.query.max;
-	var sql = 'SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro \
-	WHERE ID_NT=ID_NhaTro_DG AND (Gia_NT BETWEEN '+min*1000+' AND '+max*1000+') GROUP BY ID_NT ORDER BY Gia_NT ASC';
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT \
+	WHERE Gia_NT BETWEEN 1000000 AND 2000000 GROUP BY ID_NT ORDER BY Gia_NT ASC;';
 	
 	conn.query(sql, function(error, results){
 		if(error){

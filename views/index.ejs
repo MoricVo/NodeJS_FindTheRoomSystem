@@ -132,16 +132,22 @@
           <div class="container">Từ khóa tìm kiếm: <%= TuKhoa %></div>
       <% } %>
       <!--Nhà trọ-->
+
+      
+      
       <div class="site-section site-section-sm bg-light">
         <div class="container">
+          <a class="btn col-1" href="/"><i class="bi bi-house-door-fill"></i> Home</a> 
           <div class="row">
           <div class="wrapper mb-4 col-7" style="margin-left: 10px;">
             <form action="/locgia" method="post" class="">
-              <div class="row"><h2 class="col-9">Giá phòng</h2><button type="submit" class="btn btn-primary col-2 m-2">Lọc</button></div>
-              <p>Lọc giá phòng từ khoảng từ mức tối thiểu đến mức tối đa</p>
+              <div class="row"><h2 class="col-8">Giá phòng</h2><button type="submit" class="btn btn-primary col-2 m-2">Lọc</button></div>
+              
+              
             
             
-            <% if(max!=""){ %>
+            <% if(max!=""){ %> 
+              <p>Lọc giá phòng từ khoảng từ <%- numberFormat(min*1000) %>đ đến <%- numberFormat(max*1000) %>đ</p>
               <div class="price-input">
                 <div class="field">
                   <input type="hidden" class="input-min rounded-pill" name="min" id="min" value="<%= min %>">
@@ -153,9 +159,9 @@
               </div>
               <div class="row mb-3" style="margin-top: -70px;">
                 <p class="col-1">Min</p>
-                <input id="minimum" value="0" class="input-min rounded-pill form-control col-4" type="text">
+                <input id="minimum" value="<%- numberFormat(min*1000) %>" class="input-min rounded-pill form-control col-4" type="text">
                 <i class="col-2">  </i>
-                <input id="maximum" value="6,000,000" class="input-max rounded-pill form-control col-4" type="text">
+                <input id="maximum" value="<%- numberFormat(max*1000) %>" class="input-max rounded-pill form-control col-4" type="text">
                 <p class="col-1">Max</p>
               </div>
               
@@ -163,9 +169,17 @@
                 <div class="progress"></div>
               </div>
               <div class="range-input">
-                <input type="range" class="range-min" min="0" max="12000" id="minvalue" value="0" step="500">
-                <input type="range" class="range-max" min="0" max="12000" id="maxvalue" value="6000" step="500">
+                <input type="range" class="range-min" min="0" max="12000" id="minvalue" value="<%- min %>" step="500">
+                <input type="range" class="range-max" min="0" max="12000" id="maxvalue" value="<%- max %>" step="500">
               </div>  
+              <div class="mt-3 row">
+                <p class="col-2">0</p>
+                <p class="col-2">&nbsp;&nbsp;&nbsp;2tr5</p>
+                <p class="col-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5tr</p>
+                <p class="col-2">7tr5</p>
+                <p class="col-2">&nbsp;&nbsp;&nbsp;&nbsp;10tr</p>
+                <p class="col-1">&nbsp;&nbsp;&nbsp;12tr</p>
+              </div>
             <% } else {%>
               
               <div class="price-input">
@@ -204,6 +218,7 @@
           </div>
           
           </form>
+          
           <div class="wrapper mb-4 col-4" style="margin-left: 30px;">
             <div class="slide-one-item home-slider owl-carousel">
               <div><img src="http://localhost:3000/assets/images/hero_bg_1.jpg" alt="Image" class="img-fluid"></div>
@@ -227,8 +242,12 @@
                   <button type="submit" class="card border-0">
                   <div class="offer-type-wrap">
                     <span class="offer-type bg-light text-dark"><%= nt.SoLuong_DG %> đánh giá</span>
-                    <span class="offer-type bg-primary text-center"><%= nt.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
-                  </div>
+                    <% if(nt.Diem_TB!=null){ %> 
+                      <span class="offer-type bg-primary text-center"><%= nt.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
+                      <% }else{ %>
+                        <span class="offer-type bg-primary text-center">0<i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
+                        <% } %>
+                    </div>
                   <img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid">
                 
                 <div class="p-4 property-body">
@@ -255,13 +274,8 @@
           <div class="row col-12">
             <div class="col-md-12 text-center">
               <div class="site-pagination">
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <span>...</span>
-                <a href="#">10</a>
+                
+                
               </div>
             </div>  
           </div>
@@ -279,12 +293,22 @@
   </body>
 
   <script>
-    
+    $(".value_page").click(function(){
+      alert($(this).val());
+      /*$.post("demo_test.asp", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+      });*/
+    });
+
+
+
     function numberFormat(num){
+      num = Number(num);
       var n = new Intl.NumberFormat('en-US');
       var output = n.format(num);
       return output;
     }
+
     function fetch_data(min, max){
       fetch('/locgia?min=' + min.value + '&max=' + max.value +'').then(
         function(response){
@@ -294,7 +318,7 @@
         var html = '';
         var obj = [];
         for(var i = 0; i<responseData.length; i++){
-          html='<div class="col-md-6 col-lg-4 mb-4"><div class="property-entry h-100"><form action="/nhatro/chitiet/'+responseData[i].ID_NT+'" method="post" class="property-thumbnail"><button type="submit" class="card border-0"><div class="offer-type-wrap"><span class="offer-type bg-light text-dark">'+responseData[i].SoLuong_DG+' đánh giá</span><span class="offer-type bg-primary text-center">'+responseData[i].Diem_TB.toFixed(1)+' <i class="bi bi-star-fill" style="font-size: 13px;"></i></span></div><img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid"><div class="p-4 property-body"><a href="#" class="property-favorite"><span class="bi bi-suit-heart-fill"></span></a><h2 class="property-title"><a href="">'+responseData[i].TenNhaTro_NT+'</a></h2><i class="bi bi-geo-alt-fill"></i> '+responseData[i].DiaChi_NT+'<input type="hidden" value="'+responseData[i].KhuVuc_NT+'" name="DiaChi" id="DiaChi"></a></form><strong class="property-price text-primary mb-3 d-block text-success">'+ responseData[i].Gia_NT+' đ</strong><ul class="property-specs-wrap mb-3 mb-lg-0"><li><li class="list-inline-item"><i>'+  responseData[i].NgayCapNhat_NT+'</i></li></li></ul></div></div></div>';
+          html='<div class="col-md-6 col-lg-4 mb-4"><div class="property-entry h-100"><form action="/nhatro/chitiet/'+responseData[i].ID_NT+'" method="post" class="property-thumbnail"><button type="submit" class="card border-0"><div class="offer-type-wrap"><span class="offer-type bg-light text-dark">'+responseData[i].SoLuong_DG+' đánh giá</span><span class="offer-type bg-primary text-center">'+responseData[i].Diem_TB.toFixed(1)+' <i class="bi bi-star-fill" style="font-size: 13px;"></i></span></div><img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid"><div class="p-4 property-body"><a href="#" class="property-favorite"><span class="bi bi-suit-heart-fill"></span></a><h2 class="property-title"><a href="">'+responseData[i].TenNhaTro_NT+'</a></h2><i class="bi bi-geo-alt-fill"></i> '+responseData[i].DiaChi_NT+'<input type="hidden" value="'+responseData[i].KhuVuc_NT+'" name="DiaChi" id="DiaChi"></a></form><strong class="property-price text-primary mb-3 d-block text-success">'+responseData[i].Gia_NT+' đ</strong><ul class="property-specs-wrap mb-3 mb-lg-0"><li><li class="list-inline-item"><i>'+  responseData[i].NgayCapNhat_NT+'</i></li></li></ul></div></div></div>';
           obj.push(html);
         }
         var string = obj.toString();
@@ -303,12 +327,12 @@
       });
 	}
     _('maxvalue').onchange = function(){
-      fetch_data(_('min'), _('max'));
+      //fetch_data(_('min'), _('max'));
       _('maximum').value = _('maxvalue').value*1000;
       _('maximum').value = numberFormat(_('maximum').value);
     };
     _('minvalue').onchange = function(){
-      fetch_data(_('min'), _('max'))
+      //fetch_data(_('min'), _('max'))
       _('minimum').value = _('minvalue').value*1000;
       _('minimum').value = numberFormat(_('minimum').value);
     };

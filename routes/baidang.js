@@ -14,6 +14,13 @@ var storageConfig = multer.diskStorage({
     callback(null, timestamp + path.extname(file.originalname));
   },
 });
+function formatDate(date){
+	let day=date.getDate();
+	let month=date.getMonth()+1;
+	let year=date.getFullYear();
+	return day+" thg "+month+", "+year;
+}
+
 var upload = multer({ storage: storageConfig });
 var validateForm = [
   check("TenNguoiDung_BD")
@@ -139,6 +146,7 @@ router.get("/", function (req, res) {
       res.render("admin/baidang_danhsach", {
         title: "Danh sách bài viết!",
         tbl_baidang: results,
+        formatDate
       });
     }
   });

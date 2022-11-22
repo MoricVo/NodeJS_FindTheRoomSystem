@@ -131,10 +131,36 @@
 				<div class="row border p-3 rounded mt-3 m-0">
 					<div style="margin-top: -29px;"><b style="background-color: white;">Tiện ích</b></div>
 					
-						<div class="col-4">
-							<div class="form-check form-switch m-lg-2">
-								<input class="form-check-input" type="checkbox" value="0">
-								<label class="form-check-label" for="flexSwitchCheckDefault"></label>
+						<div class=" row">
+							<div class="col-6">
+								<div class="form-check form-switch m-lg-2">
+									
+									<input class="form-check-input" type="checkbox" value="1" name="Wifi_NT">
+									<label class="form-check-label" for="flexSwitchCheckDefault">Wifi</label>
+								</div>
+								<div class="form-check form-switch m-lg-2">
+									<input class="form-check-input" type="checkbox" value="1" name="TV_NT">
+									<label class="form-check-label" for="flexSwitchCheckDefault">TV</label>
+								</div>
+								<div class="form-check form-switch m-lg-2">
+									<input class="form-check-input" type="checkbox" value="1" name="ChoDeXe_NT">
+									<label class="form-check-label" for="flexSwitchCheckDefault">Chỗ để xe</label>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-check form-switch m-lg-2">
+									<input class="form-check-input" type="checkbox" value="1" name="TuLanh_NT">
+									<label class="form-check-label" for="flexSwitchCheckDefault">Tủ lạnh</label>
+								</div>
+								<div class="form-check form-switch m-lg-2">
+									<input class="form-check-input" type="checkbox" value="1" name="MayLanh_NT">
+									<label class="form-check-label" for="flexSwitchCheckDefault">Máy lạnh</label>
+								</div>
+								<div class="form-check form-switch m-lg-2">
+									<input class="form-check-input" type="checkbox" value="1" name="BepNauAn_NT">
+									<label class="form-check-label" for="flexSwitchCheckDefault">Bếp nấu ăn</label>
+								</div>
 							</div>
 						</div>
 				</div>
@@ -162,7 +188,14 @@
 </body>
 
 <%- include('include/javascript'); %>
-
+<script>
+	var val = 0;
+	$('input.form-check-input').click(function(){
+		if($(this).is(':checked')){
+			$(this).val = 1;
+		}
+	});
+</script>
 <script src="https://cdn.ckeditor.com/4.18.0/full/ckeditor.js"></script>
 <script>
 	CKEDITOR.replace('ThongTin_NT', {

@@ -209,6 +209,20 @@ var validateForm = [
 //POST: đăng ký Nhà trọ
 router.post("/dangky_nhatro", function (req, res) {
 	var errors = validationResult(req);
+	var Wifi=0, TV=0, ChoDeXe=0, TuLanh=0, MayLanh=0, BepNauAn=0;
+	if(req.body.Wifi_NT){
+		Wifi=1;
+	}if(req.body.TV_NT){
+		TV=1;
+	}if(req.body.ChoDeXe_NT){
+		ChoDeXe=1;
+	}if(req.body.MayLanh_NT){
+		MayLanh=1;
+	}if(req.body.TuLanh_NT){
+		TuLanh=1;
+	}if(req.body.BepNauAn_NT){
+		BepNauAn=1;
+	}
 	if(!errors.isEmpty()) {
 		res.render('/', {
 			title: '',
@@ -225,6 +239,12 @@ router.post("/dangky_nhatro", function (req, res) {
 				Gia_NT: req.body.Gia_NT,
 				SoLuongPhong_NT: req.body.SoLuongPhong_NT,
 				KhuVuc_NT: req.body.province,
+				Wifi_NT: Wifi,
+				TV_NT: TV,
+				ChoDeXe_NT: ChoDeXe,
+				TuLanh_NT: TuLanh,
+				MayLanh_NT: MayLanh,
+				BepNauAn_NT: BepNauAn
 			};
 			var sql = 'INSERT INTO tbl_nhatro SET ?';
 			conn.query(sql, data, function(error, results){

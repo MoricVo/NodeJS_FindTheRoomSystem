@@ -20,7 +20,7 @@ router.get('/',function(req,res)
 {
 	/*SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
 	*/
-	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;\
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE KiemDuyet_NT = 1 GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;\
 	SELECT * FROM province;\
 	SELECT COUNT(*) as count FROM tbl_nhatro';
 	
@@ -96,8 +96,8 @@ router.get('/get_data', function(req, res, next){
 router.post('/timkiem',function(req,res)
 {
 	var tukhoa = req.body.timkiem;
-	var sql = "SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE ID_NT=ID_NhaTro_DG AND DiaChi_NT LIKE N'%"+tukhoa+"%' GROUP BY ID_NT;\
-	SELECT * FROM province; SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;";
+	var sql = "SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE DiaChi_NT LIKE N'%"+tukhoa+"%' AND KiemDuyet_NT = 1 GROUP BY ID_NT;\
+	SELECT * FROM province; SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG AND KiemDuyet_NT = 1 GROUP BY ID_NT;";
 	conn.query(sql, [tukhoa], function(error, results){
 		if(error){
 			req.session.error = error;
@@ -123,9 +123,9 @@ router.post('/locgia', function(req, res, next){
 	var min = req.body.min;
 	var max = req.body.max;
 	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT \
-	WHERE Gia_NT BETWEEN '+min*1000+' AND '+max*1000+' GROUP BY ID_NT ORDER BY Gia_NT ASC;\
+	WHERE  KiemDuyet_NT = 1 AND Gia_NT BETWEEN '+min*1000+' AND '+max*1000+' GROUP BY ID_NT ORDER BY Gia_NT ASC;\
 	SELECT * FROM province;\
-	SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;'
+	SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE KiemDuyet_NT = 1 GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;'
 	
 	conn.query(sql, function(error, results){
 		if(error){

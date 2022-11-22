@@ -5,6 +5,7 @@ var fs = require("fs");
 var conn = require("../connect");
 var { check, validationResult } = require("express-validator");
 var multer = require("multer");
+var firstImage = require('../firstimage');
 var storageConfig = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, "uploads/");
@@ -179,4 +180,63 @@ router.get("/duyet/:id", function (req, res) {
     }
   });
 });
+
+//GET BAIDANG client
+router.get("/tintuc", function (req, res) {
+  var sql = "select tbl_baidang.*, Ten_ND from tbl_baidang, tbl_nguoidung WHERE ID_ND=ID_NguoiDang_BD AND KiemDuyet_BD = 1 LIMIT 3;\
+    SELECT COUNT(*) as count FROM tbl_baidang WHERE KiemDuyet_BD = 1;";
+  conn.query(sql, function (error, results) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.render("baidang", {
+        title: "Bài đăng",
+        BaiDang: results[0],
+        SoLuong_BD: results[1].shift(),
+        formatDate,
+        firstImage
+      });
+    }
+  });
+});
+router.get("/tintuc/page/:count", function (req, res) {
+  var sql = "select tbl_baidang.*, Ten_ND from tbl_baidang, tbl_nguoidung WHERE ID_ND=ID_NguoiDang_BD AND KiemDuyet_BD = 1 LIMIT "+req.query.index+", 3;";
+    conn.query(sql, function(error, results){
+      if(error){
+        req.session.error = min;
+        res.redirect('/error');
+      }
+      else{
+        res.json(results);
+      }
+    });
+});
+
+
+//GET BAIDANG chi tiết client
+router.get("/chitiet/:id", function (req, res) {
+  var id = req.params.id;
+  var sql = "UPDATE tbl_baidang SET LuotXem_BD = LuotXem_BD + 1 WHERE ID_BD = ?";
+  
+  conn.query(sql, [id], function(error, results){
+    if (error) {
+      res.send(error);
+    } else {
+      var sql = "select tbl_baidang.*, Ten_ND from tbl_baidang, tbl_nguoidung WHERE ID_ND=ID_NguoiDang_BD AND KiemDuyet_BD = 1 AND ID_BD = ?";
+      conn.query(sql, [id], function (error, results) {
+        if (error) {
+          res.send(error);
+        } else {
+          res.render("baidang_chitiet", {
+            title: "results",
+            BaiDang: results.shift(),
+            formatDate
+          });
+        }
+      });
+    }
+  });
+  
+});
+
 module.exports = router;

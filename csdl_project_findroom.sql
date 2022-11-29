@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 05:13 AM
+-- Generation Time: Nov 29, 2022 at 04:11 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35662,10 +35662,31 @@ CREATE TABLE `tbl_baidang` (
 --
 
 INSERT INTO `tbl_baidang` (`ID_BD`, `ID_NguoiDang_BD`, `TieuDe_BD`, `TomTat_BD`, `NoiDung_BD`, `NgayDang_BD`, `NgayCapNhat_BD`, `LuotXem_BD`, `GhiChu_BD`, `KiemDuyet_BD`) VALUES
-(1, 55, 'Cách nào để bảo vệ tài sản cá nhân tốt nhất khi ở trọ?', 'Không ít người khi đi học, đi làm ở nhà trọ từng bị trộm đột nhập lấy cắp tài sản. Vậy làm cách nào để bảo vệ tài sản cá nhân khi ở trọ?', '<h2><strong>Nơm nớp lo sợ v&igrave; nh&agrave; trọ kh&ocirc;ng đảm bảo an ninh</strong></h2>\r\n\r\n<p>Mặc d&ugrave; nh&agrave; trọ kh&ocirc;ng đảm bảo an ninh nhưng nhiều người vẫn &ldquo;bấm bụng&rdquo; ở v&igrave; gi&aacute; th&agrave;nh rẻ, ph&ugrave; hợp với t&uacute;i tiền. Do vậy, cảm gi&aacute;c nơm nớp lo sợ khi để t&agrave;i sản c&oacute; gi&aacute; trị ở ph&ograve;ng l&agrave; điều kh&ocirc;ng thể tr&aacute;nh khỏi.</p>\r\n\r\n<table align=\"center\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Cách nào để bảo vệ tài sản cá nhân tốt nhất khi ở trọ? - ảnh 1\" src=\"https://image.thanhnien.vn/w2048/Uploaded/2022/aohviau/2022_11_01/311258351-478270514263388-2758138258731810484-n-3342.jpg\" style=\"height:298px; width:500px\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Nơm nớp lo sợ v&igrave; nh&agrave; trọ kh&ocirc;ng đảm bảo an ninh</p>\r\n\r\n			<p>VY THANH</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Từng ở trọ tại khu l&agrave;ng đại học Thủ Đức, với mức thu&ecirc; 1 triệu đồng/th&aacute;ng, P.T.Đ.H (22 tuổi), l&agrave;m hướng dẫn vi&ecirc;n tự do, hiện ngụ đường 68, P.Hiệp Ph&uacute;, TP.Thủ Đức (TP.HCM), cho biết: &ldquo;L&uacute;c v&ocirc; thu&ecirc; ph&ograve;ng chủ nh&agrave; n&oacute;i trọ c&oacute; camera, nh&agrave; chủ ở ngay đầu ng&otilde; n&ecirc;n cũng an t&acirc;m. Ấy vậy m&agrave; m&igrave;nh bị trộm cạy cửa v&ocirc; lấy 2 chiếc điện thoại v&agrave; một m&aacute;y t&iacute;nh bảng trị gi&aacute; khoảng 17 triệu đồng. M&igrave;nh b&aacute;o chủ nh&agrave; mở camera để kiểm tra nhưng người ta bảo camera bị hư n&ecirc;n chịu th&ocirc;i&rdquo;.</p>\r\n\r\n<p>L&agrave; sinh vi&ecirc;n năm nhất Trường CĐ FPT Polytechnic, V&otilde; Thị Tố Trinh, qu&ecirc;&nbsp;<a href=\"https://thanhnien.vn/quang-nam/\" rel=\"noopener noreferrer\" target=\"_blank\" title=\"Quảng Nam\">Quảng Nam</a>&nbsp;vừa v&agrave;o TP.HCM được 3 th&aacute;ng v&agrave; đang ở trọ một m&igrave;nh tr&ecirc;n đường L&ecirc; Quang Định, Q.G&ograve; Vấp t&acirc;m sự: &ldquo;Ch&acirc;n ướt ch&acirc;n r&aacute;o mới v&agrave;o th&agrave;nh phố lại ở một m&igrave;nh n&ecirc;n m&igrave;nh lo lắm, ở trọ phải đ&oacute;ng cửa cả ng&agrave;y v&igrave; sợ mất đồ. Do chỗ trọ m&igrave;nh ở kh&ocirc;ng c&oacute; camera, cổng ng&otilde; cũng lỏng lẻo khiến m&igrave;nh kh&ocirc;ng an t&acirc;m&rdquo;.</p>\r\n\r\n<table align=\"center\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Cách nào để bảo vệ tài sản cá nhân tốt nhất khi ở trọ? - ảnh 2\" src=\"https://image.thanhnien.vn/w2048/Uploaded/2022/zsfe/2022_11_03/313787834-646573687124028-4801621633298938981-n-626.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Cổng một khu trọ kh&ocirc;ng đảm bảo</p>\r\n\r\n			<p>THẢO PHƯƠNG</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Từng bị trộm lấy mất 2 triệu đồng do cổng ở khu trọ kh&ocirc;ng đảm bảo, L&ecirc; Thị Cẩm T&uacute;, sinh vi&ecirc;n Trường ĐH B&aacute;ch khoa (ĐH&nbsp;<a href=\"https://thanhnien.vn/da-nang/\" rel=\"noopener noreferrer\" target=\"_blank\" title=\"Đà Nẵng\">Đ&agrave; Nẵng</a>) đang ở trọ tại đường Nguyễn Lương Bằng, Q.H&ograve;a Kh&aacute;nh (TP.Đ&agrave; Nẵng) cho hay: &ldquo;Năm ngo&aacute;i bạn c&ugrave;ng ph&ograve;ng của m&igrave;nh vừa về qu&ecirc; mang tiền ra th&igrave; bị trộm v&ocirc; lấy mất. Tụi m&igrave;nh c&oacute; b&aacute;o chủ trọ nhưng cũng chẳng kiếm lại được tiền, b&aacute;o để mong chủ nh&agrave; lắp camera v&agrave; mua ổ kh&oacute;a cổng cho an to&agrave;n hơn. V&igrave; &aacute;m ảnh bị mất trộm n&ecirc;n mỗi lần về qu&ecirc; m&igrave;nh gom hết&nbsp;<a href=\"https://thanhnien.vn/tan-sinh-vien-can-ky-nang-gi-khi-lan-dau-den-tp-hcm-post1430846.html\">đồ đạc c&oacute; gi&aacute; trị</a>: tiền bạc, laptop, điện thoại... mặc d&ugrave; hơi lỉnh kỉnh nhưng an t&acirc;m&quot;.</p>\r\n\r\n<p><iframe frameborder=\"0\" height=\"262\" name=\"dableframe-0.3311866347814256\" scrolling=\"no\" src=\"https://api.dable.io/widgets/id/G7ZJbw7W/users/3828167.1665204429970?from=https%3A%2F%2Fthanhnien.vn%2Fcach-nao-de-bao-ve-tai-san-ca-nhan-tot-nhat-khi-o-tro-post1516735.html&amp;url=https%3A%2F%2Fthanhnien.vn%2Fcach-nao-de-bao-ve-tai-san-ca-nhan-tot-nhat-khi-o-tro-post1516735.html&amp;ref=https%3A%2F%2Fthanhnien.vn%2Fnha-tro%2F&amp;cid=3828167.1665204429970&amp;uid=3828167.1665204429970&amp;site=thanhnien.vn&amp;gdpr=0&amp;id=dablewidget_G7ZJbw7W&amp;category1=Gi%E1%BB%9Bi%20tr%E1%BA%BB&amp;ad_params=%7B%7D&amp;item_id=1516735&amp;item_pub_date=2022-11-03T17%3A00%3A28%2B0700&amp;pixel_ratio=1.25&amp;ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F107.0.5304.107%20Safari%2F537.36&amp;client_width=1519&amp;network=non-wifi&amp;lang=en&amp;is_top_win=1&amp;top_win_accessible=1&amp;is_lazyload=0&amp;inarticle_init=1\" title=\"DÀNH CHO BẠN\" width=\"100%\"></iframe></p>\r\n\r\n<h2><strong>Kh&ocirc;ng n&ecirc;n để tiền bạc v&agrave; những m&oacute;n đồ c&oacute; gi&aacute; trị trong ph&ograve;ng trọ khi ra khỏi nh&agrave;</strong></h2>\r\n\r\n<p>Vậy l&agrave;m thế n&agrave;o để bảo vệ t&agrave;i sản c&aacute; nh&acirc;n khi ở trọ? R&uacute;t kinh nghiệm từng bị trộm đột nhập lấy cắp t&agrave;i sản, P.T.Đ.H cho biết: &quot;Quan trọng nhất l&agrave; chọn trọ an ninh, lắp camera v&agrave; mua ổ kh&oacute;a chất lượng, l&agrave;m quen với h&agrave;ng x&oacute;m xung quanh để lỡ c&oacute; chuyện g&igrave; th&igrave; c&ograve;n c&oacute; người gi&uacute;p đỡ. Bản th&acirc;n lu&ocirc;n trong tư thế&nbsp;<a href=\"https://thanhnien.vn/ve-que-an-tet-ma-bi-trom-cuop-mat-xe-thi-khoc-chet-post1028017.html\" title=\"‘Về quê ăn tết mà bị trộm cướp mất xe thì khóc chết’\">cảnh gi&aacute;c, đề ph&ograve;ng</a>. Ch&iacute;nh v&igrave; vậy, đi đ&acirc;u m&igrave;nh cũng kh&oacute;a cửa ph&ograve;ng cẩn thận, kể cả cửa sổ. Tiền bạc v&agrave; những m&oacute;n đồ c&oacute; gi&aacute; trị m&igrave;nh đều mang theo b&ecirc;n người&rdquo;.</p>\r\n\r\n<p>Bản th&acirc;n ở trọ từ năm nhất học đại học nhưng may mắn chưa từng để xảy ra t&igrave;nh trạng mất cắp, Nguyễn Hữu Hiệp, sinh vi&ecirc;n Trường ĐH Luật TP.HCM đang ở trọ tại đường Huỳnh Tấn Ph&aacute;t, P.T&acirc;n Thuận T&acirc;y, Q.7 (TP.HCM), chia sẻ kinh nghiệm: &ldquo;Đừng bao giờ chủ quan hay lơ l&agrave;, t&agrave;i sản của c&aacute; nh&acirc;n n&ecirc;n được giữ g&igrave;n v&agrave; bảo vệ cho d&ugrave; ở chung với bất cứ ai. Về tiền bạc chỉ n&ecirc;n giữ một &iacute;t tiền mặt, c&ograve;n lại th&igrave; để trong thẻ ng&acirc;n h&agrave;ng. Xe m&aacute;y cần phải kho&aacute; cổ hoặc c&oacute; gắn điều kiện th&igrave; gắn th&ecirc;m thiết bị chống trộm. N&oacute;i chung, việc mất trộm cũng xui rủi kh&ocirc;ng ai lường trước được nhưng bản th&acirc;n c&oacute; &yacute; thức cảnh gi&aacute;c cao cũng g&oacute;p phần bảo vệ t&agrave;i sản của m&igrave;nh&rdquo;.</p>\r\n\r\n<p>Về vấn đề n&agrave;y, &ocirc;ng Nguyễn Văn Chiến, tổ vi&ecirc;n tổ d&acirc;n phố, thuộc Đội D&acirc;n ph&ograve;ng bảo vệ khu phố T&acirc;y A, phường Đ&ocirc;ng H&ograve;a, thị x&atilde; Dĩ An (tỉnh&nbsp;<a href=\"https://thanhnien.vn/binh-duong/\" rel=\"noopener noreferrer\" target=\"_blank\" title=\"Bình Dương\">B&igrave;nh Dương</a>) đưa ra lời khuy&ecirc;n: &quot;Để bảo vệ t&agrave;i sản c&aacute; nh&acirc;n khi ở nh&agrave; trọ, điều quan trọng nhất l&agrave; bản th&acirc;n mỗi người phải c&oacute; &yacute; thức tự giữ g&igrave;n t&agrave;i sản; lu&ocirc;n đề ph&ograve;ng, cảnh gi&aacute;c, đặc biệt l&agrave; với những người lạ mặt. Đi ra ngo&agrave;i n&ecirc;n kh&oacute;a cửa cẩn thận, kể cả cửa sổ để tr&aacute;nh tạo cơ hội cho kẻ gian d&ograve;m ng&oacute;, trộm cắp t&agrave;i sản. Nếu c&oacute; việc phải rời ph&ograve;ng trọ d&agrave;i ng&agrave;y th&igrave; n&ecirc;n mang tất cả đồ đạc c&oacute; gi&aacute; trị theo. Thứ 2, n&ecirc;n t&igrave;m những khu trọ đảm bảo an ninh, c&aacute;c ph&ograve;ng trọ n&ecirc;n lắp camera v&agrave; trang bị ổ kh&oacute;a chắc chắn. Những t&agrave;i sản c&oacute; gi&aacute; trị lớn như xe m&aacute;y n&ecirc;n gắn định vị để đề ph&ograve;ng khi bị mất cắp, C&ocirc;ng an sẽ c&oacute; cơ sở dễ d&agrave;ng t&igrave;m kiếm&quot;.</p>\r\n\r\n<p>&Ocirc;ng Chiến c&ograve;n cho biết th&ecirc;m, c&aacute;c chủ nh&agrave; trọ cũng c&oacute; tr&aacute;ch nhiệm treo bảng cảnh gi&aacute;c, đề ph&ograve;ng, kh&ocirc;ng cho người lạ mặt v&agrave;o khu trọ. Quan trọng nhất l&agrave; lắp camera an ninh. Nếu kh&ocirc;ng may bị<a href=\"https://thanhnien.vn/don-khoi-ky-tuc-xa-sinh-vien-gian-nan-tim-phong-tro-post1485966.html\" title=\"Dọn khỏi ký túc xá, sinh viên gian nan tìm phòng trọ\">&nbsp;mất t&agrave;i sản khi ở trọ</a>, nạn nh&acirc;n cần phải giữ b&igrave;nh tĩnh, t&agrave;i sản c&oacute; gi&aacute; trị lớn cần tr&igrave;nh b&aacute;o ngay với ch&iacute;nh quyền khu phố v&agrave; C&ocirc;ng an khu vực để kịp thời xử l&yacute;.</p>\r\n', '2022-10-04', NULL, 7, 'có', 1),
+(1, 55, 'Cách nào để bảo vệ tài sản cá nhân tốt nhất khi ở trọ?', 'Không ít người khi đi học, đi làm ở nhà trọ từng bị trộm đột nhập lấy cắp tài sản. Vậy làm cách nào để bảo vệ tài sản cá nhân khi ở trọ?', '<h2><strong>Nơm nớp lo sợ v&igrave; nh&agrave; trọ kh&ocirc;ng đảm bảo an ninh</strong></h2>\r\n\r\n<p>Mặc d&ugrave; nh&agrave; trọ kh&ocirc;ng đảm bảo an ninh nhưng nhiều người vẫn &ldquo;bấm bụng&rdquo; ở v&igrave; gi&aacute; th&agrave;nh rẻ, ph&ugrave; hợp với t&uacute;i tiền. Do vậy, cảm gi&aacute;c nơm nớp lo sợ khi để t&agrave;i sản c&oacute; gi&aacute; trị ở ph&ograve;ng l&agrave; điều kh&ocirc;ng thể tr&aacute;nh khỏi.</p>\r\n\r\n<table align=\"center\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Cách nào để bảo vệ tài sản cá nhân tốt nhất khi ở trọ? - ảnh 1\" src=\"https://image.thanhnien.vn/w2048/Uploaded/2022/aohviau/2022_11_01/311258351-478270514263388-2758138258731810484-n-3342.jpg\" style=\"height:298px; width:500px\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Nơm nớp lo sợ v&igrave; nh&agrave; trọ kh&ocirc;ng đảm bảo an ninh</p>\r\n\r\n			<p>VY THANH</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Từng ở trọ tại khu l&agrave;ng đại học Thủ Đức, với mức thu&ecirc; 1 triệu đồng/th&aacute;ng, P.T.Đ.H (22 tuổi), l&agrave;m hướng dẫn vi&ecirc;n tự do, hiện ngụ đường 68, P.Hiệp Ph&uacute;, TP.Thủ Đức (TP.HCM), cho biết: &ldquo;L&uacute;c v&ocirc; thu&ecirc; ph&ograve;ng chủ nh&agrave; n&oacute;i trọ c&oacute; camera, nh&agrave; chủ ở ngay đầu ng&otilde; n&ecirc;n cũng an t&acirc;m. Ấy vậy m&agrave; m&igrave;nh bị trộm cạy cửa v&ocirc; lấy 2 chiếc điện thoại v&agrave; một m&aacute;y t&iacute;nh bảng trị gi&aacute; khoảng 17 triệu đồng. M&igrave;nh b&aacute;o chủ nh&agrave; mở camera để kiểm tra nhưng người ta bảo camera bị hư n&ecirc;n chịu th&ocirc;i&rdquo;.</p>\r\n\r\n<p>L&agrave; sinh vi&ecirc;n năm nhất Trường CĐ FPT Polytechnic, V&otilde; Thị Tố Trinh, qu&ecirc;&nbsp;<a href=\"https://thanhnien.vn/quang-nam/\" rel=\"noopener noreferrer\" target=\"_blank\" title=\"Quảng Nam\">Quảng Nam</a>&nbsp;vừa v&agrave;o TP.HCM được 3 th&aacute;ng v&agrave; đang ở trọ một m&igrave;nh tr&ecirc;n đường L&ecirc; Quang Định, Q.G&ograve; Vấp t&acirc;m sự: &ldquo;Ch&acirc;n ướt ch&acirc;n r&aacute;o mới v&agrave;o th&agrave;nh phố lại ở một m&igrave;nh n&ecirc;n m&igrave;nh lo lắm, ở trọ phải đ&oacute;ng cửa cả ng&agrave;y v&igrave; sợ mất đồ. Do chỗ trọ m&igrave;nh ở kh&ocirc;ng c&oacute; camera, cổng ng&otilde; cũng lỏng lẻo khiến m&igrave;nh kh&ocirc;ng an t&acirc;m&rdquo;.</p>\r\n\r\n<table align=\"center\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Cách nào để bảo vệ tài sản cá nhân tốt nhất khi ở trọ? - ảnh 2\" src=\"https://image.thanhnien.vn/w2048/Uploaded/2022/zsfe/2022_11_03/313787834-646573687124028-4801621633298938981-n-626.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Cổng một khu trọ kh&ocirc;ng đảm bảo</p>\r\n\r\n			<p>THẢO PHƯƠNG</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Từng bị trộm lấy mất 2 triệu đồng do cổng ở khu trọ kh&ocirc;ng đảm bảo, L&ecirc; Thị Cẩm T&uacute;, sinh vi&ecirc;n Trường ĐH B&aacute;ch khoa (ĐH&nbsp;<a href=\"https://thanhnien.vn/da-nang/\" rel=\"noopener noreferrer\" target=\"_blank\" title=\"Đà Nẵng\">Đ&agrave; Nẵng</a>) đang ở trọ tại đường Nguyễn Lương Bằng, Q.H&ograve;a Kh&aacute;nh (TP.Đ&agrave; Nẵng) cho hay: &ldquo;Năm ngo&aacute;i bạn c&ugrave;ng ph&ograve;ng của m&igrave;nh vừa về qu&ecirc; mang tiền ra th&igrave; bị trộm v&ocirc; lấy mất. Tụi m&igrave;nh c&oacute; b&aacute;o chủ trọ nhưng cũng chẳng kiếm lại được tiền, b&aacute;o để mong chủ nh&agrave; lắp camera v&agrave; mua ổ kh&oacute;a cổng cho an to&agrave;n hơn. V&igrave; &aacute;m ảnh bị mất trộm n&ecirc;n mỗi lần về qu&ecirc; m&igrave;nh gom hết&nbsp;<a href=\"https://thanhnien.vn/tan-sinh-vien-can-ky-nang-gi-khi-lan-dau-den-tp-hcm-post1430846.html\">đồ đạc c&oacute; gi&aacute; trị</a>: tiền bạc, laptop, điện thoại... mặc d&ugrave; hơi lỉnh kỉnh nhưng an t&acirc;m&quot;.</p>\r\n\r\n<p><iframe frameborder=\"0\" height=\"262\" name=\"dableframe-0.3311866347814256\" scrolling=\"no\" src=\"https://api.dable.io/widgets/id/G7ZJbw7W/users/3828167.1665204429970?from=https%3A%2F%2Fthanhnien.vn%2Fcach-nao-de-bao-ve-tai-san-ca-nhan-tot-nhat-khi-o-tro-post1516735.html&amp;url=https%3A%2F%2Fthanhnien.vn%2Fcach-nao-de-bao-ve-tai-san-ca-nhan-tot-nhat-khi-o-tro-post1516735.html&amp;ref=https%3A%2F%2Fthanhnien.vn%2Fnha-tro%2F&amp;cid=3828167.1665204429970&amp;uid=3828167.1665204429970&amp;site=thanhnien.vn&amp;gdpr=0&amp;id=dablewidget_G7ZJbw7W&amp;category1=Gi%E1%BB%9Bi%20tr%E1%BA%BB&amp;ad_params=%7B%7D&amp;item_id=1516735&amp;item_pub_date=2022-11-03T17%3A00%3A28%2B0700&amp;pixel_ratio=1.25&amp;ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F107.0.5304.107%20Safari%2F537.36&amp;client_width=1519&amp;network=non-wifi&amp;lang=en&amp;is_top_win=1&amp;top_win_accessible=1&amp;is_lazyload=0&amp;inarticle_init=1\" title=\"DÀNH CHO BẠN\" width=\"100%\"></iframe></p>\r\n\r\n<h2><strong>Kh&ocirc;ng n&ecirc;n để tiền bạc v&agrave; những m&oacute;n đồ c&oacute; gi&aacute; trị trong ph&ograve;ng trọ khi ra khỏi nh&agrave;</strong></h2>\r\n\r\n<p>Vậy l&agrave;m thế n&agrave;o để bảo vệ t&agrave;i sản c&aacute; nh&acirc;n khi ở trọ? R&uacute;t kinh nghiệm từng bị trộm đột nhập lấy cắp t&agrave;i sản, P.T.Đ.H cho biết: &quot;Quan trọng nhất l&agrave; chọn trọ an ninh, lắp camera v&agrave; mua ổ kh&oacute;a chất lượng, l&agrave;m quen với h&agrave;ng x&oacute;m xung quanh để lỡ c&oacute; chuyện g&igrave; th&igrave; c&ograve;n c&oacute; người gi&uacute;p đỡ. Bản th&acirc;n lu&ocirc;n trong tư thế&nbsp;<a href=\"https://thanhnien.vn/ve-que-an-tet-ma-bi-trom-cuop-mat-xe-thi-khoc-chet-post1028017.html\" title=\"‘Về quê ăn tết mà bị trộm cướp mất xe thì khóc chết’\">cảnh gi&aacute;c, đề ph&ograve;ng</a>. Ch&iacute;nh v&igrave; vậy, đi đ&acirc;u m&igrave;nh cũng kh&oacute;a cửa ph&ograve;ng cẩn thận, kể cả cửa sổ. Tiền bạc v&agrave; những m&oacute;n đồ c&oacute; gi&aacute; trị m&igrave;nh đều mang theo b&ecirc;n người&rdquo;.</p>\r\n\r\n<p>Bản th&acirc;n ở trọ từ năm nhất học đại học nhưng may mắn chưa từng để xảy ra t&igrave;nh trạng mất cắp, Nguyễn Hữu Hiệp, sinh vi&ecirc;n Trường ĐH Luật TP.HCM đang ở trọ tại đường Huỳnh Tấn Ph&aacute;t, P.T&acirc;n Thuận T&acirc;y, Q.7 (TP.HCM), chia sẻ kinh nghiệm: &ldquo;Đừng bao giờ chủ quan hay lơ l&agrave;, t&agrave;i sản của c&aacute; nh&acirc;n n&ecirc;n được giữ g&igrave;n v&agrave; bảo vệ cho d&ugrave; ở chung với bất cứ ai. Về tiền bạc chỉ n&ecirc;n giữ một &iacute;t tiền mặt, c&ograve;n lại th&igrave; để trong thẻ ng&acirc;n h&agrave;ng. Xe m&aacute;y cần phải kho&aacute; cổ hoặc c&oacute; gắn điều kiện th&igrave; gắn th&ecirc;m thiết bị chống trộm. N&oacute;i chung, việc mất trộm cũng xui rủi kh&ocirc;ng ai lường trước được nhưng bản th&acirc;n c&oacute; &yacute; thức cảnh gi&aacute;c cao cũng g&oacute;p phần bảo vệ t&agrave;i sản của m&igrave;nh&rdquo;.</p>\r\n\r\n<p>Về vấn đề n&agrave;y, &ocirc;ng Nguyễn Văn Chiến, tổ vi&ecirc;n tổ d&acirc;n phố, thuộc Đội D&acirc;n ph&ograve;ng bảo vệ khu phố T&acirc;y A, phường Đ&ocirc;ng H&ograve;a, thị x&atilde; Dĩ An (tỉnh&nbsp;<a href=\"https://thanhnien.vn/binh-duong/\" rel=\"noopener noreferrer\" target=\"_blank\" title=\"Bình Dương\">B&igrave;nh Dương</a>) đưa ra lời khuy&ecirc;n: &quot;Để bảo vệ t&agrave;i sản c&aacute; nh&acirc;n khi ở nh&agrave; trọ, điều quan trọng nhất l&agrave; bản th&acirc;n mỗi người phải c&oacute; &yacute; thức tự giữ g&igrave;n t&agrave;i sản; lu&ocirc;n đề ph&ograve;ng, cảnh gi&aacute;c, đặc biệt l&agrave; với những người lạ mặt. Đi ra ngo&agrave;i n&ecirc;n kh&oacute;a cửa cẩn thận, kể cả cửa sổ để tr&aacute;nh tạo cơ hội cho kẻ gian d&ograve;m ng&oacute;, trộm cắp t&agrave;i sản. Nếu c&oacute; việc phải rời ph&ograve;ng trọ d&agrave;i ng&agrave;y th&igrave; n&ecirc;n mang tất cả đồ đạc c&oacute; gi&aacute; trị theo. Thứ 2, n&ecirc;n t&igrave;m những khu trọ đảm bảo an ninh, c&aacute;c ph&ograve;ng trọ n&ecirc;n lắp camera v&agrave; trang bị ổ kh&oacute;a chắc chắn. Những t&agrave;i sản c&oacute; gi&aacute; trị lớn như xe m&aacute;y n&ecirc;n gắn định vị để đề ph&ograve;ng khi bị mất cắp, C&ocirc;ng an sẽ c&oacute; cơ sở dễ d&agrave;ng t&igrave;m kiếm&quot;.</p>\r\n\r\n<p>&Ocirc;ng Chiến c&ograve;n cho biết th&ecirc;m, c&aacute;c chủ nh&agrave; trọ cũng c&oacute; tr&aacute;ch nhiệm treo bảng cảnh gi&aacute;c, đề ph&ograve;ng, kh&ocirc;ng cho người lạ mặt v&agrave;o khu trọ. Quan trọng nhất l&agrave; lắp camera an ninh. Nếu kh&ocirc;ng may bị<a href=\"https://thanhnien.vn/don-khoi-ky-tuc-xa-sinh-vien-gian-nan-tim-phong-tro-post1485966.html\" title=\"Dọn khỏi ký túc xá, sinh viên gian nan tìm phòng trọ\">&nbsp;mất t&agrave;i sản khi ở trọ</a>, nạn nh&acirc;n cần phải giữ b&igrave;nh tĩnh, t&agrave;i sản c&oacute; gi&aacute; trị lớn cần tr&igrave;nh b&aacute;o ngay với ch&iacute;nh quyền khu phố v&agrave; C&ocirc;ng an khu vực để kịp thời xử l&yacute;.</p>\r\n', '2022-10-04', '2000-10-19', 16, 'có', 1),
 (3, 55, '1212', '0', 'vippp', '2000-01-01', '2000-10-19', 1, '1', 1),
 (7, 55, 'dá', 'đấ', '<p>&aacute;d</p>\r\n', '2022-11-18', '2022-11-19', 0, '', 0),
 (11, 55, 'ád', 'ád', '<p>&aacute;d</p>\r\n', '2022-11-19', '2022-11-19', 4, '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_binhluan`
+--
+
+CREATE TABLE `tbl_binhluan` (
+  `ID_BL` int(11) NOT NULL,
+  `ID_NguoiDung_BL` int(11) NOT NULL,
+  `ID_BaiDang_BL` int(11) NOT NULL,
+  `NoiDung_BL` text COLLATE utf8_unicode_ci NOT NULL,
+  `ThoiGian_BL` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_binhluan`
+--
+
+INSERT INTO `tbl_binhluan` (`ID_BL`, `ID_NguoiDung_BL`, `ID_BaiDang_BL`, `NoiDung_BL`, `ThoiGian_BL`) VALUES
+(1, 23, 1, 'như cứt', '2022-11-29 22:08:07');
 
 -- --------------------------------------------------------
 
@@ -35689,7 +35710,8 @@ CREATE TABLE `tbl_danhgia` (
 INSERT INTO `tbl_danhgia` (`ID_DG`, `ID_NhaTro_DG`, `ID_NguoiDung_DG`, `NoiDung_DG`, `Diem_DG`, `Ngay_DG`) VALUES
 (2, 1, 15, 'nhu', 4, '2022-10-10 18:48:07'),
 (3, 2, 100, 'ngu', 3, '2022-10-10 18:49:31'),
-(11, 32, 15, 'Hello', 3, '2022-10-10 19:53:03');
+(11, 32, 15, 'Hello', 3, '2022-10-10 19:53:03'),
+(14, 32, 15, 'Như hạch', 4, '2022-10-10 19:53:03');
 
 -- --------------------------------------------------------
 
@@ -35730,23 +35752,22 @@ CREATE TABLE `tbl_nguoidung` (
   `DienThoai_ND` int(50) NOT NULL,
   `DiaChi_ND` varchar(255) NOT NULL,
   `CMND_ND` int(50) NOT NULL,
-  `KichHoat_ND` int(50) NOT NULL,
-  `NgayDang_ND` date NOT NULL DEFAULT current_timestamp()
+  `KichHoat_ND` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_nguoidung`
 --
 
-INSERT INTO `tbl_nguoidung` (`ID_ND`, `Ten_ND`, `TenDN_ND`, `MK_ND`, `NgaySinh_ND`, `Anh_ND`, `LoaiNguoiDung_ND`, `Email_ND`, `DienThoai_ND`, `DiaChi_ND`, `CMND_ND`, `KichHoat_ND`, `NgayDang_ND`) VALUES
-(12, 'Võ vôi ', 'tankhoi123s', '$2b$10$ZBR/7kkzITSiOR.Pne1EIeobqWpFPrC9MDmRm6D3snEvv5LhLHmlq', '0000-00-00', '1664812243919.jfif', 'chutro', 'adds2323@gmail.com', 8565, '08565', 1231312312, 1, '0000-00-00'),
-(15, 'Võ vôi ', 'admin', '$2b$10$SUvUt9SCwZgrn8jY6P1hkeDsCp3JHXj0ouIfjdXPajP1s0gZPcoPm', '0000-00-00', '1664851561552.jfif', 'admin', 'adds23234@gmail.com', 8565, '08565', 122323, 1, '0000-00-00'),
-(19, 'raweaw', 'e2e', 'awe2qe', '0000-00-00', 'e12e', 'adad', 'hello?@', 0, '', 0, 0, '0000-00-00'),
-(20, 'dasdw', 'awdq', 'qwdqq', '0000-00-00', 'qwdq', 'eq2e', 'wdq', 1231241, 'dqwd', 13124123, 1, '0000-00-00'),
-(23, 'Trần Thanh Nhàng', '', '$2b$10$MrOJKG4g8wNxsV5PNacgkO5MRW298n.JQc4kUz.viw6RRhbuHESp.', '0000-00-00', '', 'khachhang', 'nhangnhanh123@gmail.com', 972667944, '', 0, 1, '2022-11-14'),
-(54, 'qe121221e', '', '$2b$10$1SVkf9JFpei9U.agPydVPOukbDgBoZhop1ASvHoDoUpDH9FfeW2tO', '0000-00-00', '', 'khachhang', 'nhangnhanh123@gmail.com', 972667944, '', 0, 0, '2022-11-15'),
-(55, 'Mai Tiến Khôi', 'khoi123', '$2b$10$wikpAnjN6oi13CiYt.ljyel8KA4aVYBzbqtFOFu8zh7gs8LN47Fxu', '0000-00-00', '1668773681563.jpg', 'chutro', 'khoi@gmail.com', 74549141, '074549141', 352648141, 1, '0000-00-00'),
-(61, '123123', '2123', '$2b$10$VAEDn3sz5KaPFmyo9erHxeYvZbClV81/YeD.plqIvloKLfu.XB.g.', '2022-11-03', '', 'chutro', 'nhangnhanh123@gmail.com', 0, '', 0, 0, '2022-11-16');
+INSERT INTO `tbl_nguoidung` (`ID_ND`, `Ten_ND`, `TenDN_ND`, `MK_ND`, `NgaySinh_ND`, `Anh_ND`, `LoaiNguoiDung_ND`, `Email_ND`, `DienThoai_ND`, `DiaChi_ND`, `CMND_ND`, `KichHoat_ND`) VALUES
+(12, 'Võ vôi ', 'tankhoi123s', '$2b$10$ZBR/7kkzITSiOR.Pne1EIeobqWpFPrC9MDmRm6D3snEvv5LhLHmlq', '0000-00-00', '1664812243919.jfif', 'chutro', 'adds2323@gmail.com', 8565, '08565', 1231312312, '1'),
+(15, 'Võ vôi ', 'admin', '$2b$10$SUvUt9SCwZgrn8jY6P1hkeDsCp3JHXj0ouIfjdXPajP1s0gZPcoPm', '0000-00-00', '1664851561552.jfif', 'admin', 'adds23234@gmail.com', 8565, '08565', 122323, '1'),
+(19, 'raweaw', 'e2e', 'awe2qe', '0000-00-00', 'e12e', 'adad', 'hello?@', 0, '', 0, '0'),
+(20, 'dasdw', 'awdq', 'qwdqq', '0000-00-00', 'qwdq', 'eq2e', 'wdq', 1231241, 'dqwd', 13124123, '1'),
+(23, 'Trần Thanh Nhàng', '', '$2b$10$MrOJKG4g8wNxsV5PNacgkO5MRW298n.JQc4kUz.viw6RRhbuHESp.', '0000-00-00', '', 'khachhang', 'nhangnhanh123@gmail.com', 972667944, '', 0, '1'),
+(54, 'qe121221e', '', '$2b$10$1SVkf9JFpei9U.agPydVPOukbDgBoZhop1ASvHoDoUpDH9FfeW2tO', '0000-00-00', '', 'khachhang', 'nhangnhanh123@gmail.com', 972667944, '', 0, '1'),
+(55, 'Mai Tiến Khôi', 'khoi123', '$2b$10$wikpAnjN6oi13CiYt.ljyel8KA4aVYBzbqtFOFu8zh7gs8LN47Fxu', '0000-00-00', '1668773681563.jpg', 'chutro', 'khoi@gmail.com', 74549141, '074549141', 352648141, '1'),
+(86, 'Trần Thanh Nhàng', '', '$2b$10$QydkGyW6hsWl8A.hAkLLVeLTFT0QWcMdUSoXrycBP3Znl17txyXNW', '0000-00-00', '', 'khachhang', 'nhangnhanh1234@gmail.com', 12312312, '', 0, '1');
 
 -- --------------------------------------------------------
 
@@ -35789,7 +35810,9 @@ CREATE TABLE `tbl_nhatro` (
   `Anh_NT` varchar(255) NOT NULL,
   `Gia_NT` float NOT NULL,
   `SoLuongPhong_NT` int(11) NOT NULL,
+  `SoLuongHienTai_NT` int(11) NOT NULL,
   `ThongTin_NT` text NOT NULL,
+  `HinhAnh` varchar(255) NOT NULL,
   `Wifi_NT` int(11) NOT NULL,
   `TV_NT` int(11) NOT NULL,
   `ChoDeXe_NT` int(11) NOT NULL,
@@ -35797,22 +35820,21 @@ CREATE TABLE `tbl_nhatro` (
   `MayLanh_NT` int(11) NOT NULL,
   `BepNauAn_NT` int(11) NOT NULL,
   `KhuVuc_NT` int(11) NOT NULL,
-  `KiemDuyet_NT` int(11) NOT NULL
+  `KiemDuyet_NT` int(11) NOT NULL,
+  `Lat_NT` varchar(255) NOT NULL,
+  `Lng_NT` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_nhatro`
 --
 
-INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, `SoDienThoai_NT`, `NgayDang_NT`, `NgayCapNhat_NT`, `Anh_NT`, `Gia_NT`, `SoLuongPhong_NT`, `ThongTin_NT`, `Wifi_NT`, `TV_NT`, `ChoDeXe_NT`, `TuLanh_NT`, `MayLanh_NT`, `BepNauAn_NT`, `KhuVuc_NT`, `KiemDuyet_NT`) VALUES
-(1, 'Nhà trọ Bảo Lộc', 55, '86/8 Bầu Cát 2, Phường 12, Quận Tân Bình, Hồ Chí Minh', 906990224, '2022-10-04 16:07:56', '2022-10-06 16:07:56', '', 2600000, 35, '', 1, 0, 1, 1, 0, 1, 1, 1),
-(2, 'Nhà trọ Tấn Khôi', 55, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, Hồ Chí Minh', 982461659, '2022-10-06 16:45:50', '2022-10-06 16:45:50', '', 1320000, 20, '', 1, 0, 1, 0, 0, 0, 1, 1),
-(32, 'Nhà trọ Ngân Ngân', 11, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, An Giang', 0, '2022-11-19 19:59:07', '2022-11-19 19:59:07', '', 1230000, 123, 'qdeawdawd', 1, 1, 0, 0, 0, 0, 30, 1),
-(33, 'Nhà trọ Cờ Lặc', 11, '19adsadng Lãnh, ád a adasdadQuận 1, an Giang', 0, '2022-11-19 19:59:07', '2022-11-19 19:59:07', '', 2330000, 123, 'qdeawdawd', 1, 1, 0, 0, 0, 0, 30, 1),
-(34, '', 55, 'Thị xã Bến Cát, Bình Dương', 0, '2022-11-21 08:23:50', '2022-11-21 08:23:50', '', 0, 0, '', 0, 0, 0, 0, 0, 0, 4, 1),
-(37, '', 55, '', 0, '2022-11-21 09:17:40', '2022-11-21 09:17:40', '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0),
-(38, '', 55, '', 0, '2022-11-21 09:17:52', '2022-11-21 09:17:52', '', 0, 0, '', 1, 0, 0, 0, 0, 0, 0, 0),
-(39, '', 55, '', 0, '2022-11-21 09:26:01', '2022-11-21 09:26:01', '', 0, 0, '', 1, 0, 1, 0, 1, 0, 0, 0);
+INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, `SoDienThoai_NT`, `NgayDang_NT`, `NgayCapNhat_NT`, `Anh_NT`, `Gia_NT`, `SoLuongPhong_NT`, `SoLuongHienTai_NT`, `ThongTin_NT`, `HinhAnh`, `Wifi_NT`, `TV_NT`, `ChoDeXe_NT`, `TuLanh_NT`, `MayLanh_NT`, `BepNauAn_NT`, `KhuVuc_NT`, `KiemDuyet_NT`, `Lat_NT`, `Lng_NT`) VALUES
+(1, 'Nhà trọ Bảo Lộc', 55, '86/8 Bầu Cát 2, Phường 12, Quận Tân Bình, Hồ Chí Minh', 906990224, '2022-10-04 16:07:56', '2022-10-06 16:07:56', '', 2600000, 35, 9, 'ádsad', '', 1, 0, 1, 1, 0, 1, 1, 1, '0', '0'),
+(2, 'Nhà trọ Tấn Khôi', 55, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, Hồ Chí Minh', 982461659, '2022-10-06 16:45:50', '2022-10-06 16:45:50', '', 1320000, 20, 20, '', '', 1, 0, 1, 0, 0, 0, 1, 1, '0', '0'),
+(32, 'Nhà trọ Ngân Ngân', 11, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, An Giang', 0, '2022-11-19 19:59:07', '2022-11-19 19:59:07', '', 1230000, 123, 0, 'qdeawdawd', '', 1, 1, 0, 0, 0, 0, 30, 1, '0', '0'),
+(33, 'Nhà trọ Cờ Lặc', 11, '19adsadng Lãnh, ád a adasdadQuận 1, an Giang', 0, '2022-11-19 19:59:07', '2022-11-19 19:59:07', '', 2330000, 123, 7, 'qdeawdawd', '', 1, 1, 0, 0, 0, 0, 30, 1, '0', '0'),
+(40, 'Nhà trọ Ngân', 55, '735 Hà Hoàng Hổ, Phường Mỹ Xuyên, Thành phố Long Xuyên, An Giang', 79947412, '2022-11-26 18:47:49', '2022-11-26 18:47:49', '', 900000, 18, 1, '<p>10h đ&oacute;ng cửa</p>\r\n', '', 1, 0, 1, 0, 0, 1, 30, 1, '10.3780194', '105.4333739');
 
 -- --------------------------------------------------------
 
@@ -35822,23 +35844,89 @@ INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, 
 
 CREATE TABLE `tbl_phongtro` (
   `ID_PT` int(50) NOT NULL,
-  `IDNhaTro_PT` int(50) NOT NULL,
-  `TenPhong_PT` varchar(255) NOT NULL,
-  `LoaiPhong_PT` varchar(255) NOT NULL,
-  `GiaPhong_PT` double NOT NULL,
-  `HinhAnh_PT` varchar(255) NOT NULL,
-  `MoTa_PT` varchar(255) NOT NULL,
-  `DienTich_PT` varchar(255) NOT NULL,
-  `Dien_PT` double NOT NULL,
-  `Nuoc_PT` double NOT NULL,
-  `DatCoc_PT` double NOT NULL,
-  `TrangThai_PT` varchar(255) NOT NULL,
-  `Wifi_PT` varchar(255) NOT NULL,
-  `SucChua_PT` int(50) NOT NULL,
-  `GhiChu_PT` varchar(255) NOT NULL,
-  `NgayDang_PT` date NOT NULL,
-  `NgayCapNhat_PT` date NOT NULL
+  `ID_NhaTro_PT` int(50) NOT NULL,
+  `MaSo_PT` varchar(11) NOT NULL,
+  `TinhTrang_PT` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_phongtro`
+--
+
+INSERT INTO `tbl_phongtro` (`ID_PT`, `ID_NhaTro_PT`, `MaSo_PT`, `TinhTrang_PT`) VALUES
+(176, 1, '01', 1),
+(177, 1, '02', 1),
+(178, 1, '03', 1),
+(179, 1, '04', 1),
+(180, 1, '05', 1),
+(181, 1, '06', 1),
+(182, 1, '07', 1),
+(183, 1, '08', 1),
+(184, 1, '09', 1),
+(185, 1, '010', 0),
+(186, 1, '011', 0),
+(187, 1, '012', 0),
+(188, 1, '013', 0),
+(189, 1, '014', 0),
+(190, 1, '015', 0),
+(191, 1, '016', 0),
+(192, 1, '017', 0),
+(193, 1, '018', 0),
+(194, 1, '019', 0),
+(195, 1, '020', 0),
+(196, 1, '021', 0),
+(197, 1, '022', 0),
+(198, 1, '023', 0),
+(199, 1, '024', 0),
+(200, 1, '025', 0),
+(201, 1, '026', 0),
+(202, 1, '027', 0),
+(203, 1, '028', 0),
+(204, 1, '029', 0),
+(205, 1, '030', 0),
+(206, 1, '031', 0),
+(207, 1, '032', 0),
+(208, 1, '033', 0),
+(209, 1, '034', 0),
+(210, 1, '035', 0),
+(211, 2, '01', 1),
+(212, 2, '02', 1),
+(213, 2, '03', 1),
+(214, 2, '04', 1),
+(215, 2, '05', 1),
+(216, 2, '06', 1),
+(217, 2, '07', 1),
+(218, 2, '08', 1),
+(219, 2, '09', 1),
+(220, 2, '010', 1),
+(221, 2, '011', 1),
+(222, 2, '012', 1),
+(223, 2, '013', 1),
+(224, 2, '014', 1),
+(225, 2, '015', 1),
+(226, 2, '016', 1),
+(227, 2, '017', 1),
+(228, 2, '018', 1),
+(229, 2, '019', 1),
+(230, 2, '020', 1),
+(231, 40, '01', 0),
+(232, 40, '02', 0),
+(233, 40, '03', 1),
+(234, 40, '04', 0),
+(235, 40, '05', 0),
+(236, 40, '06', 0),
+(237, 40, '07', 0),
+(238, 40, '08', 0),
+(239, 40, '09', 0),
+(240, 40, '010', 0),
+(241, 40, '011', 0),
+(242, 40, '012', 0),
+(243, 40, '013', 0),
+(244, 40, '014', 0),
+(245, 40, '015', 0),
+(246, 40, '016', 0),
+(247, 40, '017', 0),
+(248, 40, '018', 0);
 
 -- --------------------------------------------------------
 
@@ -47216,6 +47304,12 @@ ALTER TABLE `tbl_baidang`
   ADD PRIMARY KEY (`ID_BD`);
 
 --
+-- Indexes for table `tbl_binhluan`
+--
+ALTER TABLE `tbl_binhluan`
+  ADD PRIMARY KEY (`ID_BL`);
+
+--
 -- Indexes for table `tbl_danhgia`
 --
 ALTER TABLE `tbl_danhgia`
@@ -47305,10 +47399,16 @@ ALTER TABLE `tbl_baidang`
   MODIFY `ID_BD` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `tbl_binhluan`
+--
+ALTER TABLE `tbl_binhluan`
+  MODIFY `ID_BL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tbl_danhgia`
 --
 ALTER TABLE `tbl_danhgia`
-  MODIFY `ID_DG` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_DG` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_danhsachthue`
@@ -47320,7 +47420,7 @@ ALTER TABLE `tbl_danhsachthue`
 -- AUTO_INCREMENT for table `tbl_nguoidung`
 --
 ALTER TABLE `tbl_nguoidung`
-  MODIFY `ID_ND` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `ID_ND` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `tbl_nguoithuetro`
@@ -47332,13 +47432,13 @@ ALTER TABLE `tbl_nguoithuetro`
 -- AUTO_INCREMENT for table `tbl_nhatro`
 --
 ALTER TABLE `tbl_nhatro`
-  MODIFY `ID_NT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID_NT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `tbl_phongtro`
 --
 ALTER TABLE `tbl_phongtro`
-  MODIFY `ID_PT` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_PT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- AUTO_INCREMENT for table `tbl_tienich`

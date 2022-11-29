@@ -72,14 +72,7 @@ button.pagination{
     text-align: center;
 }
 
-body
-{
-    height: 100%;
-    margin: 0;
-    user-select: none;
-    -webkit-tap-highlight-color:transparent;
-    background-color: #234363;
-}
+
 #app
 {
     position: absolute;
@@ -118,3 +111,7 @@ body
     font-weight: bold;
     color: rgb(241, 134, 152);
 }
+
+
+
+/*comment*/

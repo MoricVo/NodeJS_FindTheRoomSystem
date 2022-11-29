@@ -32,13 +32,14 @@
 
   </head>
   <body>
+      <% session.confirm="" %>
       <%- include('Views_Include/navbar') %>
       <% if(session.sc) { %> 
         <script>Success("<%= session.sc %>")</script>
       <% } session.sc = null %> %>
   
       <div class="slide-one-item home-slider owl-carousel">
-        <% nt.forEach(function(nt){ %> 
+        <% var i=1; nt.forEach(function(nt){ %> 
         <div class="site-blocks-cover overlay" style="background-image: url(http://localhost:3000/assets/images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
           <div class="container">
             <div class="row align-items-center justify-content-center text-center">
@@ -141,10 +142,11 @@
           <div class="row">
           <div class="wrapper mb-4 col-7" style="margin-left: 10px;">
             <form action="/locgia" method="post" class="">
-              <div class="row"><h2 class="col-8">Giá phòng</h2><button type="submit" class="loc col-2 m-2">Lọc</button></div>
+              <div class="row">
+                <h2 class="col-9">Giá phòng</h2>
+                <button type="submit" class="loc col-2 m-2">Lọc</button>
+              </div>
               
-              
-            
             
             <% if(max!=""){ %> 
               <p>Lọc giá phòng từ khoảng từ <%- numberFormat(min*1000) %>đ đến <%- numberFormat(max*1000) %>đ</p>
@@ -234,6 +236,8 @@
 
           <!--card-->
           <div class="row mb-5" id="card-nhatro">
+            
+            <% var i=1; %>
             <% NhaTro.forEach(function(nt){ %>
             
             <div class="col-md-6 col-lg-4 mb-4">
@@ -242,18 +246,22 @@
                   <button type="submit" class="card border-0">
                   <div class="offer-type-wrap">
                     <span class="offer-type bg-light text-dark"><%= nt.SoLuong_DG %> đánh giá</span>
-                    <% if(nt.Diem_TB!=null){ %> 
-                      <span class="offer-type bg-primary text-center"><%= nt.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
+                    
+                      <% if(nt.Diem_TB!=null){ %> 
+                        <span class="offer-type bg-primary text-center"><%= nt.Diem_TB.toFixed(1) %> <i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
                       <% }else{ %>
                         <span class="offer-type bg-primary text-center">0<i class="bi bi-star-fill" style="font-size: 13px;"></i></span>
-                        <% } %>
+                      <% } %>
+                      <% if(nt.SoLuongHienTai_NT>=nt.SoLuongPhong_NT){ %> 
+                      <span class="offer-type bg-danger text-white">Hết phòng</span>
+                      <% } %>
                     </div>
-                  <img src="http://localhost:3000/assets/images/img_1.jpg" alt="Image" class="img-fluid">
+                  <img src="http://localhost:3000/assets/images/img_<%= i++ %>.jpg" alt="Image" class="img-fluid">
                 
                 <div class="p-4 property-body">
                   <a href="#" class="property-favorite"><span class="bi bi-suit-heart-fill"></span></a>
                   <h2 class="property-title"><a href="" id="ten"><%= nt.TenNhaTro_NT %></a></h2>
-                  <i class="bi bi-geo-alt-fill"></i> <%= nt.DiaChi_NT %>
+                  <span class="tomtat"><i class="bi bi-geo-alt-fill"></i> <%= nt.DiaChi_NT %></span>
                   <input type="hidden" value="<%= nt.KhuVuc_NT %>" name="DiaChi" id="DiaChi"></a></form>
                   <strong class="property-price text-primary mb-3 d-block text-success"><%- numberFormat(nt.Gia_NT) %> đ</strong>
                   

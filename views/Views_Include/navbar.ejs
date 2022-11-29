@@ -60,7 +60,10 @@
               <a><%= session.Ten_ND %></a>
               <ul class="dropdown arrow-top">
                 <li><a href="#">Tài khoản</a></li>
-                  <li><a href="/dangxuat_nguoidung">Đăng xuất</a></li>
+                <% if(session.LoaiNguoiDung_ND=='chutro') { %>
+                  <li><a href="/chutro">Quản lý trọ</a></li>
+                <% } %>
+                <li><a href="/dangxuat_nguoidung">Đăng xuất</a></li>
                 
               </ul>
             </li>

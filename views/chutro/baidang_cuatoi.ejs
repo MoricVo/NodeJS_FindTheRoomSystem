@@ -38,8 +38,7 @@
                                     <tr>
                                     <th>#</th>
                                     <th>Tiêu đề</th>
-                                    <th>Tóm tắt</th>
-                                    <th>Ngày đăng</th>
+                                    <th style="overflow: hidden;">Ngày đăng</th>
                                     <th>Lượt xem</th>
                                     <th>Trạng thái</th>
                                     </tr>
@@ -50,8 +49,7 @@
                                         <tr>
                                         <td><%= stt++ %></td>
                                         <td><%= bd.TieuDe_BD %></td>
-                                        <td><%= bd.TomTat_BD %></td>
-                                        <td><%- formatDate(bd.NgayDang_BD) %></td>
+                                        <td ><%- formatDate(bd.NgayDang_BD) %></td>
                                         <td><%= bd.LuotXem_BD %></td>
                                         <% if(bd.KiemDuyet_BD==0){ %> 
                                         <td>

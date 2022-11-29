@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chào mừng <%= session.Ten_ND %></title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/chutro/assets/vendors/iconfonts/mdi/css/materialdesignicons.css">
+ 
+    <link rel="stylesheet" href="/chutro/assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="/chutro/assets/css/demo_1/style.css">
+    <!-- Layout style -->
+    <link rel="shortcut icon" href="/chutro/assets//images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">  
+    
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="http://localhost:3000/js/sweetalert2.js"></script>
+</head>
+<body class="header-fixed">
+    <% if(session.sc) { %> 
+        <script>Success("<%= session.sc %>")</script>
+      <% } session.sc = null %>
+    <%- include('include/header') %>
+    <div class="page-body">
+        <%- include('include/sidebar') %>
+        <div class="page-content-wrapper">
+            <div class="page-content-wrapper-inner">
+                <div class="content-viewport">
+                <div class="row" >
+                    <div class="col-12 py-5">
+                        <div class="grid">
+                            <p class="grid-header">DANH SÁCH PHÒNG TRỌ</p> <a href="/chutro/phongtro_them/<%= nt.ID_NT %>/<%= nt.SoLuongPhong_NT %>" class="btn btn-success" type="button">Tạo phòng tự động</a>
+                            <div class="item-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-sm mb-0">
+                                    <thead>
+                                        <tr>
+                                        <th>#</th>
+                                        <th>Mã số phòng</th>
+                                        <th>Tình trạng</th>
+                                        <th>Cập nhật</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% var stt = 1 %>
+                                        <% Phong.forEach(function(p){ %>
+                                            <tr>
+                                            <td><%= stt++ %></td>
+                                            <td><%= p.MaSo_PT %></td>
+                                            <% if(p.TinhTrang_PT==0){ %>
+                                            <td>
+                                                <label class="badge badge-success">Còn trống</label>
+                                            </td>
+                                            <% }else{ %>
+                                            <td>
+                                                <label class="badge badge-info">Có người</label>
+                                            </td>
+                                            <% } %>
+                                            <td >
+                                                <a class="text-warning" href="/chutro/tinhtrangphong/<%= nt.ID_NT %>/<%= p.ID_PT %>"><i class="mdi mdi-tooltip-edit"></i> Cập nhật </a>
+                                            </td>
+    
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+</body>
+<script src="/chutro/assets/vendors/js/core.js"></script>
+    <!-- endinject -->
+    <!-- Vendor Js For This Page Ends-->
+<script src="/chutro/assets/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="/chutro/assets/vendors/chartjs/Chart.min.js"></script>
+<script src="/chutro/assets/js/charts/chartjs.addon.js"></script>
+<!-- Vendor Js For This Page Ends-->
+<!-- build:js -->
+<script src="/chutro/assets/js/template.js"></script>
+<script src="/chutro/assets/js/dashboard.js"></script>
+</html>

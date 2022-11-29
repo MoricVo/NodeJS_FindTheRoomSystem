@@ -66,29 +66,34 @@ router.post('/chitiet/:id_nhatro', function(req, res){
 //POST: Đánh giá
 router.post("/danhgia/:id_nhatro", function (req, res) {
 	var errors = validationResult(req);
-	if (!errors.isEmpty()) {
-	  res.render("views_chitiet_nhatro", {
-		errors: errors.array(),
-	  });
-	} else {
-	var data = {
-		ID_NhaTro_DG: req.params.id_nhatro,
-		ID_NguoiDung_DG: req.session.ID_ND,
-		NoiDung_DG:	req.body.NoiDung_DG,
-		Diem_DG: req.body.Diem_DG
-	  };
-	  var sql = "INSERT INTO tbl_danhgia SET ?";
-	  conn.query(sql, data, function (error, results) {
-		if (error) {
-		  req.session.error = error;
-		  res.redirect("/error");
-		} else {
-		  req.session.success = "Đã thêm đánh giá.";
-		  res.redirect("/nhatro/chitiet/" + req.params.id_nhatro);
-		  // res.redirect('/success');
-		}
-	  });
+	if(!req.session.ID_ND){
+		res.redirect('/dangnhap_nguoidung');
+	}else{
+		if (!errors.isEmpty()) {
+			res.render("views_chitiet_nhatro", {
+			  errors: errors.array(),
+			});
+		  } else {
+		  var data = {
+			  ID_NhaTro_DG: req.params.id_nhatro,
+			  ID_NguoiDung_DG: req.session.ID_ND,
+			  NoiDung_DG:	req.body.NoiDung_DG,
+			  Diem_DG: req.body.Diem_DG
+			};
+			var sql = "INSERT INTO tbl_danhgia SET ?";
+			conn.query(sql, data, function (error, results) {
+			  if (error) {
+				req.session.error = error;
+				res.redirect("/error");
+			  } else {
+				req.session.success = "Đã thêm đánh giá.";
+				res.redirect("/nhatro/chitiet/" + req.params.id_nhatro);
+				// res.redirect('/success');
+			  }
+			});
+		  }
 	}
+	
   });
 
 router.get('/get_relate', function(req, res, next){

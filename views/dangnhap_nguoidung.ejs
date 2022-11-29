@@ -12,7 +12,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script>
-	function Load(error){
+	function Err(error){
 		
 		Swal.fire({
 		icon: 'error',
@@ -20,6 +20,13 @@
 		timer: 1500,
 		customClass: 'swal-wide',
 		})
+	}
+    function Conf(error){
+		Swal.fire(
+        'Thứ  lỗi xin lỗi vì sự bất tiện này!',
+        'Vui lòng xác thực Email để đăng nhập tài khoản!',
+        'question',
+    )
 	}
 	
    </script>
@@ -32,11 +39,13 @@
 
 <body>
 	<% if(errorMsg != "") { %> 
-		<script>Load("<%= errorMsg %>")</script>
+		<script>Err("<%= errorMsg %>")</script>
 	<% } errorMsg="" %>
-	<div id="error">
+    <% if(session.confirm!="") { %> 
+		<script>Conf("<%= session.confirm %>")</script>
+	<% } session.confirm="" %>
 
-	</div>
+	
 <div class="container">
 	<section id="formHolder">
  
@@ -122,6 +131,7 @@
 				   </div>
 				</form>
 			 </div><!-- End Signup Form -->
+             
 		  </div>
 	   </div>
 	   <footer>
@@ -137,6 +147,7 @@
 
 </html>
 <script>
+
     /*global $, document, window, setTimeout, navigator, console, location*/
         $(document).ready(function () {
     

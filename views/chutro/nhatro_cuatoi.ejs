@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="/chutro/assets/css/demo_1/style.css">
     <!-- Layout style -->
     <link rel="shortcut icon" href="/chutro/assets//images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">  
     
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="http://localhost:3000/js/sweetalert2.js"></script>
@@ -20,7 +24,7 @@
 <body class="header-fixed">
     <% if(session.sc) { %> 
         <script>Success("<%= session.sc %>")</script>
-      <% } session.sc = null %> %>
+      <% } session.sc = null %>
     <%- include('include/header') %>
     <%- include('include/header') %>
     <div class="page-body">
@@ -40,10 +44,11 @@
                                     <th>#</th>
                                     <th>Tên trọ</th>
                                     <th>Giá</th>
-                                    <th>Số lượng phòng</th>
+                                    <th>Tình trạng phòng</th>
                                     <th>Ngày đăng ký</th>
-                                    <th>Trạng thái</th>
                                     <th>Địa chỉ</th>
+                                    <th>Kiểm duyệt</th>
+                                    <th>Hoạt động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,13 +58,26 @@
                                         <td><%= stt++ %></td>
                                         <td><%= nt.TenNhaTro_NT %></td>
                                         <td><%-numberFormat(nt.Gia_NT) %></td>
-                                        <td><%= nt.SoLuongPhong_NT %></td>
-                                        <td><%= new Date(nt.NgayDang_NT.toISOString()).getDate() %> thg<%= new Date(nt.NgayDang_NT.toISOString()).getMonth()+1 %>, <%= new Date(nt.NgayDang_NT.toISOString()).getFullYear() %></td>
-                                        <td>
-                                            <label class="badge badge-danger">Full</label>
+                                        <td class="text-center"><%= nt.SoLuongHienTai_NT %>/<%= nt.SoLuongPhong_NT %> 
+                                            <a href="/chutro/phongtro/<%= nt.ID_NT %>" class="" style="float: right;"><i class="bi bi-ticket-detailed-fill"></i></a>
                                         </td>
+                                        <td><%= new Date(nt.NgayDang_NT.toISOString()).getDate() %> thg<%= new Date(nt.NgayDang_NT.toISOString()).getMonth()+1 %>, <%= new Date(nt.NgayDang_NT.toISOString()).getFullYear() %></td>
                                         
                                         <td id="diachi"><%= nt.DiaChi_NT %></td>
+                                        <% if(nt.KiemDuyet_NT==0){ %> 
+                                            <td>
+                                                <label class="badge badge-danger">Chưa kiểm duyệt</label>
+                                            </td>
+                                            <%}else{ %>
+                                            <td>
+                                                <label class="badge badge-success">Đã kiểm duyệt</label>
+                                            </td>
+                                            <% } %>
+                                        
+                                        <td >
+                                            <a class="text-warning" href="/chutro/nhatro_sua/<%= nt.ID_NT %>"><i class="mdi mdi-tooltip-edit"></i> Sửa </a>
+                                        </td>
+
                                         </tr>
                                     <% }) %>
                                 </tbody>

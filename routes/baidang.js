@@ -199,6 +199,7 @@ router.get("/tintuc", function (req, res) {
     }
   });
 });
+//Phân trang
 router.get("/tintuc/page/:count", function (req, res) {
   var sql = "select tbl_baidang.*, Ten_ND from tbl_baidang, tbl_nguoidung WHERE ID_ND=ID_NguoiDang_BD AND KiemDuyet_BD = 1 LIMIT "+req.query.index+", 3;";
     conn.query(sql, function(error, results){
@@ -222,14 +223,16 @@ router.get("/chitiet/:id", function (req, res) {
     if (error) {
       res.send(error);
     } else {
-      var sql = "select tbl_baidang.*, Ten_ND from tbl_baidang, tbl_nguoidung WHERE ID_ND=ID_NguoiDang_BD AND KiemDuyet_BD = 1 AND ID_BD = ?";
-      conn.query(sql, [id], function (error, results) {
+      var sql = "select tbl_baidang.*, Ten_ND from tbl_baidang, tbl_nguoidung WHERE ID_ND=ID_NguoiDang_BD AND KiemDuyet_BD = 1 AND ID_BD = ?;\
+        SELECT tbl_binhluan.*, Ten_ND, Anh_ND FROM tbl_binhluan, tbl_nguoidung WHERE ID_ND = ID_NguoiDung_BL AND ID_BaiDang_BL = ? ORDER BY ThoiGian_BL DESC";
+      conn.query(sql, [id, id], function (error, results) {
         if (error) {
           res.send(error);
         } else {
           res.render("baidang_chitiet", {
             title: "results",
-            BaiDang: results.shift(),
+            BaiDang: results[0].shift(),
+            BinhLuan: results[1],
             formatDate
           });
         }
@@ -238,5 +241,41 @@ router.get("/chitiet/:id", function (req, res) {
   });
   
 });
+
+//POST: Bình luận
+router.post("/binhluan/:id", function (req, res) {
+	if (!req.session.ID_ND) {
+    req.session.error = "Vui lòng đăng nhập để bình luận."
+    res.render('baidang_chitiet/'+req.params.id);
+	} else {
+	  var data = {
+      ID_BaiDang_BL: req.params.id,
+      ID_NguoiDung_BL: req.session.ID_ND,
+      NoiDung_BL:	req.body.NoiDung_BL
+	  };
+	  var sql = "INSERT INTO tbl_binhluan SET ?";
+	  conn.query(sql, data, function (error, results) {
+		if (error) {
+		  req.session.error = req.body.NoiDung_BL;
+		  res.redirect("/error");
+		} 
+	  });
+	}
+  });
+
+
+router.get("/get_binhluan", function (req, res) {
+  
+var sql2="SELECT tbl_binhluan.*, Ten_ND, Anh_ND FROM tbl_binhluan, tbl_nguoidung WHERE ID_ND = ID_NguoiDung_BL AND ID_BaiDang_BL = ? ORDER BY ThoiGian_BL DESC"
+  conn.query(sql2, [req.query.id_baidang], function (error, results) {
+    if(error){
+      res.redirect('/error');
+    }else{
+      formatDate;
+      res.json(results);
+    }
+  });
+});
+
 
 module.exports = router;

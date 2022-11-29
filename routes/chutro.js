@@ -176,8 +176,7 @@ router.get('/get_data', function(req, res, next){
 });
 //GET: đăng ký trọ
 router.get('/dangky_nhatro', function(req, res){
-	var sql = 'SELECT * FROM province;\
-		SELECT * FROM tbl_tienich';
+	var sql = 'SELECT * FROM province';
 	conn.query(sql, function(error, results){
 		if(error) {
 			req.session.error = error;
@@ -185,14 +184,11 @@ router.get('/dangky_nhatro', function(req, res){
 		} else {
 			res.render('chutro/dangky_nhatro', {
 				title: 'Đăng ký nhà trọ',
-				Provinces: results[0],
-				TienIch: results[1]
+				Provinces: results,
 			});
 		}
 	});	
 });
-
-
 
 
 
@@ -244,7 +240,9 @@ router.post("/dangky_nhatro", function (req, res) {
 				ChoDeXe_NT: ChoDeXe,
 				TuLanh_NT: TuLanh,
 				MayLanh_NT: MayLanh,
-				BepNauAn_NT: BepNauAn
+				BepNauAn_NT: BepNauAn,
+				Lat_NT: req.body.lat,
+				Lng_NT: req.body.lng
 			};
 			var sql = 'INSERT INTO tbl_nhatro SET ?';
 			conn.query(sql, data, function(error, results){
@@ -261,7 +259,24 @@ router.post("/dangky_nhatro", function (req, res) {
 		}
 	}
 });
-
+//GET: nhà trọ sửa
+router.get("/nhatro_sua/:id", function (req, res) {
+	var id = req.params.id;
+	var sql = "SELECT * FROM tbl_nhatro WHERE ID_NT = ?;\
+	SELECT * FROM province";
+	conn.query(sql, [id], function (error, results) {
+	  if (error) {
+		req.session.error = error;
+		res.redirect("/error");
+	  } else {
+		res.render("chutro/nhatro_sua", {
+		  title: "Sửa thông tin trọ",
+		  nt: results[0].shift(),
+		  Provinces: results[1]
+		});
+	  }
+	});
+});
 //GET: bài đăng của tôi
 router.get('/baidang_cuatoi', function(req, res){
     var sql = 'SELECT * FROM tbl_baidang WHERE ID_NguoiDang_BD = ?';
@@ -278,6 +293,62 @@ router.get('/baidang_cuatoi', function(req, res){
 			});
 		}
 	});
+});
+//POST: sửa Nhà trọ
+router.post("/nhatro_sua/:id", function (req, res) {
+	var errors = validationResult(req);
+	var Wifi=0, TV=0, ChoDeXe=0, TuLanh=0, MayLanh=0, BepNauAn=0;
+	if(req.body.Wifi_NT){
+		Wifi=1;
+	}if(req.body.TV_NT){
+		TV=1;
+	}if(req.body.ChoDeXe_NT){
+		ChoDeXe=1;
+	}if(req.body.MayLanh_NT){
+		MayLanh=1;
+	}if(req.body.TuLanh_NT){
+		TuLanh=1;
+	}if(req.body.BepNauAn_NT){
+		BepNauAn=1;
+	}
+	if(!errors.isEmpty()) {
+		res.render('/', {
+			title: '',
+			errors: errors.array()
+		});
+	} else {
+		if(req.session.ID_ND!=null) {
+			var data = {
+				TenNhaTro_NT: req.body.TenNhaTro_NT,
+				ID_ChuTro_NT: req.session.ID_ND,
+				DiaChi_NT: req.body.DiaChi_NT,
+				SoDienThoai_NT: req.body.SoDienThoai_NT,
+				ThongTin_NT: req.body.ThongTin_NT,
+				Gia_NT: req.body.Gia_NT,
+				SoLuongPhong_NT: req.body.SoLuongPhong_NT,
+				KhuVuc_NT: req.body.province,
+				Wifi_NT: Wifi,
+				TV_NT: TV,
+				ChoDeXe_NT: ChoDeXe,
+				TuLanh_NT: TuLanh,
+				MayLanh_NT: MayLanh,
+				BepNauAn_NT: BepNauAn,
+				KiemDuyet_NT: 0
+			};
+			var sql = 'UPDATE tbl_nhatro SET ? WHERE ID_NT = ?';
+			conn.query(sql, [data,req.params.id], function(error, results){
+				if(error) {
+					req.session.error = error;
+					res.redirect('/error');
+				} else {
+					req.session.sc = 'Cập nhật trọ thành công và đang chờ kiểm duyệt lại.';
+					res.redirect('/chutro/nhatro_cuatoi');
+				}
+			});
+		} else {
+			res.render('chutro/dangnhap_chutro');
+		}
+	}
 });
 
 //POST bài đăng
@@ -326,7 +397,7 @@ router.get("/baidang_xoa/:id", function (req, res) {
 		res.redirect("back");
 	  }
 	});
-  });
+});
 
 // GET: Sửa tài khoản
 router.get("/baidang_sua/:id", function (req, res) {
@@ -365,4 +436,70 @@ router.post("/baidang_sua/:id", upload.single("Anh_BD"), function (req, res) {
 	});
 
 });
+
+//GET Phòng trọ
+router.get('/phongtro/:id_nhatro', function(req, res){
+	var sql = 'SELECT * FROM tbl_phongtro WHERE ID_NhaTro_PT = ?;\
+	SELECT SoLuongPhong_NT, ID_NT FROM tbl_nhatro WHERE ID_NT = ' + req.params.id_nhatro;
+	conn.query(sql, [req.params.id_nhatro], function(error, results){
+		if(error) {
+			req.session.error = error;
+			res.redirect('/error');
+		} else {
+			res.render('chutro/phongtro', {
+				title: 'Danh sách phòng trọ ',
+				Phong: results[0],
+				nt: results[1].shift()
+			});
+		}
+	});
+});
+router.get('/phongtro_them/:id_nhatro/:soluong', function(req, res){
+	var sql = 'DELETE FROM tbl_phongtro WHERE ID_NhaTro_PT = ?';
+	conn.query(sql, req.params.id_nhatro, function(error, results){
+		if(error) {
+			req.session.error = error;
+			res.redirect('/error');
+		} else {
+			var sql = 'INSERT INTO tbl_phongtro SET ?';
+			var data;
+			for(var i=1; i<= req.params.soluong; i++){
+				data = {
+					ID_NhaTro_PT: req.params.id_nhatro,
+					MaSo_PT: '0'+i,
+					TinhTrang_PT: 0
+				};
+				conn.query(sql, data, function(error, results){
+					if(error) {
+						req.session.error = error;
+						res.redirect('/error');
+					} 
+				});
+			}
+		}
+	});
+	
+	req.session.sc = 'Đã tạo phòng trọ tự động chỉ khi xóa hết mới được tạo lại.';
+	res.redirect("back");
+	
+});
+// GET: SỬa tình trạng phòng
+router.get("/tinhtrangphong/:id_nhatro/:id", function (req, res) {
+	var id = req.params.id;
+	var id_nhatro = req.params.id_nhatro;
+	var sql =
+	  "UPDATE tbl_phongtro SET TinhTrang_PT = 1 - TinhTrang_PT WHERE ID_PT = ?";
+	conn.query(sql, [id], function (error, results) {
+	  if (error) {
+		req.session.error = error;
+		res.redirect("/error");
+	  } else {
+		var sql ="UPDATE tbl_nhatro SET SoLuongHienTai_NT = (SELECT COUNT(*) FROM tbl_phongtro WHERE TinhTrang_PT = 1 AND ID_NhaTro_PT = ?) WHERE ID_NT = ?";
+		conn.query(sql, [id_nhatro, id_nhatro], function (error, results) {});
+		res.redirect("back");
+	  }
+	});
+  });
+  
+
 module.exports = router;

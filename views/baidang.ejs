@@ -87,9 +87,9 @@
       <div class="row mt-5">
         <div class="col-md-12">
           <div id="app" class="text-center">
-            <button class="button active" value="0">1</button>
+            <a class="button active btn" value="0">1</a>
             <% for(var i=1; i<Math.ceil(SoLuong_BD.count/3); i++){ %>
-              <button class="button" value="<%= i %>"><%= i+1 %></button>
+              <a class="button btn" value="<%= i %>"><%= i+1 %></a>
             <% } %>
           </div>
       </div>

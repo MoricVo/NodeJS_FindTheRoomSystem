@@ -31,7 +31,7 @@
 	  
 	<div class="row">
 		<div class=" col-7">
-			<form action="/chutro/dangky_nhatro" method="post"  class="needs-validation">
+			<form action="/chutro/dangky_nhatro" method="post"  class="needs-validation" enctype="multipart/form-data">
 			<div class="card-body row">
 				
 				<!--Địa chỉ-->
@@ -135,7 +135,7 @@
 								<span class="select" role="button">Browse</span>
 							</span>
 							<span class="on-drop">Drop images here</span>
-							<input name="image" type="file" class="file"/>
+							<input id="image" type="file" class="file" name="image"/>
 						</div>
 				
 						<!-- IMAGE PREVIEW CONTAINER -->

@@ -16,7 +16,17 @@ var storageConfig = multer.diskStorage({
 		callback(null, timestamp + path.extname(file.originalname));
 	}
 });
+var storageConfig_nt = multer.diskStorage({
+	destination: function(req, file, callback){
+		callback(null, 'uploads/nhatro/');
+	},
+	filename: function(req, file, callback){
+		var timestamp = Date.now();
+		callback(null, timestamp + path.extname(file.originalname));
+	}
+});
 var upload = multer({ storage: storageConfig });
+var upload_nt = multer({ storage: storageConfig_nt });
 router.get('/', function(req, res){
 	res.render('chutro/index_chutro', { title: '' });
 });
@@ -191,19 +201,8 @@ router.get('/dangky_nhatro', function(req, res){
 });
 
 
-
-
-var validateForm = [
-	check('hovaten')
-		.notEmpty().withMessage('Họ và tên không được bỏ trống.'),
-	check('tendangnhap')
-		.notEmpty().withMessage('Tên đăng nhập không được bỏ trống.')
-		.isLength({ min: 6 }).withMessage('Tên đăng nhập phải lớn hơn 6 ký tự.'),
-	check('matkhau')
-		.notEmpty().withMessage('Mật khẩu không được bỏ trống.')
-];
 //POST: đăng ký Nhà trọ
-router.post("/dangky_nhatro", function (req, res) {
+router.post("/dangky_nhatro", upload_nt.single('image'), function (req, res) {
 	var errors = validationResult(req);
 	var Wifi=0, TV=0, ChoDeXe=0, TuLanh=0, MayLanh=0, BepNauAn=0;
 	if(req.body.Wifi_NT){
@@ -223,9 +222,14 @@ router.post("/dangky_nhatro", function (req, res) {
 		res.render('/', {
 			title: '',
 			errors: errors.array()
+			
 		});
+		if(req.file) fs.unlink(req.file.path, function(err){});
 	} else {
+		var fileName = '';
+			if(req.file) fileName = req.file.filename;
 		if(req.session.ID_ND!=null) {
+			
 			var data = {
 				TenNhaTro_NT: req.body.TenNhaTro_NT,
 				ID_ChuTro_NT: req.session.ID_ND,
@@ -235,6 +239,7 @@ router.post("/dangky_nhatro", function (req, res) {
 				Gia_NT: req.body.Gia_NT,
 				SoLuongPhong_NT: req.body.SoLuongPhong_NT,
 				KhuVuc_NT: req.body.province,
+				Anh_NT: fileName,
 				Wifi_NT: Wifi,
 				TV_NT: TV,
 				ChoDeXe_NT: ChoDeXe,
@@ -242,7 +247,8 @@ router.post("/dangky_nhatro", function (req, res) {
 				MayLanh_NT: MayLanh,
 				BepNauAn_NT: BepNauAn,
 				Lat_NT: req.body.lat,
-				Lng_NT: req.body.lng
+				Lng_NT: req.body.lng,
+				
 			};
 			var sql = 'INSERT INTO tbl_nhatro SET ?';
 			conn.query(sql, data, function(error, results){
@@ -316,6 +322,7 @@ router.post("/nhatro_sua/:id", function (req, res) {
 			title: '',
 			errors: errors.array()
 		});
+		if(req.file) fs.unlink(req.file.path, function(err){});
 	} else {
 		if(req.session.ID_ND!=null) {
 			var data = {

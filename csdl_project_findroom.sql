@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2022 at 04:11 PM
+-- Generation Time: Nov 30, 2022 at 03:12 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35766,8 +35766,9 @@ INSERT INTO `tbl_nguoidung` (`ID_ND`, `Ten_ND`, `TenDN_ND`, `MK_ND`, `NgaySinh_N
 (20, 'dasdw', 'awdq', 'qwdqq', '0000-00-00', 'qwdq', 'eq2e', 'wdq', 1231241, 'dqwd', 13124123, '1'),
 (23, 'Trần Thanh Nhàng', '', '$2b$10$MrOJKG4g8wNxsV5PNacgkO5MRW298n.JQc4kUz.viw6RRhbuHESp.', '0000-00-00', '', 'khachhang', 'nhangnhanh123@gmail.com', 972667944, '', 0, '1'),
 (54, 'qe121221e', '', '$2b$10$1SVkf9JFpei9U.agPydVPOukbDgBoZhop1ASvHoDoUpDH9FfeW2tO', '0000-00-00', '', 'khachhang', 'nhangnhanh123@gmail.com', 972667944, '', 0, '1'),
-(55, 'Mai Tiến Khôi', 'khoi123', '$2b$10$wikpAnjN6oi13CiYt.ljyel8KA4aVYBzbqtFOFu8zh7gs8LN47Fxu', '0000-00-00', '1668773681563.jpg', 'chutro', 'khoi@gmail.com', 74549141, '074549141', 352648141, '1'),
-(86, 'Trần Thanh Nhàng', '', '$2b$10$QydkGyW6hsWl8A.hAkLLVeLTFT0QWcMdUSoXrycBP3Znl17txyXNW', '0000-00-00', '', 'khachhang', 'nhangnhanh1234@gmail.com', 12312312, '', 0, '1');
+(55, 'Trần Thanh Nhàng', 'nhang1020', '$2b$10$wikpAnjN6oi13CiYt.ljyel8KA4aVYBzbqtFOFu8zh7gs8LN47Fxu', '0000-00-00', '1668773681563.jpg', 'chutro', 'khoi@gmail.com', 74549141, '074549141', 352648141, '1'),
+(86, 'Trần Thanh Nhàng', '', '$2b$10$QydkGyW6hsWl8A.hAkLLVeLTFT0QWcMdUSoXrycBP3Znl17txyXNW', '0000-00-00', '', 'khachhang', 'nhangnhanh1234@gmail.com', 12312312, '', 0, '1'),
+(87, 'Trần Thanh Nhàng', 'khoi1234', '$2b$10$QVagD8VpFS1gNm7gYKj4WesO0Qw7oWCRUYKpHsJhOjY7WcOV5zZXy', '2001-11-08', '1669807356820.jpg', 'chutro', 'nhangnhanh12ad3@gmail.com', 972667944, '0972667944', 352644934, '1');
 
 -- --------------------------------------------------------
 
@@ -35812,7 +35813,6 @@ CREATE TABLE `tbl_nhatro` (
   `SoLuongPhong_NT` int(11) NOT NULL,
   `SoLuongHienTai_NT` int(11) NOT NULL,
   `ThongTin_NT` text NOT NULL,
-  `HinhAnh` varchar(255) NOT NULL,
   `Wifi_NT` int(11) NOT NULL,
   `TV_NT` int(11) NOT NULL,
   `ChoDeXe_NT` int(11) NOT NULL,
@@ -35829,12 +35829,14 @@ CREATE TABLE `tbl_nhatro` (
 -- Dumping data for table `tbl_nhatro`
 --
 
-INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, `SoDienThoai_NT`, `NgayDang_NT`, `NgayCapNhat_NT`, `Anh_NT`, `Gia_NT`, `SoLuongPhong_NT`, `SoLuongHienTai_NT`, `ThongTin_NT`, `HinhAnh`, `Wifi_NT`, `TV_NT`, `ChoDeXe_NT`, `TuLanh_NT`, `MayLanh_NT`, `BepNauAn_NT`, `KhuVuc_NT`, `KiemDuyet_NT`, `Lat_NT`, `Lng_NT`) VALUES
-(1, 'Nhà trọ Bảo Lộc', 55, '86/8 Bầu Cát 2, Phường 12, Quận Tân Bình, Hồ Chí Minh', 906990224, '2022-10-04 16:07:56', '2022-10-06 16:07:56', '', 2600000, 35, 9, 'ádsad', '', 1, 0, 1, 1, 0, 1, 1, 1, '0', '0'),
-(2, 'Nhà trọ Tấn Khôi', 55, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, Hồ Chí Minh', 982461659, '2022-10-06 16:45:50', '2022-10-06 16:45:50', '', 1320000, 20, 20, '', '', 1, 0, 1, 0, 0, 0, 1, 1, '0', '0'),
-(32, 'Nhà trọ Ngân Ngân', 11, '196/17 Đề Thám, Phường Cầu Ông Lãnh, Quận 1, An Giang', 0, '2022-11-19 19:59:07', '2022-11-19 19:59:07', '', 1230000, 123, 0, 'qdeawdawd', '', 1, 1, 0, 0, 0, 0, 30, 1, '0', '0'),
-(33, 'Nhà trọ Cờ Lặc', 11, '19adsadng Lãnh, ád a adasdadQuận 1, an Giang', 0, '2022-11-19 19:59:07', '2022-11-19 19:59:07', '', 2330000, 123, 7, 'qdeawdawd', '', 1, 1, 0, 0, 0, 0, 30, 1, '0', '0'),
-(40, 'Nhà trọ Ngân', 55, '735 Hà Hoàng Hổ, Phường Mỹ Xuyên, Thành phố Long Xuyên, An Giang', 79947412, '2022-11-26 18:47:49', '2022-11-26 18:47:49', '', 900000, 18, 1, '<p>10h đ&oacute;ng cửa</p>\r\n', '', 1, 0, 1, 0, 0, 1, 30, 1, '10.3780194', '105.4333739');
+INSERT INTO `tbl_nhatro` (`ID_NT`, `TenNhaTro_NT`, `ID_ChuTro_NT`, `DiaChi_NT`, `SoDienThoai_NT`, `NgayDang_NT`, `NgayCapNhat_NT`, `Anh_NT`, `Gia_NT`, `SoLuongPhong_NT`, `SoLuongHienTai_NT`, `ThongTin_NT`, `Wifi_NT`, `TV_NT`, `ChoDeXe_NT`, `TuLanh_NT`, `MayLanh_NT`, `BepNauAn_NT`, `KhuVuc_NT`, `KiemDuyet_NT`, `Lat_NT`, `Lng_NT`) VALUES
+(47, 'Nhà trọ Như Ngọc', 55, '518/2, Đường Võ Thị Sáu, Phường Đông Xuyên, Thành phố Long Xuyên, An Giang', 939590252, '2022-11-30 17:34:08', '2022-11-30 17:34:08', '', 1000000, 15, 0, '<p>- Nơi ở tiện nghi tho&aacute;ng m&aacute;t.</p>\r\n\r\n<p>- Giờ giấc tự do</p>\r\n\r\n<p>- Điện 4 ngh&igrave;n/kw</p>\r\n\r\n<p>- Nước 10 ngh&igrave;n/m<span style=\"font-size:8px\">3</span></p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.376235', '105.433211'),
+(48, 'Nhà trọ Trâm Đô', 55, '9CHM+465, Phan Tôn, Phường Mỹ Xuyên, Thành phố Long Xuyên, An Giang', 927772950, '2022-11-30 17:40:53', '2022-11-30 17:40:53', '1669810141569.jpg', 1100000, 10, 10, '<p>Gần c&aacute;c tiệm c&agrave; ph&ecirc;, cửa h&agrave;ng tiện lợi.</p>\r\n\r\n<p>C&acirc;y xăng, hiệu thuốc.</p>\r\n\r\n<p>11h00 đ&oacute;ng cửa.</p>\r\n\r\n<p>Ph&ograve;ng rộng 12m<span style=\"font-size:8px\">2</span></p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.377771', '105.433080'),
+(60, 'Nhà trọ 334', 55, '334 Trần Hưng Đạo, khóm Đông An 4, Phường Mỹ Xuyên, Thành phố Long Xuyên, An Giang', 913009630, '2022-11-30 19:48:10', '2022-11-30 19:48:10', '1669812490104.png', 1200000, 14, 0, '<p><a href=\"https://rongbay.com/Ha-Noi/Nha-tro-Phong-tro-Thue-va-cho-thue-nha-c272-t788.html\" title=\"Nhà Trọ\">Nh&agrave; Trọ</a>&nbsp;334 (Hẻm 9) -&nbsp;<a href=\"https://rongbay.com/Ha-Noi/Nha-tro-Phong-tro-Thue-va-cho-thue-nha-c272-t788.html\" title=\"Nhà Trọ\">Nh&agrave; Trọ</a>&nbsp;Th&agrave;nh Đạt (đường Hải Thượng L&atilde;n &Ocirc;ng), TP Long Xuy&ecirc;n, An Giang</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Cho&nbsp;<a href=\"https://rongbay.com/Ha-Noi/Nha-tro-Phong-tro-Thue-va-cho-thue-nha-c272-t788.html\" title=\"thuê nhà trọ\">thu&ecirc; nh&agrave; trọ</a>&nbsp;ở d&agrave;i l&acirc;u. đối tượng Sinh Vi&ecirc;n, học sinh, hộ gia đ&igrave;nh. gi&aacute; ph&ograve;ng dao động 600 ng&agrave;n - 1 triệu 2.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Li&ecirc;n hệ trực tiếp để xem ph&ograve;ng</p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.376859', '105.438049'),
+(61, 'Nhà trọ 334', 55, '334 Trần Hưng Đạo, khóm Đông An 4, Phường Mỹ Xuyên, Thành phố Long Xuyên, An Giang', 913009630, '2022-11-30 19:48:10', '2022-11-30 19:48:10', '1669812490104.png', 1200000, 14, 0, '<p><a href=\"https://rongbay.com/Ha-Noi/Nha-tro-Phong-tro-Thue-va-cho-thue-nha-c272-t788.html\" title=\"Nhà Trọ\">Nh&agrave; Trọ</a>&nbsp;334 (Hẻm 9) -&nbsp;<a href=\"https://rongbay.com/Ha-Noi/Nha-tro-Phong-tro-Thue-va-cho-thue-nha-c272-t788.html\" title=\"Nhà Trọ\">Nh&agrave; Trọ</a>&nbsp;Th&agrave;nh Đạt (đường Hải Thượng L&atilde;n &Ocirc;ng), TP Long Xuy&ecirc;n, An Giang</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Cho&nbsp;<a href=\"https://rongbay.com/Ha-Noi/Nha-tro-Phong-tro-Thue-va-cho-thue-nha-c272-t788.html\" title=\"thuê nhà trọ\">thu&ecirc; nh&agrave; trọ</a>&nbsp;ở d&agrave;i l&acirc;u. đối tượng Sinh Vi&ecirc;n, học sinh, hộ gia đ&igrave;nh. gi&aacute; ph&ograve;ng dao động 600 ng&agrave;n - 1 triệu 2.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Li&ecirc;n hệ trực tiếp để xem ph&ograve;ng</p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.376859', '105.438049'),
+(62, 'Nhà trọ Ngọc Nghĩa', 55, '9CHM+465, Phan Tôn, Phường Mỹ Xuyên, Thành phố Long Xuyên, An Giang', 927772950, '2022-11-30 17:40:53', '2022-11-30 17:40:53', '1669810141569.jpg', 1100000, 10, 10, '<p>Gần c&aacute;c tiệm c&agrave; ph&ecirc;, cửa h&agrave;ng tiện lợi.</p>\r\n\r\n<p>C&acirc;y xăng, hiệu thuốc.</p>\r\n\r\n<p>11h00 đ&oacute;ng cửa.</p>\r\n\r\n<p>Ph&ograve;ng rộng 12m<span style=\"font-size:8px\">2</span></p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.377771', '105.433080'),
+(63, 'Nhà trọ Cẩm Tú', 55, '518/2, Đường Võ Thị Sáu, Phường Đông Xuyên, Thành phố Long Xuyên, An Giang', 939590252, '2022-11-30 17:34:08', '2022-11-30 17:34:08', '', 1000000, 15, 0, '<p>- Nơi ở tiện nghi tho&aacute;ng m&aacute;t.</p>\r\n\r\n<p>- Giờ giấc tự do</p>\r\n\r\n<p>- Điện 4 ngh&igrave;n/kw</p>\r\n\r\n<p>- Nước 10 ngh&igrave;n/m<span style=\"font-size:8px\">3</span></p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.376235', '105.433211'),
+(64, 'Nhà trọ Hường Em', 55, '518/2, Đường Võ Thị Sáu, Phường Đông Xuyên, Thành phố Long Xuyên, An Giang', 939590252, '2022-11-30 17:34:08', '2022-11-30 17:34:08', '', 1000000, 15, 0, '<p>- Nơi ở tiện nghi tho&aacute;ng m&aacute;t.</p>\r\n\r\n<p>- Giờ giấc tự do</p>\r\n\r\n<p>- Điện 4 ngh&igrave;n/kw</p>\r\n\r\n<p>- Nước 10 ngh&igrave;n/m<span style=\"font-size:8px\">3</span></p>\r\n', 1, 0, 1, 0, 0, 1, 30, 1, '10.376235', '105.433211');
 
 -- --------------------------------------------------------
 
@@ -35926,7 +35928,17 @@ INSERT INTO `tbl_phongtro` (`ID_PT`, `ID_NhaTro_PT`, `MaSo_PT`, `TinhTrang_PT`) 
 (245, 40, '015', 0),
 (246, 40, '016', 0),
 (247, 40, '017', 0),
-(248, 40, '018', 0);
+(248, 40, '018', 0),
+(249, 48, '01', 1),
+(250, 48, '02', 1),
+(251, 48, '03', 1),
+(252, 48, '04', 1),
+(253, 48, '05', 1),
+(254, 48, '06', 1),
+(255, 48, '07', 1),
+(256, 48, '08', 1),
+(257, 48, '09', 1),
+(258, 48, '010', 1);
 
 -- --------------------------------------------------------
 
@@ -47420,7 +47432,7 @@ ALTER TABLE `tbl_danhsachthue`
 -- AUTO_INCREMENT for table `tbl_nguoidung`
 --
 ALTER TABLE `tbl_nguoidung`
-  MODIFY `ID_ND` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `ID_ND` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `tbl_nguoithuetro`
@@ -47432,13 +47444,13 @@ ALTER TABLE `tbl_nguoithuetro`
 -- AUTO_INCREMENT for table `tbl_nhatro`
 --
 ALTER TABLE `tbl_nhatro`
-  MODIFY `ID_NT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `ID_NT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `tbl_phongtro`
 --
 ALTER TABLE `tbl_phongtro`
-  MODIFY `ID_PT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
+  MODIFY `ID_PT` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT for table `tbl_tienich`

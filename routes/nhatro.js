@@ -38,7 +38,7 @@ router.get('/', function(req, res){
 //GET: Thông tin chi tiết trọ
 router.post('/chitiet/:id_nhatro', function(req, res){
 	var id_nhatro = req.params.id_nhatro;
-	var sql = "SELECT *FROM tbl_nhatro WHERE ID_NT = ?;\
+	var sql = "SELECT tbl_nhatro.*, Ten_ND FROM tbl_nhatro, tbl_nguoidung WHERE ID_ChuTro_NT = ID_ND AND ID_NT = ?;\
 				SELECT Ten_ND, Ngay_DG, NoiDung_DG, Diem_DG FROM tbl_danhgia, tbl_nguoidung \
 				WHERE ID_NhaTro_DG = " + id_nhatro + " AND ID_NguoiDung_DG = ID_ND ORDER BY Ngay_DG DESC;\
 				SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_danhgia WHERE ID_NhaTro_DG = " + id_nhatro+";\

@@ -12,17 +12,22 @@ function numberFormat(num){
 
 router.get('/admin/',function(req,res)
 {
-	res.render('admin/index',{
-		title: 'Home'
-	});
+	if(!req.session.ID_ND){
+		res.render('admin/dangnhap_admin')
+	}
+	else{
+		res.render('admin/index',{
+			title: 'Home'
+		});
+	}
 });
 router.get('/',function(req,res)
 {
 	/*SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
 	*/
-	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE KiemDuyet_NT = 1 GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC;\
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE KiemDuyet_NT = 1 GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC LIMIT 6;\
 	SELECT * FROM province;\
-	SELECT COUNT(*) as count FROM tbl_nhatro';
+	SELECT COUNT(*) as count FROM tbl_nhatro WHERE KiemDuyet_NT = 1';
 	
 	conn.query(sql, function(error, results){
 		if(error){
@@ -43,12 +48,14 @@ router.get('/',function(req,res)
 		}
 	});
 });
-router.get('/pages/',function(req,res)
+router.get('/page/:index',function(req,res)
 {
 	/*SELECT AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG, tbl_nhatro.* FROM tbl_danhgia, tbl_nhatro WHERE ID_NT=ID_NhaTro_DG GROUP BY ID_NT;\
 	*/
-	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC LIMIT 3;\
-	SELECT * FROM province;';
+	var begin = req.params.index*6 - 6;
+	var sql = 'SELECT tbl_nhatro.*, AVG(Diem_DG) as Diem_TB, COUNT(Diem_DG) as SoLuong_DG FROM tbl_nhatro LEFT JOIN tbl_danhgia ON ID_NhaTro_DG = ID_NT WHERE KiemDuyet_NT = 1 GROUP BY ID_NT ORDER BY NgayCapNhat_NT DESC LIMIT '+begin+', 3;\
+	SELECT * FROM province;\
+	SELECT COUNT(*) as count FROM tbl_nhatro WHERE KiemDuyet_NT = 1';
 	
 	conn.query(sql, function(error, results){
 		if(error){
@@ -64,6 +71,7 @@ router.get('/pages/',function(req,res)
 				NhaTro: results[0],
 				Provinces: results[1],
 				numberFormat: numberFormat,
+				pages: results[2].shift()
 			});
 		}
 	});

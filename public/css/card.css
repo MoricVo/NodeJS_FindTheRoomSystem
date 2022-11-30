@@ -84,9 +84,11 @@ button.pagination{
     transform: translateY(-50%);
     overflow: hidden;
     z-index:1;
+    height: 60px;
+    padding-top: 10px;
 }
 
-.button
+a.button
 {
     border:0;
     width: 40px;
@@ -99,19 +101,26 @@ button.pagination{
     color: rgb(117, 119, 119);
 }
 
-.button:last-child
+a.button:last-child
 {
     margin-right: 0;
 }
 
-.button.active
+a.button.active
 {
     width: 80px;
     cursor: auto;
     font-weight: bold;
     color: rgb(241, 134, 152);
+    box-shadow: 0 0 5px rgb(185, 184, 184);
 }
 
 
-
+img.img-fluid{
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+}
 /*comment*/
